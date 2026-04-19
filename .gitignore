@@ -1,0 +1,37 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Backups
+*.bak
+*.bak.*
+
+# Video render temp dirs
+.video-tmp-*
+*.tmp.mp4
+*.tmp.webm
+
+# Private overrides (never commit real personal data)
+personal-asset-index.json
+assets/personal-asset-index.json
+
+# Logs
+*.log
