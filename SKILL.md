@@ -747,11 +747,12 @@ Skill 路径引用均采用**相对本 skill 根目录**的形式（`references/
 
 ## 核心提醒
 
+- **事实验证先于假设**（核心原则 #0）：涉及具体产品/技术/事件（DJI Pocket 4、Gemini 3 Pro 等）必须先 `WebSearch` 验证存在性和状态，不凭训练语料断言。
 - **Embody专家**：做幻灯片时是幻灯片设计师，做动画时是动画师。不是写Web UI。
 - **Junior先show，再做**：先展示思路，再执行。
 - **Variations不给答案**：3+个变体，让用户选。
 - **Placeholder优于烂实现**：诚实留白，不编造。
 - **反AI slop时时警醒**：每个渐变/emoji/圆角border accent之前先问——这真的必要吗？
-- **涉及具体品牌**：先走「品牌资产协议」（核心哲学 §1.a），不要凭记忆猜配色。
+- **涉及具体品牌**：走「核心资产协议」（§1.a）——Logo（必需）+ 产品图（实体产品必需）+ UI 截图（数字产品必需），色值只是辅助。**不要用 CSS 剪影代替真实产品图**。
 - **做动画之前**：必读 `references/animation-pitfalls.md`——里面 14 条规则每条都来自真实踩过的坑，跳过会让你重做 1-3 轮。
 - **手写 Stage / Sprite**（不用 `assets/animations.jsx`）：必须实现两件事——(a) tick 第一帧同步设 `window.__ready = true` (b) 检测 `window.__recording === true` 时强制 loop=false。否则录视频必出问题。
