@@ -1,10 +1,10 @@
-<sub>🌐 <a href="README.en.md">English</a> · <b>中文</b></sub>
+<sub><b>Türkçe</b></sub>
 
 <div align="center">
 
-# Huashu Design
+# Azygod Design
 
-> *「打字。回车。一份能交付的设计。」*
+> *「Bir şey yaz. Enter'a bas. Teslim edilebilir bir tasarım elinde.」*
 > *"Type. Hit enter. A finished design lands in your lap."*
 
 [![License](https://img.shields.io/badge/License-Personal%20Use%20Only-orange.svg)](LICENSE)
@@ -13,238 +13,238 @@
 
 <br>
 
-**在你的 agent 里打一句话，拿回一份能交付的设计。**
+**Agent'ına bir cümle yaz, teslim edilebilir bir tasarım geri al.**
 
 <br>
 
-3 到 30 分钟，你能 ship 一段**产品发布动画**、一个能点击的 App 原型、一套能编辑的 PPT、一份印刷级的信息图。
+3 ila 30 dakika içinde bir **ürün lansman animasyonu**, tıklanabilir bir **App prototipi**, düzenlenebilir bir **PPTX sunumu** veya basım kalitesinde bir **infografik** oluşturabilirsin.
 
-不是「AI 做的还行」那种水平——是看起来像大厂设计团队做的。给 skill 你的品牌资产（logo、色板、UI 截图），它会读懂你的品牌气质；什么都不给，内置的 20 种设计语汇也能兜底到不出 AI slop。
+Bu "AI fena yapmamış" seviyesi değil—büyük şirketlerin tasarım ekiplerinin elinden çıkmış gibi görünüyor. Skill'e marka varlıklarını (logo, renk paleti, UI ekran görüntüleri) ver, o da markanın karakterini anlar; hiçbir şey vermezsen, yerleşik 20 tasarım dilinden biri AI slop üretmeden seni kurtarır.
 
-**你看到这篇 README 里的每一个动画，都是 huashu-design 自己做的。** 不是 Figma，不是 AE，就是一句话 prompt + skill 跑通。下次产品发布要做宣传片？现在你也能做。
+**Bu README'de gördüğün her animasyon, azygod-design tarafından kendi başına üretildi.** Ne Figma, ne After Effects—sadece bir cümlelik prompt ve skill. Bir sonraki ürün lansmanın için tanıtım videosu mu lazım? Artık sen de yapabilirsin.
 
 ```
-npx skills add alchaincyf/huashu-design
+npx skills add alchaincyf/azygod-design
 ```
 
-跨 agent 通用——Claude Code、Cursor、Codex、OpenClaw、Hermes 都能装。
+Tüm agent'larla uyumlu—Claude Code, Cursor, Codex, OpenClaw, Hermes üzerinde çalışır.
 
-[看效果](#demo-画廊) · [安装](#装上就能用) · [能做什么](#能做什么) · [核心机制](#核心机制) · [和 Claude Design 的关系](#和-claude-design-的关系)
+[Demolar](#demo-galerisi) · [Kurulum](#kurulum) · [Neler Yapabilir](#neler-yapabilir) · [Temel Mekanizmalar](#temel-mekanizmalar) · [Claude Design ile İlişki](#claude-design-ile-iliski)
 
 </div>
 
 ---
 
 <p align="center">
-  <img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/hero-animation-v10-en.gif" alt="huashu-design Hero · 打字 → 选方向 → 画廊展开 → 聚焦 → 品牌显形" width="100%">
+  <img src="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/hero-animation-v10-en.gif" alt="azygod-design Hero · Terminal → 4 yön → Galeri dalgalanması → 4 odaklanma → Marka ortaya çıkışı" width="100%">
 </p>
 
 <p align="center"><sub>
-  ▲ 25 秒 · Terminal → 4 方向 → Gallery ripple → 4 次 Focus → Brand reveal<br>
-  👉 <a href="https://www.huasheng.ai/huashu-design-hero/">访问带音效的 HTML 互动版</a> ·
-  <a href="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/hero-animation-v10-en.mp4">下载 MP4（含 BGM+SFX · 10MB）</a>
+  ▲ 25 saniye · Terminal → 4 yön → Galeri dalgalanması → 4 odaklanma → Marka ortaya çıkışı<br>
+  👉 <a href="https://www.huasheng.ai/azygod-design-hero/">Ses efektleriyle HTML etkileşimli sürümü ziyaret et</a> ·
+  <a href="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/hero-animation-v10-en.mp4">MP4 indir (BGM+SFX içerir · 10MB)</a>
 </sub></p>
 
 ---
 
-## 装上就能用
+## Kurulum
 
 ```bash
-npx skills add alchaincyf/huashu-design
+npx skills add alchaincyf/azygod-design
 ```
 
-然后在 Claude Code 里直接说话：
+Ardından Claude Code'da doğrudan şunu söyle:
 
 ```
-「做一份 AI 心理学的演讲 PPT，推荐 3 个风格方向让我选」
-「做个 AI 番茄钟 iOS 原型，4 个核心屏幕要真能点击」
-「把这段逻辑做成 60 秒动画，导出 MP4 和 GIF」
-「帮我对这个设计做一个 5 维度评审」
+「Bir AI Psikolojisi sunum PPTX'i yap, seçmem için 3 stil yönü öner」
+「Bir AI Pomodoro iOS prototipi yap, 4 temel ekran gerçekten tıklanabilir olsun」
+「Bu mantığı 60 saniyelik animasyona dönüştür, MP4 ve GIF olarak dışa aktar」
+「Bu tasarımı 5 boyutta değerlendir」
 ```
 
-没有按钮、没有面板、没有 Figma 插件。
+Hiçbir düğme, hiçbir panel, hiçbir Figma eklentisi yok.
 
 ---
 
-## Star 趋势
+## Star Geçmişi
 
 <p align="center">
-  <a href="https://star-history.com/#alchaincyf/huashu-design&Date">
-    <img src="https://api.star-history.com/svg?repos=alchaincyf/huashu-design&type=Date" alt="huashu-design Star History" width="80%">
+  <a href="https://star-history.com/#alchaincyf/azygod-design&Date">
+    <img src="https://api.star-history.com/svg?repos=alchaincyf/azygod-design&type=Date" alt="azygod-design Star History" width="80%">
   </a>
 </p>
 
 ---
 
-## 能做什么
+## Neler Yapabilir
 
-| 能力 | 交付物 | 典型耗时 |
+| Yetenek | Çıktı | Tipik Süre |
 |------|--------|----------|
-| 交互原型（App / Web） | 单文件 HTML · 真 iPhone bezel · 可点击 · Playwright 验证 | 10–15 min |
-| 演讲幻灯片 | HTML deck（浏览器演讲）+ 可编辑 PPTX（文本框保留） | 15–25 min |
-| 时间轴动画 | MP4（25fps / 60fps 插帧）+ GIF（palette 优化）+ BGM | 8–12 min |
-| 设计变体 | 3+ 并排对比 · Tweaks 实时调参 · 跨维度探索 | 10 min |
-| 信息图 / 可视化 | 印刷级排版 · 可导 PDF/PNG/SVG | 10 min |
-| 设计方向顾问 | 5 流派 × 20 种设计哲学 · 推荐 3 方向 · 并行生成 Demo | 5 min |
-| 5 维度专家评审 | 雷达图 + Keep/Fix/Quick Wins · 可操作修复清单 | 3 min |
+| Etkileşimli Prototip (App / Web) | Tek dosya HTML · Gerçek iPhone bezel · Tıklanabilir · Playwright doğrulaması | 10–15 dk |
+| Sunum Slaytları | HTML deck (tarayıcıda sunum) + Düzenlenebilir PPTX (metin kutuları korunur) | 15–25 dk |
+| Zaman Çizelgesi Animasyonu | MP4 (25fps / 60fps kare ekleme) + GIF (palet optimizasyonu) + BGM | 8–12 dk |
+| Tasarım Varyasyonları | 3+ yan yana karşılaştırma · Tweaks anlık parametre ayarı · Çok boyutlu keşif | 10 dk |
+| İnfografik / Görselleştirme | Basım kalitesinde tipografi · PDF/PNG/SVG olarak dışa aktarılabilir | 10 dk |
+| Tasarım Yönü Danışmanı | 5 ekol × 20 tasarım felsefesi · 3 yön önerisi · Paralel Demo oluşturma | 5 dk |
+| 5 Boyutlu Uzman Değerlendirmesi | Radar grafiği + Koru/Düzelt/Hızlı Kazanımlar · Uygulanabilir düzeltme listesi | 3 dk |
 
 ---
 
-## Demo 画廊
+## Demo Galerisi
 
-### 设计方向顾问
+### Tasarım Yönü Danışmanı
 
-模糊需求时的 fallback：从 5 流派 × 20 种设计哲学里挑 3 个差异化方向，并行生成 3 个 Demo 让你选。
+Belirsiz gereksinimlerde yedek çözüm: 5 ekol × 20 tasarım felsefesinden 3 farklı yön seç, paralel olarak 3 Demo oluştur ve seçmeni bekle.
 
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/w3-fallback-advisor.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/w3-fallback-advisor.gif" width="100%"></p>
 
-### iOS App 原型
+### iOS App Prototipi
 
-iPhone 15 Pro 精确机身（灵动岛 / 状态栏 / Home Indicator）· 状态驱动多屏切换 · 真图从 Wikimedia/Met/Unsplash 取 · Playwright 自动点击测试。
+iPhone 15 Pro hassas gövde (Dynamic Island / Durum çubuğu / Ana Ekran Göstergesi) · Durum odaklı çoklu ekran geçişi · Gerçek görseller Wikimedia/Met/Unsplash'tan alınır · Playwright otomatik tıklama testi.
 
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c1-ios-prototype.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/c1-ios-prototype.gif" width="100%"></p>
 
-### Motion Design 引擎
+### Motion Design Motoru
 
-Stage + Sprite 时间片段模型 · `useTime` / `useSprite` / `interpolate` / `Easing` 四 API 覆盖所有动画需求 · 一条命令导出 MP4 / GIF / 60fps 插帧 / 带 BGM 的成片。
+Stage + Sprite zaman dilimi modeli · `useTime` / `useSprite` / `interpolate` / `Easing` dört API'si tüm animasyon ihtiyaçlarını karşılar · Tek komutla MP4 / GIF / 60fps kare ekleme / BGM'li final video dışa aktarımı.
 
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c3-motion-design.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/c3-motion-design.gif" width="100%"></p>
 
-### HTML Slides → 可编辑 PPTX
+### HTML Slaytlar → Düzenlenebilir PPTX
 
-HTML deck 浏览器演讲 · `html2pptx.js` 读 DOM 的 computedStyle 逐元素翻译成 PowerPoint 对象 · 导出的是**真文本框**，不是图片铺底。
+HTML deck tarayıcıda sunum · `html2pptx.js` DOM'un `computedStyle`'ını okuyarak öğe öğe PowerPoint nesnelerine çevirir · Dışa aktarılanlar **gerçek metin kutularıdır**, altına resim serpiştirilmiş değil.
 
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c2-slides-pptx.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/c2-slides-pptx.gif" width="100%"></p>
 
-### Tweaks · 实时变体切换
+### Tweaks · Anlık Varyasyon Değiştirme
 
-配色 / 字型 / 信息密度等参数化 · 侧边面板切换 · 纯前端 + `localStorage` 持久化 · 刷新不丢。
+Renk şeması / Yazı tipi / Bilgi yoğunluğu gibi parametrik ayarlar · Yan panelde geçiş · Saf frontend + `localStorage` kalıcılığı · Yenileme sonrası kaybolmaz.
 
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c4-tweaks.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/c4-tweaks.gif" width="100%"></p>
 
-### 信息图 / 数据可视化
+### İnfografik / Veri Görselleştirme
 
-杂志级排版 · CSS Grid 精准分栏 · `text-wrap: pretty` 排印细节 · 真数据驱动 · 可导 PDF 矢量 / PNG 300dpi / SVG。
+Dergi kalitesinde tipografi · CSS Grid hassas sütunlar · `text-wrap: pretty` baskı detayları · Gerçek veri odaklı · PDF vektör / PNG 300dpi / SVG olarak dışa aktarılabilir.
 
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c5-infographic.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/c5-infographic.gif" width="100%"></p>
 
-### 5 维度专家评审
+### 5 Boyutlu Uzman Değerlendirmesi
 
-哲学一致性 · 视觉层级 · 细节执行 · 功能性 · 创新性 各 0–10 分 · 雷达图可视化 · 输出 Keep / Fix / Quick Wins 清单。
+Felsefi tutarlılık · Görsel hiyerarşi · Detay yürütme · İşlevsellik · Yenilikçilik her biri 0–10 puan · Radar grafiği görselleştirme · Çıktı: Koru / Düzelt / Hızlı Kazanımlar listesi.
 
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c6-expert-review.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/c6-expert-review.gif" width="100%"></p>
 
-### Junior Designer 工作流
+### Junior Designer İş Akışı
 
-不闷头做大招：先写 assumptions + placeholders + reasoning，尽早 show 给你，再迭代。理解错了早改比晚改便宜 100 倍。
+Kendi başına büyük şeyler yapmaya kalkma: önce varsayımlar + yer tutucular + gerekçeler yaz, sana en kısa sürede göster, sonra yinele. Yanlış anlamayı erken düzeltmek, geç düzeltmekten 100 kat daha ucuzdur.
 
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/w2-junior-designer.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/w2-junior-designer.gif" width="100%"></p>
 
-### 品牌资产协议 5 步硬流程
+### Marka Varlığı Protokolü 5 Adımlı Sert Süreç
 
-涉及具体品牌时强制执行：问 → 搜 → 下载（三条兜底）→ grep 色值 → 写 `brand-spec.md`。
+Belirli bir marka söz konusu olduğunda zorunlu: Sor → Ara → İndir (üç yedek) → grep renk değerleri → `brand-spec.md` yaz.
 
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/w1-brand-protocol.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/w1-brand-protocol.gif" width="100%"></p>
 
 ---
 
-## 核心机制
+## Temel Mekanizmalar
 
-### 品牌资产协议
+### Marka Varlığı Protokolü
 
-skill 里最硬的一段规则。涉及具体品牌（Stripe、Linear、Anthropic、自家公司等）时强制执行 5 步：
+Skill'deki en katı kural seti. Belirli bir marka (Stripe, Linear, Anthropic, kendi şirketiniz vb.) söz konusu olduğunda 5 adım zorunlu:
 
-| 步骤 | 动作 | 目的 |
+| Adım | Eylem | Amaç |
 |------|------|------|
-| 1 · 问 | 用户有 brand guidelines 吗？ | 尊重已有资源 |
-| 2 · 搜官方品牌页 | `<brand>.com/brand` · `brand.<brand>.com` · `<brand>.com/press` | 抓权威色值 |
-| 3 · 下载资产 | SVG 文件 → 官网 HTML 全文 → 产品截图取色 | 三条兜底，前一条失败立刻走下一条 |
-| 4 · grep 提取色值 | 从资产里抓所有 `#xxxxxx`，按频率排序，过滤黑白灰 | **绝不从记忆猜品牌色** |
-| 5 · 固化 spec | 写 `brand-spec.md` + CSS 变量，所有 HTML 引用 `var(--brand-*)` | 不固化就会忘 |
+| 1 · Sor | Kullanıcının marka yönergeleri var mı? | Mevcut kaynaklara saygı |
+| 2 · Resmi marka sayfasını ara | `<brand>.com/brand` · `brand.<brand>.com` · `<brand>.com/press` | Yetkili renk değerlerini yakala |
+| 3 · Varlıkları indir | SVG dosyası → Resmi site HTML tam metin → Ürün ekran görüntüsünden renk alma | Üç yedek, biri başarısız olursa hemen sonrakine geç |
+| 4 · grep ile renk değerlerini çıkar | Varlıklardan tüm `#xxxxxx` değerlerini yakala, sıklığa göre sırala, siyah/beyaz/griyi filtrele | **Marka renklerini asla hafızadan tahmin etme** |
+| 5 · Spec'i kalıcı hale getir | `brand-spec.md` + CSS değişkenleri yaz, tüm HTML'ler `var(--brand-*)` kullansın | Kalıcı hale getirilmezse unutulur |
 
-A/B 测试（v1 vs v2，各跑 6 agent）：**v2 的稳定性方差比 v1 低 5 倍**。稳定性的稳定性，这是 skill 真正的护城河。
+A/B testi (v1 vs v2, her biri 6 agent ile çalıştırıldı): **v2'nin stabilite varyansı v1'den 5 kat daha düşük**. Stabilite üzerine kurulu istikrar—bu skill'in gerçek rekabet avantajıdır.
 
-### 设计方向顾问（Fallback）
+### Tasarım Yönü Danışmanı (Fallback)
 
-当用户需求模糊到无法着手时触发：
+Kullanıcı gereksinimi o kadar belirsiz ki nereden başlanacağı belli değilse tetiklenir:
 
-- 不凭通用直觉硬做，进入 Fallback 模式
-- 从 5 流派 × 20 种设计哲学里推荐 3 个**必须来自不同流派**的差异化方向
-- 每个方向配代表作、气质关键词、代表设计师
-- 并行生成 3 个视觉 Demo 让用户选
-- 选定后进入主干 Junior Designer 流程
+- Genel sezgisel algıya dayanarak zorla yapma, Fallback moduna geç
+- 5 ekol × 20 tasarım felsefesinden, farklı ekollerden gelmek zorunda olan 3 farklılaştırılmış yön öner
+- Her yöne temsilci eser, karakter anahtar kelimeleri ve temsilci tasarımcı eşlik eder
+- Paralel olarak 3 görsel Demo oluştur ve kullanıcının seçmesini bekle
+- Seçim yapıldıktan sonra ana Junior Designer iş akışına geç
 
-### Junior Designer 工作流
+### Junior Designer İş Akışı
 
-默认工作模式，贯穿所有任务：
+Varsayılan çalışma modu, tüm görevleri kapsar:
 
-- 开工前 show 问题清单一次性发给用户，等批量答完再动手
-- HTML 里先写 assumptions + placeholders + reasoning comments
-- 尽早 show 给用户（哪怕只是灰色方块）
-- 填充实际内容 → variations → Tweaks 这三步分别再 show 一次
-- 交付前用 Playwright 肉眼过一遍浏览器
+- İşe başlamadan önce soru listesini kullanıcıya tek seferde göster, toplu yanıt gelene kadar bekle
+- HTML'de önce varsayımlar + yer tutucular + gerekçe yorumları yaz
+- Kullanıcıya en kısa sürede göster (sadece gri kareler bile olsa)
+- Gerçek içerik ekleme → varyasyonlar → Tweaks adımlarını her birinde tekrar göster
+- Teslimattan önce Playwright ile tarayıcıyı gözle kontrol et
 
-### 反 AI slop 规则
+### AI Slop Karşıtı Kurallar
 
-避免一眼 AI 的视觉最大公约数（紫渐变 / emoji 图标 / 圆角+左 border accent / SVG 画人脸 / Inter 做 display）。用 `text-wrap: pretty` + CSS Grid + 精心选择的 serif display 和 oklch 色彩。
+Bir bakışta AI olduğu anlaşılan görsel ortak paydadan kaçın (mor gradient / emoji ikonlar / yuvarlak köşeler + sol border vurgusu / SVG ile yüz çizimi / Inter'i display olarak kullanma). `text-wrap: pretty` + CSS Grid + özenle seçilmiş serif display ve oklch renkleri kullan.
 
 ---
 
-## 和 Claude Design 的关系
+## Claude Design ile İlişki
 
-我大方承认：品牌资产协议的哲学是从 Claude Design 流传出来的提示词里偷师的。那份提示词反复强调**好的高保真设计不是从白纸开始，而是从已有的设计上下文长出来**。这个原则是 65 分作品和 90 分作品的分水岭。
+Açıkça itiraf ediyorum: Marka varlığı protokolünün felsefesi, Claude Design'dan sızan prompt'lardan öğrenildi. O prompt sürekli olarak **iyi hi-fi tasarımın boş bir sayfadan başlamadığını, mevcut tasarım bağlamından büyüdüğünü** vurguluyor. Bu ilke 65 puanlık bir eser ile 90 puanlık bir eser arasındaki belirleyici faktördür.
 
-定位差异：
+Konumlandırma farkları:
 
-| | Claude Design | huashu-design |
+| | Claude Design | azygod-design |
 |---|---|---|
-| 形态 | 网页产品（浏览器里用） | skill（Claude Code 里用） |
-| 配额 | 订阅 quota | API 消耗 · 并行跑 agent 不受 quota 限 |
-| 交付物 | 画布内 + 可导 Figma | HTML / MP4 / GIF / 可编辑 PPTX / PDF |
-| 操作方式 | GUI（点、拖、改） | 对话（说话、等 agent 做完） |
-| 复杂动画 | 有限 | Stage + Sprite 时间轴 · 60fps 导出 |
-| 跨 agent | 专属 Claude.ai | 任意 skill 兼容 agent |
+| Biçim | Web ürünü (tarayıcıda kullanılır) | skill (Claude Code'da kullanılır) |
+| Kota | Abonelik kotası | API tüketimi · Paralel agent çalıştırma kota ile sınırlı değil |
+| Çıktı | Tuval içinde + Figma'ya dışa aktarılabilir | HTML / MP4 / GIF / Düzenlenebilir PPTX / PDF |
+| Çalışma Şekli | GUI (tıkla, sürükle, değiştir) | Sohbet (konuş, agent'ın bitirmesini bekle) |
+| Karmaşık Animasyon | Sınırlı | Stage + Sprite zaman çizelgesi · 60fps dışa aktarım |
+| Çoklu Agent | Özel Claude.ai | Herhangi bir skill uyumlu agent |
 
-Claude Design 是**更好的图形工具**，huashu-design 是**让图形工具这层消失**。两条路，不同受众。
-
----
-
-## Limitations
-
-- **不支持图层级可编辑的 PPTX 到 Figma**。产出 HTML，可截图、录屏、导图，但不能拖进 Keynote 改文字位置。
-- **Framer Motion 级别的复杂动画不行**。3D、物理模拟、粒子系统超出 skill 边界。
-- **完全空白的品牌从零设计质量会掉到 60–65 分**。凭空画 hi-fi 本来就是 last resort。
-
-这是一个 80 分的 skill，不是 100 分的产品。对不愿意打开图形界面的人，80 分的 skill 比 100 分的产品好用。
+Claude Design **daha iyi bir grafik aracıdır**, azygod-design ise **grafik araç katmanını ortadan kaldırır**. İki farklı yol, iki farklı hedef kitle.
 
 ---
 
-## 仓库结构
+## Sınırlamalar
+
+- **Figma'ya katman katman düzenlenebilir PPTX dışa aktarımı desteklenmez.** HTML çıktısı üretilir, ekran görüntüsü alınabilir, kaydedilebilir, haritalanabilir, ancak Keynote'a sürüklenip metin konumu değiştirilemez.
+- **Framer Motion seviyesinde karmaşık animasyonlar desteklenmez.** 3D, fizik simülasyonu, parçacık sistemi skill sınırlarının dışındadır.
+- **Tamamen boş bir marka için sıfırdan tasarım kalitesi 60–65 puana düşer.** Hiçbir şey yokken hi-fi çizmek zaten son çaredir.
+
+Bu 80 puanlık bir skill, 100 puanlık bir ürün değil. Grafik arayüzünü açmak istemeyen biri için 80 puanlık bir skill, 100 puanlık bir üründen daha kullanışlıdır.
+
+---
+
+## Depo Yapısı
 
 ```
-huashu-design/
-├── SKILL.md                 # 主文档（给 agent 读）
-├── README.md                # 本文件（给用户读）
+azygod-design/
+├── SKILL.md                 # Ana belge (agent'lar için)
+├── README.md                # Bu dosya (kullanıcılar için)
 ├── assets/                  # Starter Components
 │   ├── animations.jsx       # Stage + Sprite + Easing + interpolate
 │   ├── ios_frame.jsx        # iPhone 15 Pro bezel
 │   ├── android_frame.jsx
 │   ├── macos_window.jsx
 │   ├── browser_window.jsx
-│   ├── deck_stage.js        # HTML 幻灯片引擎
-│   ├── deck_index.html      # 多文件 deck 拼接器
-│   ├── design_canvas.jsx    # 并排变体展示
-│   ├── showcases/           # 24 个预制样例（8 场景 × 3 风格）
-│   └── bgm-*.mp3            # 6 首场景化背景音乐
-├── references/              # 按任务深入读的子文档
+│   ├── deck_stage.js        # HTML slayt motoru
+│   ├── deck_index.html      # Çok dosyalı deck birleştirici
+│   ├── design_canvas.jsx    # Yan yana varyasyon gösterimi
+│   ├── showcases/           # 24 önceden hazırlanmış örnek (8 sahne × 3 stil)
+│   └── bgm-*.mp3            # 6 sahneye özgü arka plan müziği
+├── references/              # Göreve göre derinlemesine okunacak alt belgeler
 │   ├── animation-pitfalls.md
-│   ├── design-styles.md     # 20 种设计哲学详细库
+│   ├── design-styles.md     # 20 tasarım felsefesi detaylı kitaplığı
 │   ├── slide-decks.md
 │   ├── editable-pptx.md
 │   ├── critique-guide.md
 │   ├── video-export.md
 │   └── ...
-├── scripts/                 # 导出工具链
+├── scripts/                 # Dışa aktarım araç zinciri
 │   ├── render-video.js      # HTML → MP4
 │   ├── convert-formats.sh   # MP4 → 60fps + GIF
 │   ├── add-music.sh         # MP4 + BGM
@@ -252,47 +252,47 @@ huashu-design/
 │   ├── export_deck_pptx.mjs
 │   ├── html2pptx.js
 │   └── verify.py
-└── demos/                   # 9 个能力演示 (c*/w*)，中英双版 GIF/MP4/HTML + hero v10
+└── demos/                   # 9 yetenek demosu (c*/w*), Çince ve İngilizce GIF/MP4/HTML + hero v10
 ```
 
 ---
 
-## 起源
+## Köken
 
-Anthropic 发布 Claude Design 那天我玩到凌晨四点。几天之后发现自己再也没点开过它，不是它不好——它是这个赛道目前最成熟的产品——是我宁愿让 agent 在终端里帮我干活，也不愿意打开任何图形界面。
+Anthropic Claude Design'i yayınladığında saat dörde kadar oynadım. Birkaç gün sonra bir daha açmadığımı fark ettim, kötü olduğu için değil—bu alanın şu anda en olgun ürünü—sadece agent'ın terminalde benim için çalışmasını tercih ediyorum, hiçbir grafik arayüzü açmak istemiyorum.
 
-于是让 agent 拆解 Claude Design 本身（包括社区流传的系统提示词、品牌资产协议、组件机制），蒸馏成结构化 spec，再写成 skill 装进自己的 Claude Code。
+Bu yüzden agent'a Claude Design'ın kendisini parçalamasını söyledim (topluluk tarafından sızdırılan sistem prompt'ları, marka varlığı protokolü, bileşen mekanizmaları dahil), yapılandırılmış bir spec'e damıttım ve kendi Claude Code'uma skill olarak yazdım.
 
-感谢 Anthropic 把 Claude Design 的提示词写得清晰。这种基于其他产品灵感的二次创作，是开源文化在 AI 时代的新形态。
-
----
-
-## License · 使用授权
-
-**个人使用免费、自由**——学习、研究、创作、给自己做东西、写文章、做副业、发微博发公众号，随便用，不用打招呼。
-
-**企业商用禁止**——任何公司、团队、或以盈利为目的的组织，想把本 skill 集成到产品、对外服务、给客户交付工作中使用，**必须先和花生联系获得授权**。包括但不限于：
-- 把 skill 作为公司内部工具链的一部分
-- 把 skill 产出物作为对外交付物的主要创作手段
-- 基于 skill 二次开发做成商业产品
-- 在客户商单项目中使用
-
-**商用授权联系方式**见下方社交平台。
+Anthropic'e Claude Design prompt'larını bu kadar net yazdığı için teşekkürler. Başka bir üründen ilham alarak yapılan bu tür ikincil yaratımlar, açık kaynak kültürünün AI çağındaki yeni biçimidir.
 
 ---
 
-## Connect · 花生（花叔）
+## Lisans · Kullanım İzni
 
-花生是 AI Native Coder、独立开发者、AI 自媒体博主。代表作：小猫补光灯（AppStore 付费榜 Top 1）、《一本书玩转 DeepSeek》、女娲 .skill（GitHub 12000+ star）。自媒体全平台 30 万+ 粉丝。
+**Kişisel kullanım ücretsiz ve özgürdür**—öğrenme, araştırma, yaratma, kendin için bir şeyler yapma, makale yazma, yan iş, sosyal medyada paylaşım, istediğin gibi kullan, izin sormana gerek yok.
 
-| 平台 | 账号 | 链接 |
+**Kurumsal ticari kullanım yasaktır**—herhangi bir şirket, ekip veya kâr amacı güden organizasyon, bu skill'i ürününe entegre etmek, dış hizmet olarak sunmak veya müşteriye teslimatta kullanmak isterse, **önce Azygod ile iletişime geçip yetki almalıdır**. Şunlar dahil ancak bunlarla sınırlı değildir:
+- Skill'i şirket içi araç zincirinin bir parçası olarak kullanmak
+- Skill çıktılarını dış teslimatların ana yaratım aracı olarak kullanmak
+- Skill üzerinden ikincil geliştirme yaparak ticari ürün oluşturmak
+- Müşteri projelerinde kullanmak
+
+**Ticari kullanım yetki ve iletişim bilgileri** aşağıdaki sosyal medya platformlarında.
+
+---
+
+## İletişim · Azygod
+
+Azygod, AI Native Coder, bağımsız geliştirici ve AI içerik üreticisidir. Öne çıkan çalışmaları: Kitty Softbox (AppStore Ücretli Listesi #1), 《DeepSeek'le Baştan Sona》, Nuwa .skill (GitHub 12000+ star). Sosyal medyada toplam 300.000+ takipçisi vardır.
+
+| Platform | Hesap | Bağlantı |
 |---|---|---|
 | X / Twitter | @AlchainHust | https://x.com/AlchainHust |
-| 公众号 | 花叔 | 微信搜索「花叔」 |
-| B 站 | 花叔 | https://space.bilibili.com/14097567 |
-| YouTube | 花叔 | https://www.youtube.com/@Alchain |
-| 小红书 | 花叔 | https://www.xiaohongshu.com/user/profile/5abc6f17e8ac2b109179dfdf |
-| 官网 | huasheng.ai | https://www.huasheng.ai/ |
-| 开发者主页 | bookai.top | https://bookai.top |
+| WeChat Official | Azygod | WeChat'te "Azygod" ara |
+| Bilibili | Azygod | https://space.bilibili.com/14097567 |
+| YouTube | Azygod | https://www.youtube.com/@Alchain |
+| Xiaohongshu | Azygod | https://www.xiaohongshu.com/user/profile/5abc6f17e8ac2b109179dfdf |
+| Resmi Site | huasheng.ai | https://www.huasheng.ai/ |
+| Geliştirici Ana Sayfası | bookai.top | https://bookai.top |
 
-商用授权、合作咨询、自媒体约稿 → 以上任一平台私信花生即可。
+Ticari kullanım yetkisi, iş birliği danışmanlığı, içerik siparişi → Yukarıdaki platformların herhangi birinden Azygod'a özel mesaj atabilirsiniz.

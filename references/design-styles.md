@@ -1,53 +1,53 @@
-# 设计哲学风格库：20种体系
+# Tasarım Felsefesi Stil Kütüphanesi: 20 Sistem
 
-> 用于视觉设计（网页/PPT/PDF/信息图/配图/App等）的设计风格库。
-> 每种风格提供：哲学内核 + 核心特征 + 提示词DNA（与场景模板组合使用）。
+> Web sitesi/PPT/PDF/infografik/görsel/App vb. görsel tasarımlarda kullanılan bir stil kütüphanesi.
+> Her stil şunları içerir: Felsefi çekirdek + Temel özellikler + Prompt DNA'sı (sahne şablonlarıyla birlikte kullanılır).
 
-## 风格×场景×执行路径 速查表
+## Stil × Sahne × Yürütme Yolu Hızlı Referansı
 
-| 风格 | 网页 | PPT | PDF | 信息图 | 封面 | AI生成 | 最佳路径 |
+| Stil | Web | PPT | PDF | İnfografik | Kapak | AI Üretimi | En İyi Yol |
 |------|:---:|:---:|:---:|:-----:|:---:|:-----:|---------|
 | 01 Pentagram | ★★★ | ★★★ | ★★☆ | ★★☆ | ★★★ | ★☆☆ | HTML |
-| 02 Stamen Design | ★★☆ | ★★☆ | ★★☆ | ★★★ | ★★☆ | ★★☆ | 混合 |
+| 02 Stamen Design | ★★☆ | ★★☆ | ★★☆ | ★★★ | ★★☆ | ★★☆ | Karma |
 | 03 Information Architects | ★★★ | ★☆☆ | ★★★ | ★☆☆ | ★☆☆ | ★☆☆ | HTML |
 | 04 Fathom | ★★☆ | ★★★ | ★★★ | ★★★ | ★★☆ | ★☆☆ | HTML |
-| 05 Locomotive | ★★★ | ★★☆ | ★☆☆ | ★☆☆ | ★★☆ | ★★☆ | 混合 |
-| 06 Active Theory | ★★★ | ★☆☆ | ★☆☆ | ★☆☆ | ★★☆ | ★★★ | AI生成 |
-| 07 Field.io | ★★☆ | ★★☆ | ★☆☆ | ★★☆ | ★★★ | ★★★ | AI生成 |
-| 08 Resn | ★★★ | ★☆☆ | ★☆☆ | ★☆☆ | ★★☆ | ★★☆ | AI生成 |
-| 09 Experimental Jetset | ★★☆ | ★★☆ | ★★☆ | ★★☆ | ★★★ | ★★☆ | 混合 |
+| 05 Locomotive | ★★★ | ★★☆ | ★☆☆ | ★☆☆ | ★★☆ | ★★☆ | Karma |
+| 06 Active Theory | ★★★ | ★☆☆ | ★☆☆ | ★☆☆ | ★★☆ | ★★★ | AI Üretimi |
+| 07 Field.io | ★★☆ | ★★☆ | ★☆☆ | ★★☆ | ★★★ | ★★★ | AI Üretimi |
+| 08 Resn | ★★★ | ★☆☆ | ★☆☆ | ★☆☆ | ★★☆ | ★★☆ | AI Üretimi |
+| 09 Experimental Jetset | ★★☆ | ★★☆ | ★★☆ | ★★☆ | ★★★ | ★★☆ | Karma |
 | 10 Müller-Brockmann | ★★☆ | ★★★ | ★★★ | ★★★ | ★★☆ | ★☆☆ | HTML |
 | 11 Build | ★★★ | ★★★ | ★★☆ | ★☆☆ | ★★★ | ★☆☆ | HTML |
-| 12 Sagmeister & Walsh | ★★☆ | ★★★ | ★☆☆ | ★★☆ | ★★★ | ★★★ | AI生成 |
-| 13 Zach Lieberman | ★☆☆ | ★☆☆ | ★☆☆ | ★★☆ | ★★★ | ★★★ | AI生成 |
-| 14 Raven Kwok | ★☆☆ | ★★☆ | ★☆☆ | ★★☆ | ★★★ | ★★★ | AI生成 |
-| 15 Ash Thorp | ★★☆ | ★★☆ | ★☆☆ | ★☆☆ | ★★★ | ★★★ | AI生成 |
-| 16 Territory Studio | ★★☆ | ★★☆ | ★☆☆ | ★★☆ | ★★★ | ★★★ | AI生成 |
+| 12 Sagmeister & Walsh | ★★☆ | ★★★ | ★☆☆ | ★★☆ | ★★★ | ★★★ | AI Üretimi |
+| 13 Zach Lieberman | ★☆☆ | ★☆☆ | ★☆☆ | ★★☆ | ★★★ | ★★★ | AI Üretimi |
+| 14 Raven Kwok | ★☆☆ | ★★☆ | ★☆☆ | ★★☆ | ★★★ | ★★★ | AI Üretimi |
+| 15 Ash Thorp | ★★☆ | ★★☆ | ★☆☆ | ★☆☆ | ★★★ | ★★★ | AI Üretimi |
+| 16 Territory Studio | ★★☆ | ★☆☆ | ★☆☆ | ★★☆ | ★★★ | ★★★ | AI Üretimi |
 | 17 Takram | ★★★ | ★★★ | ★★★ | ★★☆ | ★★☆ | ★☆☆ | HTML |
 | 18 Kenya Hara | ★★☆ | ★★★ | ★★★ | ★☆☆ | ★★★ | ★☆☆ | HTML |
-| 19 Irma Boom | ★☆☆ | ★★☆ | ★★★ | ★★☆ | ★★★ | ★★☆ | 混合 |
-| 20 Neo Shen | ★★☆ | ★★☆ | ★★☆ | ★★☆ | ★★★ | ★★★ | AI生成 |
+| 19 Irma Boom | ★☆☆ | ★★☆ | ★★★ | ★★☆ | ★★★ | ★★☆ | Karma |
+| 20 Neo Shen | ★★☆ | ★★☆ | ★★☆ | ★★☆ | ★★★ | ★★★ | AI Üretimi |
 
-> 场景适配：★★★ = 强烈推荐 / ★★☆ = 适合 / ★☆☆ = 需改造
-> AI生成：★★★ = 直出效果好 / ★★☆ = 需调整 / ★☆☆ = 建议HTML执行
-> 最佳路径：AI生成（图片直出）/ HTML（代码渲染，数据精确）/ 混合（HTML布局+AI配图）
+> Sahne Uyumluluğu: ★★★ = Kesinlikle önerilir / ★★☆ = Uygun / ★☆☆ = Uyarlanması gerekir
+> AI Üretimi: ★★★ = Doğrudan çıktı kaliteli / ★★☆ = Ayarlama gerekir / ★☆☆ = HTML yürütmesi önerilir
+> En İyi Yol: AI Üretimi (doğrudan görsel çıktı) / HTML (kod render, veri hassas) / Karma (HTML düzen + AI görsel/arka plan)
 
-**核心规律**：有明确视觉元素的风格（插画/粒子/生成艺术）AI直出效果好；依赖精确排版和数据的风格（网格/信息架构/留白）HTML渲染更可控。
+**Temel Kural**: Belirgin görsel öğelere sahip stiller (illüstrasyon/parçacık/jeneratif sanat) AI ile doğrudan iyi sonuç verir; hassas tipografi ve veriye dayalı stiller (grid/bilgi mimarisi/boşluk) HTML render ile daha kontrollüdür.
 
 ---
 
-## 一、信息建筑派（01-04）
-> 哲学：「数据不是装饰，是建筑材料」
+## Bir, Bilgi Mimarisi Okulu (01-04)
+> Felsefe: "Veri süs değil, yapı malzemesidir"
 
-### 01. Pentagram - Michael Bierut风格
-**哲学**：字体即语言，网格即思想
-**核心特征**：
-- 极度克制的颜色（黑白+1个品牌色）
-- 瑞士网格系统的现代演绎
-- 字体排印作为主要视觉语言
-- 负空间的战略性使用（60%+留白）
+### 01. Pentagram - Michael Bierut Stili
+**Felsefe**: Tipografi dildir, grid ise düşüncedir
+**Temel Özellikler**:
+- Aşırı derecede kısıtlı renk (siyah-beyaz + 1 marka rengi)
+- İsviçre grid sisteminin modern yorumu
+- Tipografik düzen ana görsel dil olarak
+- Negatif alanın stratejik kullanımı (%60+ boşluk)
 
-**提示词DNA**：
+**Prompt DNA'sı**:
 ```
 Pentagram/Michael Bierut style:
 - Extreme typographic hierarchy, Helvetica/Univers family
@@ -58,20 +58,20 @@ Pentagram/Michael Bierut style:
 - Data visualization as primary decoration
 ```
 
-**代表作**：Hillary Clinton 2016 campaign identity
-**搜索关键词**：pentagram hillary logo system
+**Temsili Eser**: Hillary Clinton 2016 kampanya kimliği
+**Arama Anahtar Kelimeleri**: pentagram hillary logo system
 
 ---
 
-### 02. Stamen Design - 数据诗学
-**哲学**：让数据成为可触摸的风景
-**核心特征**：
-- 地图学思维应用于信息设计
-- 算法生成的有机图形
-- 温暖的数据可视化色调（赭石、鼠尾草绿、深蓝）
-- 可交互的层级系统
+### 02. Stamen Design - Veri Şiiri
+**Felsefe**: Veriyi dokunulabilir bir manzaraya dönüştür
+**Temel Özellikler**:
+- Haritacılık zihniyetinin bilgi tasarımına uygulanması
+- Algoritma ile üretilmiş organik grafikler
+- Sıcak veri görselleştirme tonları (kiremit, adaçayı yeşili, derin mavi)
+- Etkileşimli katman sistemi
 
-**提示词DNA**：
+**Prompt DNA'sı**:
 ```
 Stamen Design aesthetic:
 - Cartographic approach to data visualization
@@ -82,20 +82,20 @@ Stamen Design aesthetic:
 - Soft shadows and depth
 ```
 
-**代表作**：COVID-19 surge map
-**搜索关键词**：stamen covid map visualization
+**Temsili Eser**: COVID-19 salgın haritası
+**Arama Anahtar Kelimeleri**: stamen covid map visualization
 
 ---
 
-### 03. Information Architects - 内容优先原则
-**哲学**：设计不是装饰，是内容的建筑
-**核心特征**：
-- 极端的内容层级清晰度
-- 只使用系统字体（优化阅读）
-- 蓝色超链接传统的坚守
-- 性能即美学
+### 03. Information Architects - İçerik Öncelikli Prensip
+**Felsefe**: Tasarım süs değil, içeriğin mimarisidir
+**Temel Özellikler**:
+- Aşırı içerik hiyerarşisi netliği
+- Yalnızca sistem fontları kullanımı (okunabilirlik için optimize)
+- Mavi köprü geleneğinin sürdürülmesi
+- Performans estetiktir
 
-**提示词DNA**：
+**Prompt DNA'sı**:
 ```
 Information Architects philosophy:
 - Content-first hierarchy, zero decorative elements
@@ -106,20 +106,20 @@ Information Architects philosophy:
 - Text-heavy, fast-loading design
 ```
 
-**代表作**：iA Writer app
-**搜索关键词**：information architects ia writer
+**Temsili Eser**: iA Writer uygulaması
+**Arama Anahtar Kelimeleri**: information architects ia writer
 
 ---
 
-### 04. Fathom Information Design - 科学叙事
-**哲学**：每一个像素都必须承载信息
-**核心特征**：
-- 科学期刊的严谨+设计的优雅
-- 定量数据的精确可视化
-- 冷静的专业色调（灰、海军蓝）
-- 注释与引用系统的设计化
+### 04. Fathom Information Design - Bilimsel Anlatı
+**Felsefe**: Her piksel bilgi taşımalıdır
+**Temel Özellikler**:
+- Bilimsel dergi titizliği + tasarım zarafeti
+- Kantitatif verinin hassas görselleştirilmesi
+- Sakin profesyonel ton (gri, lacivert)
+- Dipnot ve kaynakça sisteminin tasarıma entegrasyonu
 
-**提示词DNA**：
+**Prompt DNA'sı**:
 ```
 Fathom Information Design style:
 - Scientific journal aesthetic meets modern design
@@ -130,23 +130,23 @@ Fathom Information Design style:
 - Information density without clutter
 ```
 
-**代表作**：Bill & Melinda Gates Foundation年度报告
-**搜索关键词**：fathom information design gates foundation
+**Temsili Eser**: Bill & Melinda Gates Foundation yıllık raporu
+**Arama Anahtar Kelimeleri**: fathom information design gates foundation
 
 ---
 
-## 二、运动诗学派（05-08）
-> 哲学：「技术本身就是一种流动的诗」
+## İki, Hareket Şiiri Okulu (05-08)
+> Felsefe: "Teknoloji kendiliğinden akışkan bir şiirdir"
 
-### 05. Locomotive - 滚动叙事大师
-**哲学**：滚动不是浏览，是旅程
-**核心特征**：
-- 丝滑的视差滚动
-- 电影化的分镜叙事
-- 大胆的空间留白
-- 动态元素的精确编排
+### 05. Locomotive - Kaydırma Anlatı Ustası
+**Felsefe**: Kaydırma gezinme değil, yolculuktur
+**Temel Özellikler**:
+- Pürüzsüz paralaks kaydırma
+- Sinematik kurgu anlatısı
+- Cesur mekânsal boşluklar
+- Dinamik öğelerin hassas koreografisi
 
-**提示词DNA**：
+**Prompt DNA'sı**:
 ```
 Locomotive scroll narrative style:
 - Film-like scene composition with parallax depth
@@ -158,20 +158,20 @@ Locomotive scroll narrative style:
 - Hero sections 100vh tall
 ```
 
-**代表作**：Lusion.co website
-**搜索关键词**：locomotive scroll lusion
+**Temsili Eser**: Lusion.co web sitesi
+**Arama Anahtar Kelimeleri**: locomotive scroll lusion
 
 ---
 
-### 06. Active Theory - WebGL诗人
-**哲学**：让技术可见化即让技术可理解
-**核心特征**：
-- 3D粒子系统作为核心元素
-- 实时渲染的数据可视化
-- 鼠标交互驱动的世界构建
-- 霓虹与深空的配色
+### 06. Active Theory - WebGL Şairi
+**Felsefe**: Teknolojiyi görünür kılmak, onu anlaşılır kılmaktır
+**Temel Özellikler**:
+- 3B parçacık sistemleri merkez öğe olarak
+- Gerçek zamanlı render edilen veri görselleştirme
+- Fare etkileşimiyle yönlendirilen dünya inşası
+- Neon ve derin uzay renk paleti
 
-**提示词DNA**：
+**Prompt DNA'sı**:
 ```
 Active Theory WebGL aesthetic:
 - Particle systems representing data flow
@@ -182,20 +182,20 @@ Active Theory WebGL aesthetic:
 - Floating UI with glassmorphism
 ```
 
-**代表作**：NASA Prospect
-**搜索关键词**：active theory nasa webgl
+**Temsili Eser**: NASA Prospect
+**Arama Anahtar Kelimeleri**: active theory nasa webgl
 
 ---
 
-### 07. Field.io - 算法美学
-**哲学**：代码即设计师
-**核心特征**：
-- 生成艺术系统
-- 每次访问都不同的动态图形
-- 抽象几何的智能编排
-- 技术感与艺术性的平衡
+### 07. Field.io - Algoritma Estetiği
+**Felsefe**: Kod tasarımcıdır
+**Temel Özellikler**:
+- Jeneratif sanat sistemleri
+- Her ziyarette farklılaşan dinamik grafikler
+- Soyut geometrinin akıllı koreografisi
+- Teknik his ile sanatsallık arasındaki denge
 
-**提示词DNA**：
+**Prompt DNA'sı**:
 ```
 Field.io generative design style:
 - Abstract geometric patterns, algorithmically generated
@@ -206,20 +206,20 @@ Field.io generative design style:
 - Clean code aesthetic
 ```
 
-**代表作**：British Council digital installations
-**搜索关键词**：field.io generative design
+**Temsili Eser**: British Council dijital enstalasyonları
+**Arama Anahtar Kelimeleri**: field.io generative design
 
 ---
 
-### 08. Resn - 叙事驱动的交互
-**哲学**：每个点击都推进故事
-**核心特征**：
-- 游戏化的用户旅程
-- 强烈的情感化设计
-- 插画与代码的深度结合
-- 非线性的探索体验
+### 08. Resn - Anlatı Odaklı Etkileşim
+**Felsefe**: Her tıklama hikayeyi ilerletir
+**Temel Özellikler**:
+- Oyunlaştırılmış kullanıcı yolculuğu
+- Güçlü duygusal tasarım
+- İllüstrasyon ve kodun derin entegrasyonu
+- Doğrusal olmayan keşif deneyimi
 
-**提示词DNA**：
+**Prompt DNA'sı**:
 ```
 Resn interactive storytelling approach:
 - Illustrative style mixed with UI elements
@@ -230,23 +230,23 @@ Resn interactive storytelling approach:
 - Editorial illustration meets product design
 ```
 
-**代表作**：Resn.co.nz portfolio
-**搜索关键词**：resn interactive storytelling
+**Temsili Eser**: Resn.co.nz portföyü
+**Arama Anahtar Kelimeleri**: resn interactive storytelling
 
 ---
 
-## 三、极简主义派（09-12）
-> 哲学：「删减到无法再删」
+## Üç, Minimalizm Okulu (09-12)
+> Felsefe: "Silinebilecek son şeye kadar sil"
 
-### 09. Experimental Jetset - 概念极简
-**哲学**：一个想法=一个形式
-**核心特征**：
-- 单一视觉隐喻贯穿整个设计
-- 蓝/红/黄+黑白的蒙德里安色系
-- 字体即图形
-- 反商业的诚实设计
+### 09. Experimental Jetset - Kavramsal Minimalizm
+**Felsefe**: Bir fikir = bir form
+**Temel Özellikler**:
+- Tek görsel metafor tüm tasarımı sarmalar
+- Mavi/kırmızı/sarı + siyah-beyaz Mondrian paleti
+- Tipografi grafiktir
+- Anti-ticari dürüst tasarım
 
-**提示词DNA**：
+**Prompt DNA'sı**:
 ```
 Experimental Jetset conceptual minimalism:
 - Single visual metaphor for entire design
@@ -257,20 +257,20 @@ Experimental Jetset conceptual minimalism:
 - Anti-commercial, honest aesthetic
 ```
 
-**代表作**：Whitney Museum identity
-**搜索关键词**：experimental jetset whitney responsive w
+**Temsili Eser**: Whitney Museum kimliği
+**Arama Anahtar Kelimeleri**: experimental jetset whitney responsive w
 
 ---
 
-### 10. Müller-Brockmann传承 - 瑞士网格纯粹主义
-**哲学**：客观性即美
-**核心特征**：
-- 数学精确的网格系统（8pt基线）
-- 绝对的左对齐或居中
-- 单色或双色方案
-- 功能主义至上
+### 10. Müller-Brockmann Mirası - İsviçre Grid Saflığı
+**Felsefe**: Nesnellik güzelliktir
+**Temel Özellikler**:
+- Matematiksel olarak hassas grid sistemi (8pt temel)
+- Mutlak sola hizalama veya ortalama
+- Tek renk veya iki renk şeması
+- Fonksiyonalizm üstünlüğü
 
-**提示词DNA**：
+**Prompt DNA'sı**:
 ```
 Josef Müller-Brockmann Swiss modernism:
 - Mathematical grid system (8pt baseline)
@@ -281,20 +281,20 @@ Josef Müller-Brockmann Swiss modernism:
 - Timeless, objective aesthetic
 ```
 
-**代表作**：《Grid Systems in Graphic Design》
-**搜索关键词**：muller brockmann grid systems poster
+**Temsili Eser**: "Grid Systems in Graphic Design"
+**Arama Anahtar Kelimeleri**: muller brockmann grid systems poster
 
 ---
 
-### 11. Build - 当代极简品牌
-**哲学**：精致的简单比复杂更难
-**核心特征**：
-- 奢侈品级的留白（70%+）
-- 微妙的字重对比（200-600）
-- 单一强调色的战略使用
-- 呼吸感的节奏
+### 11. Build - Çağdaş Minimal Marka
+**Felsefe**: Rafine edilmiş sadelik karmaşıklıktan daha zordur
+**Temel Özellikler**:
+- Lüks seviyesinde boşluk (%70+)
+- İnce font ağırlığı kontrastları (200-600)
+- Tek vurgu renginin stratejik kullanımı
+- Nefes alan ritim
 
-**提示词DNA**：
+**Prompt DNA'sı**:
 ```
 Build studio luxury minimalism:
 - Generous whitespace (70%+ of area)
@@ -305,20 +305,20 @@ Build studio luxury minimalism:
 - Golden ratio proportions
 ```
 
-**代表作**：Build studio portfolio
-**搜索关键词**：build studio london branding
+**Temsili Eser**: Build studio portföyü
+**Arama Anahtar Kelimeleri**: build studio london branding
 
 ---
 
-### 12. Sagmeister & Walsh - 快乐极简
-**哲学**：美即功能的情感维度
-**核心特征**：
-- 意外的色彩爆发
-- 手工感与数字的融合
-- 正能量的视觉语言
-- 实验性但可读
+### 12. Sagmeister & Walsh - Neşeli Minimalizm
+**Felsefe**: Güzellik, işlevselliğin duygusal boyutudur
+**Temel Özellikler**:
+- Beklenmedik renk patlamaları
+- El yapımı his ile dijitalin kaynaşması
+- Pozitif enerjili görsel dil
+- Deneysel ama okunabilir
 
-**提示词DNA**：
+**Prompt DNA'sı**:
 ```
 Sagmeister & Walsh joyful philosophy:
 - Unexpected color bursts on minimal base
@@ -329,23 +329,23 @@ Sagmeister & Walsh joyful philosophy:
 - Mix of analog and digital aesthetics
 ```
 
-**代表作**：The Happy Show
-**搜索关键词**：sagmeister walsh happy show
+**Temsili Eser**: The Happy Show
+**Arama Anahtar Kelimeleri**: sagmeister walsh happy show
 
 ---
 
-## 四、实验先锋派（13-16）
-> 哲学：「打破规则即创造规则」
+## Dört, Deneysel Öncü Okul (13-16)
+> Felsefe: "Kuralı kırmak, kural yaratmaktır"
 
-### 13. Zach Lieberman - 代码诗学
-**哲学**：编程即绘画
-**核心特征**：
-- 手绘感的算法图形
-- 实时生成艺术
-- 黑白的纯粹表达
-- 工具本身的可见性
+### 13. Zach Lieberman - Kod Şiiri
+**Felsefe**: Programlama resim yapmaktır
+**Temel Özellikler**:
+- Elle çizilmiş hissi veren algoritma grafikleri
+- Gerçek zamanlı jeneratif sanat
+- Siyah-beyaz saf ifade
+- Aracın kendisinin görünürlüğü
 
-**提示词DNA**：
+**Prompt DNA'sı**:
 ```
 Zach Lieberman code-as-art style:
 - Hand-drawn aesthetic generated by code
@@ -356,20 +356,20 @@ Zach Lieberman code-as-art style:
 - Poetic interpretation of algorithms
 ```
 
-**代表作**：openFrameworks creative coding
-**搜索关键词**：zach lieberman openframeworks generative
+**Temsili Eser**: openFrameworks creative coding
+**Arama Anahtar Kelimeleri**: zach lieberman openframeworks generative
 
 ---
 
-### 14. Raven Kwok - 参数化美学
-**哲学**：系统的美胜过个体的美
-**核心特征**：
-- 分形与递归图形
-- 黑白高对比
-- 建筑化的信息结构
-- 东方园林的算法演绎
+### 14. Raven Kwok - Parametrik Estetik
+**Felsefe**: Sistemin güzelliği, bireyin güzelliğinden üstündür
+**Temel Özellikler**:
+- Fraktal ve özyinelemeli grafikler
+- Siyah-beyaz yüksek kontrast
+- Mimarileştirilmiş bilgi yapısı
+- Doğu bahçelerinin algoritmik yorumu
 
-**提示词DNA**：
+**Prompt DNA'sı**:
 ```
 Raven Kwok parametric aesthetic:
 - Fractal patterns and recursive structures
@@ -380,20 +380,20 @@ Raven Kwok parametric aesthetic:
 - Processing/Creative coding aesthetic
 ```
 
-**代表作**：Raven Kwok generative art exhibitions
-**搜索关键词**：raven kwok processing generative art
+**Temsili Eser**: Raven Kwok jeneratif sanat sergileri
+**Arama Anahtar Kelimeleri**: raven kwok processing generative art
 
 ---
 
-### 15. Ash Thorp - 赛博诗意
-**哲学**：未来不是冰冷的，是孤独的诗
-**核心特征**：
-- 电影级的光影
-- 赛博朋克的温暖版本（橙/青，非冷蓝）
-- 故事性的概念设计
-- 工业美学的精致化
+### 15. Ash Thorp - Siber Şiir
+**Felsefe**: Gelecek soğuk değil, yalnız bir şiirdir
+**Temel Özellikler**:
+- Sinematik ışık-gölge
+- Siber-punk'ın sıcak versiyonu (turuncu/cam göbeği, soğuk mavi değil)
+- Hikayeye dayalı konsept tasarım
+- Endüstriyel estetiğin rafine edilmesi
 
-**提示词DNA**：
+**Prompt DNA'sı**:
 ```
 Ash Thorp cinematic concept art:
 - Film-grade lighting and atmospheric effects
@@ -404,20 +404,20 @@ Ash Thorp cinematic concept art:
 - Blade Runner warmth over Tron coldness
 ```
 
-**代表作**：Ghost in the Shell concept art
-**搜索关键词**：ash thorp ghost shell concept art
+**Temsili Eser**: Ghost in the Shell konsept sanatı
+**Arama Anahtar Kelimeleri**: ash thorp ghost shell concept art
 
 ---
 
-### 16. Territory Studio - 屏幕界面虚构
-**哲学**：未来UI的今日想象
-**核心特征**：
-- 科幻电影中的屏幕设计（FUI）
-- 全息投影感
-- 多层叠加的数据可视化
-- 可信的未来感
+### 16. Territory Studio - Ekran Arayüzü Kurgusu
+**Felsefe**: Gelecek UI'sının bugünkü hayali
+**Temel Özellikler**:
+- Bilim kurgu filmlerindeki ekran tasarımı (FUI)
+- Holografik projeksiyon hissi
+- Çok katmanlı veri görselleştirme
+- İnanılabilir gelecek hissi
 
-**提示词DNA**：
+**Prompt DNA'sı**:
 ```
 Territory Studio FUI (Fantasy User Interface):
 - Fantasy User Interface design
@@ -428,23 +428,23 @@ Territory Studio FUI (Fantasy User Interface):
 - Technical readouts and data streams
 ```
 
-**代表作**：Blade Runner 2049 screen graphics
-**搜索关键词**：territory studio blade runner interface
+**Temsili Eser**: Blade Runner 2049 ekran grafikleri
+**Arama Anahtar Kelimeleri**: territory studio blade runner interface
 
 ---
 
-## 五、东方哲学派（17-20）
-> 哲学：「留白即内容」
+## Beş, Doğu Felsefesi Okulu (17-20)
+> Felsefe: "Boşluk içeriğin kendisidir"
 
-### 17. Takram - 日式思辨设计
-**哲学**：技术是思考的媒介
-**核心特征**：
-- 概念原型的优雅
-- 柔和的科技感（圆角、柔和阴影）
-- 图表即艺术
-- 谦逊的精致
+### 17. Takram - Japon Spekülatif Tasarım
+**Felsefe**: Teknoloji düşünmenin aracıdır
+**Temel Özellikler**:
+- Konsept prototiplerin zarafeti
+- Yumuşak teknoloji hissi (yuvarlak köşeler, hafif gölgeler)
+- Grafikler sanattır
+- Mütevazı incelik
 
-**提示词DNA**：
+**Prompt DNA'sı**:
 ```
 Takram Japanese speculative design:
 - Elegant concept prototypes and diagrams
@@ -455,20 +455,20 @@ Takram Japanese speculative design:
 - Design as philosophical inquiry
 ```
 
-**代表作**：NHK Fabricated City
-**搜索关键词**：takram nhk data visualization
+**Temsili Eser**: NHK Fabricated City
+**Arama Anahtar Kelimeleri**: takram nhk data visualization
 
 ---
 
-### 18. Kenya Hara - 空的设计
-**哲学**：设计不是填充，是清空
-**核心特征**：
-- 极致的留白（80%+）
-- 纸张质感的数字化
-- 白色的层次（暖白、冷白、米白）
-- 触觉的视觉化
+### 18. Kenya Hara - Boşluğun Tasarımı
+**Felsefe**: Tasarım doldurmak değil, boşaltmaktır
+**Temel Özellikler**:
+- Maksimum boşluk (%80+)
+- Kağıt dokusunun dijitalleştirilmesi
+- Beyazın katmanları (sıcak beyaz, soğuk beyaz, krem beyaz)
+- Dokunsallığın görselleştirilmesi
 
-**提示词DNA**：
+**Prompt DNA'sı**:
 ```
 Kenya Hara "emptiness" design:
 - Extreme whitespace (80%+)
@@ -479,20 +479,20 @@ Kenya Hara "emptiness" design:
 - Zen simplicity
 ```
 
-**代表作**：Muji art direction, 《Designing Design》
-**搜索关键词**：kenya hara designing design muji
+**Temsili Eser**: Muji sanat yönetimi, "Designing Design"
+**Arama Anahtar Kelimeleri**: kenya hara designing design muji
 
 ---
 
-### 19. Irma Boom - 书籍建筑师
-**哲学**：信息的物理诗学
-**核心特征**：
-- 非线性的信息架构
-- 边缘与边界的游戏
-- 意外的颜色组合（粉+红、橙+棕）
-- 手工艺的数字转译
+### 19. Irma Boom - Kitap Mimarlığı
+**Felsefe**: Bilginin fiziksel şiiri
+**Temel Özellikler**:
+- Doğrusal olmayan bilgi mimarisi
+- Kenar ve sınırlarla oyun
+- Beklenmedik renk kombinasyonları (pembe+kırmızı, turuncu+kahverengi)
+- El sanatlarının dijital tercümesi
 
-**提示词DNA**：
+**Prompt DNA'sı**:
 ```
 Irma Boom book architecture style:
 - Non-linear information structure
@@ -503,20 +503,20 @@ Irma Boom book architecture style:
 - Editorial design, unconventional grid
 ```
 
-**代表作**：SHV Think Book (2136 pages)
-**搜索关键词**：irma boom shv think book
+**Temsili Eser**: SHV Think Book (2136 sayfa)
+**Arama Anahtar Kelimeleri**: irma boom shv think book
 
 ---
 
-### 20. Neo Shen - 东方光影诗
-**哲学**：技术需要人的温度
-**核心特征**：
-- 水墨晕染的数字化
-- 柔和的光晕效果
-- 诗意的留白
-- 情感化的色彩（深蓝、暖灰、柔金）
+### 20. Neo Shen - Doğu Işık ve Gölge Şiiri
+**Felsefe**: Teknolojinin insani sıcaklığa ihtiyacı var
+**Temel Özellikler**:
+- Mürekkep bulaşmasının dijitalleştirilmesi
+- Yumuşak ışık halesi efektleri
+- Şiirsel boşluk
+- Duygusal renk paleti (derin mavi, sıcak gri, yumuşak altın)
 
-**提示词DNA**：
+**Prompt DNA'sı**:
 ```
 Neo Shen poetic Chinese aesthetic:
 - Digital interpretation of ink wash painting
@@ -527,29 +527,29 @@ Neo Shen poetic Chinese aesthetic:
 - Atmospheric depth
 ```
 
-**代表作**：Neo Shen digital art series
-**搜索关键词**：neo shen digital ink wash art
+**Temsili Eser**: Neo Shen dijital sanat serisi
+**Arama Anahtar Kelimeleri**: neo shen digital ink wash art
 
 ---
 
-## 提示词使用说明
+## Prompt Kullanım Kılavuzu
 
-**组合公式**：`[风格提示词DNA] + [场景模板（见scene-templates.md）] + [具体内容]`
+**Kombinasyon Formülü**: `[Stil Prompt DNA'sı] + [Sahne Şablonu (scene-templates.md'e bakın)] + [Spesifik İçerik]`
 
-### 核心原则：描述情绪而非布局（Mood, Not Layout）
+### Temel Prensip: Duygu Açıklayın, Düzen Değil (Mood, Not Layout)
 
-AI图像生成的关键：短提示词 > 长提示词。描述3句情绪和内容，比30行布局细节效果更好。
+AI görsel üretiminin kritik noktası: Kısa prompt > Uzun prompt. 3 cümlelik duygu ve içerik açıklaması, 30 satırlık düzen detayından daha iyi sonuç verir.
 
-| 杀死多样性的写法 | 激发创造力的写法 |
+| Çeşitliliği Öldüren Yazım | Yaratıcılığı Uyaran Yazım |
 |----------------|----------------|
-| 指定颜色比例（60%/25%/15%） | 描述情绪（"warm like Sunday morning"） |
-| 规定布局位置（"标题居中，图片右侧"） | 引用具体美学（"Pentagram editorial feel"） |
-| 限制角色姿势和表情 | 让AI自然诠释风格 |
-| 列出所有要包含的视觉元素 | 描述观众应该感受到什么 |
+| Renk oranlarını belirtme (%60/%25/%15) | Duygu tanımlama ("Pazar sabahı gibi sıcak") |
+| Düzen pozisyonlarını zorlama ("Başlık ortada, görsel sağda") | Spesifik estetik referans ("Pentagram editoryal hissi") |
+| Karakter poz ve ifadelerini sınırlama | AI'ın stili doğal yorumlamasına izin verme |
+| Tüm görsel öğeleri listeleme | İzleyicinin hissetmesi gerekeni tanımlama |
 
-### Good / Bad 示例
+### İyi / Kötü Örnek
 
-**Bad — 过度约束（AI生成出来空且平）：**
+**Kötü — Aşırı Kısıtlayıcı (AI boş ve düz çıktı üretir):**
 ```
 Professional presentation slide. Dark background, light text.
 Title centered at top. Two columns below. Left column: bullet points.
@@ -557,7 +557,7 @@ Right column: bar chart. Colors: navy 60%, white 30%, gold 10%.
 Font size: title 36pt, body 18pt. Margins: 40px all sides.
 ```
 
-**Good — 情绪驱动（生成多样且有质感）：**
+**İyi — Duygu Odaklı (Çeşitli ve dokulu çıktı üretir):**
 ```
 A data visualization that feels like a Bloomberg Businessweek
 editorial spread. The key number "28.5%" should dominate the
@@ -565,27 +565,27 @@ composition like a headline. Warm cream tones with sharp black
 typography. The data tells a story of dramatic channel shift.
 ```
 
-### 执行路径选择
+### Yürütme Yolu Seçimi
 
-根据速查表的「最佳路径」列选择：
-- **AI生成**：有明确视觉元素的风格（06/07/12/13/14/15/16/20），用 Gemini/Midjourney 直出
-- **HTML渲染**：依赖精确排版的风格（01/03/04/10/11/17/18），代码控制数据和布局
-- **混合**：HTML做骨架布局 + AI生成配图/背景（02/05/08/09/19）
+Hızlı referans tablosundaki "En İyi Yol" sütununa göre seçin:
+- **AI Üretimi**: Belirgin görsel öğelere sahip stiller (06/07/12/13/14/15/16/20), Gemini/Midjourney ile doğrudan çıktı
+- **HTML Render**: Hassas tipografiye bağlı stiller (01/03/04/10/11/17/18), kod veri ve düzeni kontrol eder
+- **Karma**: HTML iskelet düzen + AI üretilmiş görsel/arka plan (02/05/08/09/19)
 
-### 质量控制
+### Kalite Kontrolü
 
-1. ❌ 不要直接写 "in the style of Pentagram" → ✅ 用具体设计特征描述
-2. 文字在AI生成中常出错 → 生成后替换文字
-3. 比例易失真 → 明确指定 aspect ratio
-4. 先生成3-5个变体，选择最佳后细化
+1. ❌ Doğrudan "in the style of Pentagram" yazma → ✅ Spesifik tasarım özellikleriyle açıkla
+2. AI üretiminde yazı sık hata verir → Üretim sonrası yazıyı değiştir
+3. Oranlar kolay bozulur → Kesin aspect ratio belirt
+4. Önce 3-5 varyant üret, en iyisini seçip detaylandır
 
-**默认审美禁区**（用户可按自己品牌 override）：
-- ❌ 赛博霓虹/深蓝色底（#0D1117）
-- ❌ 封面图加个人署名/水印
+**Varsayılan Estetik Yasak Bölgesi** (kullanıcı kendi markasıyla geçersiz kılabilir):
+- ❌ Kiber neon/koyu mavi zemin (#0D1117)
+- ❌ Kapak görseline kişisel imza/watermark ekleme
 
 ---
 
-**版本**：v2.1
-**更新日期**：2026-02-13
-**适用场景**：网页/PPT/PDF/信息图/封面/配图/App等所有视觉设计
-**与 image-to-slides 联动**：PPT场景可直接引用本文件风格，通过 image-to-slides skill 执行生成
+**Sürüm**: v2.1
+**Güncelleme Tarihi**: 2026-02-13
+**Uygulama Sahnesi**: Web/PPT/PDF/infografik/kapak/görsel/App vb. tüm görsel tasarım
+**image-to-slides ile entegrasyon**: PPT sahnesinde bu dosyadaki stilleri doğrudan referans alabilir, image-to-slides skill'i üzerinden üretim yapılır

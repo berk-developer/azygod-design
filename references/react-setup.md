@@ -1,10 +1,10 @@
-# React + Babel 项目规范
+# React + Babel Proje Kuralları
 
-用HTML+React+Babel做原型时必须遵守的技术规范。不遵守会炸。
+HTML+React+Babel ile prototip yaparken uyulması gereken teknik kurallar. Uyulmazsa patlar.
 
-## Pinned Script Tags（必须用这些版本）
+## Sabitlenmiş Script Etiketleri (Bu Sürümler Kullanılmalı)
 
-在HTML的`<head>`里放这三个script tag，用**固定版本+integrity hash**：
+HTML `<head>`'ine bu üç script etiketini yerleştir, **sabit sürüm+integrity hash** ile:
 
 ```html
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
@@ -12,55 +12,55 @@
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 ```
 
-**不要**用`react@18`或`react@latest`这种unpinned版本——会出现版本漂移/缓存问题。
+**Kullanma** `react@18` veya `react@latest` gibi sabitlenmemiş sürümler — sürüm kayması/önbellek sorunları oluşur.
 
-**不要**省略`integrity`——CDN一旦被劫持或篡改，这是防线。
+**Atlama** `integrity` — CDN bir gün ele geçirilirse veya kurcalanırsa bu savunma hattıdır.
 
-## 文件结构
+## Dosya Yapısı
 
 ```
-项目名/
-├── index.html               # 主HTML
-├── components.jsx           # 组件文件（type="text/babel"加载）
-├── data.js                  # 数据文件
-└── styles.css               # 额外CSS（可选）
+ProjeAdı/
+├── index.html               # Ana HTML
+├── components.jsx           # Bileşen dosyası (type="text/babel" ile yüklenir)
+├── data.js                  # Veri dosyası
+└── styles.css               # Ek CSS (isteğe bağlı)
 ```
 
-HTML里加载方式：
+HTML'de yükleme şekli:
 
 ```html
-<!-- 先React+Babel -->
+<!-- Önce React+Babel -->
 <script src="https://unpkg.com/react@18.3.1/..."></script>
 <script src="https://unpkg.com/react-dom@18.3.1/..."></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/..."></script>
 
-<!-- 然后你的组件文件 -->
+<!-- Sonra bileşen dosyaların -->
 <script type="text/babel" src="components.jsx"></script>
 <script type="text/babel" src="pages.jsx"></script>
 
-<!-- 最后主入口 -->
+<!-- Son ana giriş -->
 <script type="text/babel">
   const root = ReactDOM.createRoot(document.getElementById('root'));
   root.render(<App />);
 </script>
 ```
 
-**不要**用`type="module"`——会和Babel冲突。
+**Kullanma** `type="module"` — Babel ile çakışır.
 
-## 三条不可违反的规矩
+## Üç Çiğneme Kuralı
 
-### 规矩1：styles 对象必须用唯一命名
+### Kural 1: styles Nesnesi Tekil Adlandırma Kullanmalı
 
-**错误**（多组件时必炸）：
+**Yanlış** (Çok bileşenli kesin patlar):
 ```jsx
 // components.jsx
 const styles = { button: {...}, card: {...} };
 
-// pages.jsx  ← 同名覆盖！
+// pages.jsx  ← Aynı isimle üstüne yazar!
 const styles = { container: {...}, header: {...} };
 ```
 
-**正确**：每个组件文件的styles用唯一前缀。
+**Doğru**: Her bileşen dosyasının styles'ı tekil önek kullanır.
 
 ```jsx
 // terminal.jsx
@@ -76,73 +76,73 @@ const sidebarStyles = {
 };
 ```
 
-**或者用inline styles**（小组件推荐）：
+**Veya inline styles kullan** (küçük bileşenler için öneri):
 ```jsx
 <div style={{ padding: 16, background: '#111' }}>...</div>
 ```
 
-这条是**非协商**的。每次写`const styles = {...}`都必须replace成specific命名，否则多组件加载时全栈报错。
+Bu kural **pazarlık kabul etmez**. Her `const styles = {...}` yazışında spesifik adlandırmaya değiştir, aksi halde çok bileşen yüklendiğinde tam yığın hata verir.
 
-### 规矩2：Scope 不共享，需手动export
+### Kural 2: Scope Paylaşılmaz, Manuel export Gerekir
 
-**关键认知**：每个`<script type="text/babel">`被Babel独立编译，它们之间**scope不通**。`components.jsx`里定义的`Terminal`组件，在`pages.jsx`里**默认是undefined**。
+**Kilit bilgi**: Her `<script type="text/babel">` Babel tarafından bağımsız derlenir, aralarında **scope iletişimi yok**. `components.jsx`'te tanımlanan `Terminal` bileşeni, `pages.jsx`'te **varsayılan olarak undefined**.
 
-**解决方式**：在每个组件文件末尾，把要共享的组件/工具export到`window`：
+**Çözüm**: Her bileşen dosyası sonunda, paylaşılacak bileşen/araçları `window`'a export et:
 
 ```jsx
-// components.jsx 末尾
+// components.jsx sonunda
 function Terminal(props) { ... }
 function Line(props) { ... }
 const colors = { green: '#...', red: '#...' };
 
 Object.assign(window, {
   Terminal, Line, colors,
-  // 所有你要在别处用的都列在这里
+  // Başka yerde kullanacaklarının hepsini burada listele
 });
 ```
 
-然后`pages.jsx`就能直接用`<Terminal />`，因为JSX会去`window.Terminal`找。
+Sonra `pages.jsx` `<Terminal />` doğrudan kullanabilir, çünkü JSX `window.Terminal`'de arar.
 
-### 规矩3：不要用 scrollIntoView
+### Kural 3: scrollIntoView Kullanma
 
-`scrollIntoView`会把整个HTML容器往上推，搞坏web harness的布局。**永远不要用**。
+`scrollIntoView` tüm HTML kapsayıcısını yukarı iter, web harness düzenini bozar. **Asla kullanma**.
 
-替代方案：
+Alternatif:
 ```js
-// 滚到容器内某个位置
+// Kapsayıcı içinde belirli konuma kaydır
 container.scrollTop = targetElement.offsetTop;
 
-// 或者用element.scrollTo
+// Veya element.scrollTo kullan
 container.scrollTo({
   top: targetElement.offsetTop - 100,
   behavior: 'smooth'
 });
 ```
 
-## 调 Claude API（HTML内）
+## HTML İçinde Claude API Çağrısı
 
-部分原生 design-agent 环境（如 Claude.ai Artifacts）有免配置的 `window.claude.complete`，但大部分 agent 环境（Claude Code / Codex / Cursor / Trae / etc.）本地里**没有**。
+Bazı yerel design-agent ortamları (örn. Claude.ai Artifacts) yapılandırmasız `window.claude.complete` sağlar, ama çoğu agent ortamı (Claude Code / Codex / Cursor / Trae / vb.) yerelinde **yoktur**.
 
-如果你的 HTML 原型需要调用 LLM 做 demo（比如做个聊天 interface），两个选项：
+HTML prototipin LLM çağrısı yapması gerekiyorsa (örn: bir sohbet arayüzü demosu), iki seçenek:
 
-### 选项A：不真调，用mock
+### Seçenek A: Gerçekten çağırma, mock kullan
 
-Demo场景推荐。写一个假helper，返回预设的response：
+Demo senaryosu önerilir. Sahte bir helper yaz, önceden ayarlanmış yanıt döndür:
 ```jsx
 window.claude = {
   async complete(prompt) {
-    await new Promise(r => setTimeout(r, 800)); // 模拟延迟
-    return "这是一个mock响应。真部署时请替换为真API。";
+    await new Promise(r => setTimeout(r, 800)); // Gecikme simülasyonu
+    return "Bu bir mock yanıttır. Gerçek dağıtımda gerçek API ile değiştirin.";
   }
 };
 ```
 
-### 选项B：真调Anthropic API
+### Seçenek B: Gerçek Anthropic API Çağrısı
 
-需要API key，用户必须在HTML里填入自己的key才能跑。**永远不要把key硬编码在HTML里**。
+API key gerektirir, kullanıcı kendi key'ini HTML'e girmek zorundadır. **Asla key'i HTML'e sabit kodlama**.
 
 ```html
-<input id="api-key" placeholder="粘贴你的Anthropic API key" />
+<input id="api-key" placeholder="Anthropic API key'inizi yapıştırın" />
 <script>
 window.claude = {
   async complete(prompt) {
@@ -167,25 +167,25 @@ window.claude = {
 </script>
 ```
 
-**注意**：浏览器直接调Anthropic API会遇到CORS问题。如果用户给你的预览环境不支持CORS bypass，这条路不通。这时候用选项A mock，或者告诉用户需要一个proxy后端。
+**Dikkat**: Tarayıcı doğrudan Anthropic API çağrısı yaparken CORS sorunuyla karşılaşır. Kullanıcının verdiği önizleme ortamı CORS bypass desteklemiyorsa, bu yol kapalıdır. Bu durumda Seçenek A mock kullan, veya kullanıcıya proxy arka ucu gerektiğini söyle.
 
-### 选项 C：用 agent 侧的 LLM 能力生成 mock 数据
+### Seçenek C: Agent tarafı LLM yeteneği ile mock veri oluşturma
 
-如果只是本地演示用，可以在当前 agent 会话里临时调用该 agent 的 LLM 能力（或用户装的 multi-model 类 skill）先生成 mock 响应数据，再硬编码写进 HTML。这样 HTML 运行时完全不依赖任何 API。
+Sadece yerel demo kullanımıysa, mevcut agent oturumunda geçici olarak agent'ın LLM yeteneğini (veya kullanıcının kurduğu multi-model skill) çağırarak mock yanıt verisi oluştur, sonra HTML'e sabit kod olarak yaz. Böylece HTML çalışma zamanında hiçbir API'ye bağımlı olmaz.
 
-## 典型 HTML 起手模板
+## Tipik HTML Başlangıç Şablonu
 
-拷贝这个模板作为React原型的骨架：
+Bu şablonu React prototipin iskeleti olarak kopyala:
 
 ```html
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="tr-TR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Prototype Name</title>
+  <title>Prototip Adın</title>
 
-  <!-- React + Babel pinned -->
+  <!-- React + Babel sabitlenmiş -->
   <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
@@ -204,10 +204,10 @@ window.claude = {
 <body>
   <div id="root"></div>
 
-  <!-- 你的组件文件 -->
+  <!-- Bileşen dosyaların -->
   <script type="text/babel" src="components.jsx"></script>
 
-  <!-- 主入口 -->
+  <!-- Ana giriş -->
   <script type="text/babel">
     const { useState, useEffect } = React;
 
@@ -226,43 +226,43 @@ window.claude = {
 </html>
 ```
 
-## 常见报错及解决
+## Sık Hatalar ve Çözümleri
 
-**`styles is not defined` 或 `Cannot read property 'button' of undefined`**
-→ 你在一个文件里定义了`const styles`，另一个文件覆盖了。给每个改成specific命名。
+**`styles is not defined` veya `Cannot read property 'button' of undefined`**
+→ Bir dosyada `const styles` tanımladın, başka bir dosya üstüne yazdı. Her birini spesifik adlandırmaya değiştir.
 
 **`Terminal is not defined`**
-→ 跨文件引用时scope不通。在定义Terminal的文件末尾加`Object.assign(window, {Terminal})`。
+→ Çapraz dosya referansında scope iletişimi yok. Terminal tanımlandığı dosyanın sonuna `Object.assign(window, {Terminal})` ekle.
 
-**整个页面白屏，控制台没错误**
-→ 多半是JSX语法错误但Babel没报在控制台。把`babel.min.js`临时换成`babel.js`非压缩版，错误信息更清晰。
+**Tüm sayfa beyaz, konsolda hata yok**
+→ Büyük olasılıkla JSX sözdizim hatası ama Babel konsola yansıtmadı. `babel.min.js`'i geçici olarak `babel.js` sıkıştırılmamış sürüme değiştir, hata mesajı daha net olur.
 
 **ReactDOM.createRoot is not a function**
-→ 版本不对。确认用了react-dom@18.3.1（而不是17或其他）。
+→ Sürüm yanlış. react-dom@18.3.1 kullandığından emin ol (17 veya diğeri değil).
 
 **`Objects are not valid as a React child`**
-→ 你渲染了一个对象而不是JSX/字符串。通常是`{someObj}`写成了`{someObj.name}`。
+→ Bir nesne yerine JSX/string render ettin. Genellikle `{someObj}` yazıp `{someObj.name}` yazman gerekiyordu.
 
-## 大项目怎么拆文件
+## Büyük Projeler Nasıl Dosyalara Bölünür
 
-**>1000行的单文件**难维护。分拆思路：
+**>1000 satırlık tek dosya** bakımı zordur. Bölme düşüncesi:
 
 ```
-项目/
+Proje/
 ├── index.html
 ├── src/
-│   ├── primitives.jsx      # 基础元素：Button、Card、Badge...
-│   ├── components.jsx      # 业务组件：UserCard、PostList...
+│   ├── primitives.jsx      # Temel öğeler: Button, Card, Badge...
+│   ├── components.jsx      # İş bileşenleri: UserCard, PostList...
 │   ├── pages/
-│   │   ├── home.jsx        # 首页
-│   │   ├── detail.jsx      # 详情页
-│   │   └── settings.jsx    # 设置页
-│   ├── router.jsx          # 简单路由（React state切换）
-│   └── app.jsx             # 入口组件
-└── data.js                 # mock data
+│   │   ├── home.jsx        # Ana sayfa
+│   │   ├── detail.jsx      # Detay sayfası
+│   │   └── settings.jsx    # Ayarlar sayfası
+│   ├── router.jsx          # Basit yönlendirme (React state geçişi)
+│   └── app.jsx             # Giriş bileşeni
+└── data.js                 # mock veri
 ```
 
-HTML里按顺序加载：
+HTML'de sırayla yükle:
 ```html
 <script type="text/babel" src="src/primitives.jsx"></script>
 <script type="text/babel" src="src/components.jsx"></script>
@@ -273,4 +273,4 @@ HTML里按顺序加载：
 <script type="text/babel" src="src/app.jsx"></script>
 ```
 
-**每个文件末尾**都要`Object.assign(window, {...})`导出要共享的东西。
+**Her dosya sonunda** paylaşılacakları `Object.assign(window, {...})` ile export et.

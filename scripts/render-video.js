@@ -204,9 +204,9 @@ console.log(`  output: ${MP4_OUT}`);
   ).then(() => true).catch(() => false);
 
   if (hasReady) {
-    // 第二道防线：主动把动画 time 归零——对付 HTML 不严格遵守 starter tick 模板
-    // 的情况（例如 lastTick 用 performance.now() 导致字体加载时间被算进首帧 dt）
-    // 详见 references/animation-pitfalls.md §12
+    // Ikinci savunma hatti: Animasyon zamanini sifirla — HTML starter tick sablonuna siki uymadiginda
+    // (ornegin lastTick performance.now() kullanirsa yazı tipi yukleme suresi ilk kare dt'sine eklenir)
+    // Detaylar icin references/animation-pitfalls.md §12
     const seekCorrected = await page.evaluate(() => {
       if (typeof window.__seek === 'function') {
         window.__seek(0);
@@ -215,7 +215,7 @@ console.log(`  output: ${MP4_OUT}`);
       return false;
     });
     if (seekCorrected) {
-      // 等两个 rAF 让 seek 生效并渲染出 t=0 的画面
+      // Iki rAF bekle, seek gecerli olsun ve t=0 goruntusu render edilsin
       await page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))));
     }
     animationStartSec = (Date.now() - T0) / 1000;

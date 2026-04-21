@@ -1,199 +1,199 @@
-# 设计评审深度指南
+# Tasarım İnceleme Derinlemesine Kılavuz
 
-> Phase 7 的详细参考。提供评分标准、场景侧重点、常见问题清单。
-
----
-
-## 评分标准详解
-
-### 1. 哲学一致性（Philosophy Alignment）
-
-| 分数 | 标准 |
-|------|------|
-| 9-10 | 设计完美体现了选定哲学的核心精神，每个细节都有哲学依据 |
-| 7-8 | 整体方向正确，核心特征到位，个别细节偏离 |
-| 5-6 | 能看出意图，但执行时混入了其他风格元素，不够纯粹 |
-| 3-4 | 仅在表面模仿，未理解哲学内核 |
-| 1-2 | 与选定哲学基本无关 |
-
-**评审要点**：
-- 是否使用了该设计师/机构的标志性手法？
-- 色彩、字体、布局是否符合该哲学体系？
-- 有没有「自相矛盾」的元素？（如选了Kenya Hara却塞满内容）
-
-### 2. 视觉层级（Visual Hierarchy）
-
-| 分数 | 标准 |
-|------|------|
-| 9-10 | 用户视线自然沿设计者意图流动，信息获取零摩擦 |
-| 7-8 | 主次关系清晰，偶有1-2处层级模糊 |
-| 5-6 | 能分出标题和正文，但中间层级混乱 |
-| 3-4 | 信息平铺，没有明确的视觉入口 |
-| 1-2 | 混乱，用户不知道先看哪里 |
-
-**评审要点**：
-- 标题与正文的字号对比是否足够？（至少2.5倍）
-- 颜色/粗细/大小是否建立了3-4个清晰层级？
-- 留白是否在引导视线？
-- 「眯眼测试」：眯起眼看，层级是否仍然清晰？
-
-### 3. 细节执行（Craft Quality）
-
-| 分数 | 标准 |
-|------|------|
-| 9-10 | 像素级精确，对齐、间距、颜色无任何瑕疵 |
-| 7-8 | 整体精致，有1-2处微小对齐/间距问题 |
-| 5-6 | 基本对齐，但间距不统一，颜色使用不够系统 |
-| 3-4 | 明显的对齐错误、间距混乱、颜色过多 |
-| 1-2 | 粗糙，看起来像草稿 |
-
-**评审要点**：
-- 是否使用了统一的间距系统（如8pt网格）？
-- 同类元素的间距是否一致？
-- 颜色数量是否受控？（通常不超过3-4种）
-- 字体家族是否统一？（通常不超过2种）
-- 边缘对齐是否精确？
-
-### 4. 功能性（Functionality）
-
-| 分数 | 标准 |
-|------|------|
-| 9-10 | 每个设计元素都服务于目标，零冗余 |
-| 7-8 | 功能导向明确，有少量可删减的装饰 |
-| 5-6 | 基本可用，但有明显的装饰性元素分散注意力 |
-| 3-4 | 形式大于功能，用户需要努力寻找信息 |
-| 1-2 | 完全被装饰淹没，失去了传达信息的能力 |
-
-**评审要点**：
-- 删掉任何一个元素，设计会变差吗？（如果不会，就应该删）
-- CTA/关键信息是否在最显眼的位置？
-- 是否有「因为好看所以加上去」的元素？
-- 信息密度与载体是否匹配？（PPT不宜太密，PDF可以更密）
-
-### 5. 创新性（Originality）
-
-| 分数 | 标准 |
-|------|------|
-| 9-10 | 令人耳目一新，在该哲学框架内找到了独特表达 |
-| 7-8 | 有自己的想法，不是简单的模板套用 |
-| 5-6 | 中规中矩，看起来像模板 |
-| 3-4 | 大量使用了cliché（如渐变圆球代表AI） |
-| 1-2 | 完全是模板或素材拼凑 |
-
-**评审要点**：
-- 是否避免了常见cliché？（见下方「常见问题清单」）
-- 在遵循设计哲学的同时是否有个人表达？
-- 是否有「意想不到但很合理」的设计决策？
+> Aşama 7'nin ayrıntılı referansı. Puanlama standartları, senaryo odak noktaları, sık sorun listesi sağlar.
 
 ---
 
-## 场景评审侧重
+## Puanlama Standardı Ayrıntıları
 
-不同输出类型的评审重点不同：
+### 1. Felsefe Tutarlılığı (Philosophy Alignment)
 
-| 场景 | 最重要维度 | 次重要 | 可放宽 |
+| Puan | Standart |
+|------|------|
+| 9-10 | Tasarım seçilen felsefenin çekirdek ruhunu mükemmel yansıtır, her detayın felsefi gerekçesi vardır |
+| 7-8 | Genel yön doğru, çekirdek özellikler yerindedir, bazı detaylar sapma |
+| 5-6 | Niyet görülebilir, ama uygulamada diğer stil öğeleri karışmış, yeterince saf değil |
+| 3-4 | Yalnızca yüzeysel taklit, felsefe çekirdeği anlaşılmamış |
+| 1-2 | Seçilen felsefe ile temelde ilgisiz |
+
+**İnceleme odak noktaları**:
+- Seçilen tasarımcı/kurumun imza teknikleri kullanılmış mı?
+- Renk, yazı tipi, yerleşim bu felsefe sistemine uygun mu?
+- "Kendiyle çelişen" öğeler var mı? (örn: Kenya Hara seçildi ama içerik tıka basa)
+
+### 2. Görsel Hiyerarşi (Visual Hierarchy)
+
+| Puan | Standart |
+|------|------|
+| 9-10 | Kullanıcı bakışı doğal olarak tasarımcının niyeti doğrultusunda akar, bilgi alımı sıfır sürtünme |
+| 7-8 | Ana-ara ilişki net, ara sıra 1-2 yerde hiyerarşi bulanık |
+| 5-6 | Başlık ve gövde ayırt edilebilir, ama ara katmanlar karışık |
+| 3-4 | Bilgi düz yayılım, belirgin görsel giriş yok |
+| 1-2 | Karmaşa, kullanıcı önce neye bakacağını bilmiyor |
+
+**İnceleme odak noktaları**:
+- Başlık ve gövde arasındaki yazı boyutu farkı yeterli mi? (en az 2.5 kat)
+- Renk/kalınlık/boyut 3-4 net katman oluşturuyor mu?
+- Boşluk bakışı yönlendiriyor mu?
+- "Göz kısma testi": Gözlerini kıs, hiyerarşi hâlâ net mi?
+
+### 3. Detay İcraatı (Craft Quality)
+
+| Puan | Standart |
+|------|------|
+| 9-10 | Piksel seviyesinde hassas, hizalama, aralık, renk hiçbir kusur yok |
+| 7-8 | Genel olarak incelikli, 1-2 yerde küçük hizalama/aralık sorunu |
+| 5-6 | Temel hizalama, ama aralıklar tutarsız, renk kullanımı yeterince sistematik değil |
+| 3-4 | Belirgin hizalama hataları, aralık karışıklığı, fazla renk |
+| 1-2 | Kaba, taslak gibi görünüyor |
+
+**İnceleme odak noktaları**:
+- Birleşik aralık sistemi kullanılıyor mu? (örn. 8pt ızgarası)
+- Aynı tür öğelerin aralıkları tutarlı mı?
+- Renk sayısı kontrol altında mı? (genellikle 3-4'ten fazla değil)
+- Yazı tipi ailesi birleşik mi? (genellikle 2'den fazla değil)
+- Kenar hizalaması hassas mı?
+
+### 4. İşlevsellik (Functionality)
+
+| Puan | Standart |
+|------|------|
+| 9-10 | Her tasarım öğesi hedefe hizmet eder, sıfır fazlalık |
+| 7-8 | Fonksiyon odaklı net, az miktarda silinebilir dekor |
+| 5-6 | Temel kullanılabilir, ama belirgin dekoratif öğeler dikkati dağıtır |
+| 3-4 | Form fonksiyondan büyük, kullanıcı bilgiyi bulmak için çaba sarf eder |
+| 1-2 | Tamamen dekorasyon tarafından boğulmuş, bilgi iletme yeteneğini kaybetmiş |
+
+**İnceleme odak noktaları**:
+- Herhangi bir öğeyi sil, tasarım bozulur mu? (bozulmuyorsa silinmeli)
+- CTA/kilit bilgi en belirgin konumda mı?
+- "Güzel göründüğü için eklendi" öğeler var mı?
+- Bilgi yoğunluğu taşıyıcıyla eşleşiyor mu? (PPT çok yoğun olmamalı, PDF daha yoğun olabilir)
+
+### 5. Yenilikçilik (Originality)
+
+| Puan | Standart |
+|------|------|
+| 9-10 | Gözleri aydınlatır, bu felseve çerçevesi içinde benzersiz bir ifade bulur |
+| 7-8 | Kendi fikirleri var, basit şablon kopyalama değil |
+| 5-6 | Vasat, şablon gibi görünüyor |
+| 3-4 | Bol miktarda cliché kullanmış (örn: degrade küre AI'yı temsil eder)
+| 1-2 | Tamamen şablon veya malzeme birleştirme |
+
+**İnceleme odak noktaları**:
+- Yaygın cliché'lerden kaçınıldı mı? (aşağıdaki "Sık Sorun Listesi"ne bak)
+- Tasarım felsefesine uyarken kişisel ifade var mı?
+- "Beklenmedik ama mantıklı" tasarım kararları var mı?
+
+---
+
+## Senaryo İnceleme Odakları
+
+Farklı çıktı türlerinin inceleme odak noktaları farklıdır:
+
+| Senaryo | En Önemli Boyut | İkinci Önemli | Gevşetilebilir |
 |------|-----------|--------|--------|
-| 公众号封面/配图 | 创新性、视觉层级 | 哲学一致性 | 功能性（单图不涉及交互） |
-| 信息图 | 功能性、视觉层级 | 细节执行 | 创新性（准确优先） |
-| PPT/Keynote | 视觉层级、功能性 | 细节执行 | 创新性（清晰优先） |
-| PDF/白皮书 | 细节执行、功能性 | 视觉层级 | 创新性（专业优先） |
-| 落地页/官网 | 功能性、视觉层级 | 创新性 | —（全面要求） |
-| App UI | 功能性、细节执行 | 视觉层级 | 哲学一致性（可用性优先） |
-| 小红书配图 | 创新性、视觉层级 | 哲学一致性 | 细节执行（氛围优先） |
+| WeChat kapak/resim | Yenilikçilik, Görsel Hiyerarşi | Felsefe Tutarlılığı | İşlevsellik (tek resim etkileşim içermez) |
+| İnfografik | İşlevsellik, Görsel Hiyerarşi | Detay İcraatı | Yenilikçilik (doğruluk öncelikli) |
+| PPT/Keynote | Görsel Hiyerarşi, İşlevsellik | Detay İcraatı | Yenilikçilik (netlik öncelikli) |
+| PDF/Beyaz Kitap | Detay İcraatı, İşlevsellik | Görsel Hiyerarşi | Yenilikçilik (profesyonellik öncelikli) |
+| Landing page/Web sitesi | İşlevsellik, Görsel Hiyerarşi | Yenilikçilik | — (kapsamlı talep) |
+| App UI | İşlevsellik, Detay İcraatı | Görsel Hiyerarşi | Felsefe Tutarlılığı (kullanılabilirlik öncelikli) |
+| Xiaohongshu resmi | Yenilikçilik, Görsel Hiyerarşi | Felsefe Tutarlılığı | Detay İcraatı (atmosfer öncelikli) |
 
 ---
 
-## 常见设计问题 Top 10
+## Sık Tasarım Sorunları Top 10
 
-### 1. AI科技cliché
-**问题**：渐变圆球、数字雨、蓝色电路板、机器人脸
-**为什么是问题**：用户已经对这些视觉疲劳，无法区分你和其他人
-**修复**：用抽象隐喻替代直白符号（如用「对话」的隐喻而非聊天气泡图标）
+### 1. AI teknoloji cliché'si
+**Sorun**: Degrade küre, dijital yağmur, mavi devre kartı, robot yüzü
+**Neden sorun**: Kullanıcı bu görsellerden yoruldu, seni diğerlerinden ayıramıyor
+**Düzeltme**: Soyut metaforla doğrudan sembolün yerini al (örn: sohbet balonu ikonu yerine "diyalog" metaforu)
 
-### 2. 字号层级不足
-**问题**：标题和正文差距太小（<2.5倍）
-**为什么是问题**：用户无法快速定位关键信息
-**修复**：标题至少为正文的3倍（如正文16px → 标题48-64px）
+### 2. Yazı boyutu hiyerarşisi yetersizliği
+**Sorun**: Başlık ve gövde arası fark çok az (<2.5 kat)
+**Neden sorun**: Kullanıcı kilit bilgiyi hızlı konumlandıramaz
+**Düzeltme**: Başlık en az gövdenin 3 katı (örn: gövde 16px → başlık 48-64px)
 
-### 3. 颜色过多
-**问题**：使用5种以上颜色，没有主次
-**为什么是问题**：视觉混乱，品牌感弱
-**修复**：限制为1个主色+1个辅色+1个强调色+灰阶
+### 3. Fazla renk
+**Sorun**: 5'ten fazla renk kullanımı, ana-ara yok
+**Neden sorun**: Görsel karmaşa, marka hissi zayıf
+**Düzeltme**: 1 ana renk + 1 ara renk + 1 accent renk + tonlamalar ile sınırla
 
-### 4. 间距不统一
-**问题**：元素间距随意，没有系统
-**为什么是问题**：看起来不专业，视觉节奏混乱
-**修复**：建立8pt网格系统（间距只用8/16/24/32/48/64px）
+### 4. Aralıklar tutarsız
+**Sorun**: Öğe aralıkları rastgele, sistem yok
+**Neden sorun**: Profesyonel görünmez, görsel ritim karışık
+**Düzeltme**: 8pt ızgara sistemi kur (aralık yalnızca 8/16/24/32/48/64px)
 
-### 5. 留白不足
-**问题**：所有空间都被内容填满
-**为什么是问题**：信息拥挤导致阅读疲劳，反而降低信息传达效率
-**修复**：留白至少占总面积40%（极简风格60%+）
+### 5. Boşluk yetersizliği
+**Sorun**: Tüm alan içerikle doldurulmuş
+**Neden sorun**: Bilgi kalabalığı okuma yorgunluğuna yol açar, bilgi iletme verimini düşürür
+**Düzeltme**: Boşluk en az toplam alanın %40'ı (minimal stil %60+)
 
-### 6. 字体过多
-**问题**：使用3种以上字体
-**为什么是问题**：视觉噪音，削弱统一感
-**修复**：最多2种字体（1种标题+1种正文），用字重和大小创造变化
+### 6. Fazla yazı tipi
+**Sorun**: 3'ten fazla yazı tipi kullanımı
+**Neden sorun**: Görsel gürültü, birleşik his zayıflatır
+**Düzeltme**: En fazla 2 yazı tipi (1 başlık + 1 gövde), kalınlık ve boyutla değişiklik yarat
 
-### 7. 对齐不一致
-**问题**：有的左对齐，有的居中，有的右对齐
-**为什么是问题**：破坏视觉秩序感
-**修复**：选定一种对齐方式（推荐左对齐），全局统一
+### 7. Hizalama tutarsızlığı
+**Sorun**: Bazısı sola hizalı, bazısı ortalı, bazısı sağa hizalı
+**Neden sorun**: Görsel düzen duygusunu bozar
+**Düzeltme**: Bir hizalama yöntemi seç (sola hizalı önerilir), global olarak birleşik
 
-### 8. 装饰大于内容
-**问题**：背景图案/渐变/阴影抢了主要内容的风头
-**为什么是问题**：本末倒置，用户来看信息不是看装饰
-**修复**：「如果删掉这个装饰，设计会变差吗？」如果不会，就删
+### 8. Dekorasyon içerikten büyük
+**Sorun**: Arka plan deseni/gradyanı/gölgesi ana içeriğin önüne geçti
+**Neden sorun**: Öncelikleri karıştırmak, kullanıcı bilgi için geliyor dekorasyon için değil
+**Düzeltme**: "Bu dekorasyonu silersen tasarım bozulur mu?" Bozulmazsa sil
 
-### 9. 赛博霓虹滥用
-**问题**：深蓝底(#0D1117) + 霓虹色发光效果
-**为什么是问题**：默认审美禁区（本 skill 的品位基线），且已成为最大 cliché 之一——用户可按自己品牌 override
-**修复**：选择更有辨识度的配色方案（参考20种风格的色彩系统）
+### 9. Siber neon kötüye kullanım
+**Sorun**: Koyu mavi zemin (#0D1117) + neon renkli parıltı efekti
+**Neden sorun**: Varsayılan estetik yasak alanı (bu skill'ın zevk temeli), ve en büyük cliché'lerden biri haline geldi — kullanıcı kendi markasına göre override edebilir
+**Düzeltme**: Daha tanınabilir renk şeması seç (20 stilin renk sistemine bak)
 
-### 10. 信息密度与载体不匹配
-**问题**：PPT里放了一整页文字 / 封面图里塞了10个元素
-**为什么是问题**：不同载体的最佳信息密度不同
-**修复**：
-- PPT：每页1个核心观点
-- 封面图：1个视觉焦点
-- 信息图：分层展示
-- PDF：可以更密，但需要清晰的导航
+### 10. Bilgi yoğunluğu taşıyıcıyla eşleşmiyor
+**Sorun**: PPT'de tam sayfa metin / kapak resminde 10 öğe sıkıştırma
+**Neden sorun**: Farklı taşıyıcıların optimum bilgi yoğunluğu farklı
+**Düzeltme**:
+- PPT: Her sayfa 1 çekirdek görüş
+- Kapak resmi: 1 görsel odak noktası
+- İnfografik: Katmanlı sunum
+- PDF: Daha yoğun olabilir, ama net navigasyon gerekir
 
 ---
 
-## 评审输出模板
+## İnceleme Çıktı Şablonu
 
 ```
-## 设计评审报告
+## Tasarım İnceleme Raporu
 
-**总体评分**：X.X/10 [优秀(8+)/良好(6-7.9)/需改进(4-5.9)/不合格(<4)]
+**Genel Puan**: X.X/10 [Mükemmel(8+)/İyi(6-7.9)/İyileştirme Gerekli(4-5.9)/Başarısız(<4)]
 
-**分项评分**：
-- 哲学一致性：X/10 [一句话说明]
-- 视觉层级：X/10 [一句话说明]
-- 细节执行：X/10 [一句话说明]
-- 功能性：X/10 [一句话说明]
-- 创新性：X/10 [一句话说明]
+**Kategori Puanları**:
+- Felsefe Tutarlılığı: X/10 [Tek cümle açıklama]
+- Görsel Hiyerarşi: X/10 [Tek cümle açıklama]
+- Detay İcraatı: X/10 [Tek cümle açıklama]
+- İşlevsellik: X/10 [Tek cümle açıklama]
+- Yenilikçilik: X/10 [Tek cümle açıklama]
 
-### 优点（Keep）
-- [具体指出做得好的地方，用设计语言描述]
+### Artılar (Keep)
+- [Tasarım dilinde iyi yapılan yerleri belirt]
 
-### 问题（Fix）
-[按严重程度排序]
+### Sorunlar (Fix)
+[Şiddete göre sırala]
 
-**1. [问题名称]** — ⚠️致命 / ⚡重要 / 💡优化
-- 当前：[描述现状]
-- 问题：[为什么这是问题]
-- 修复：[具体操作，含数值]
+**1. [Sorun Adı]** — ⚠️Kritik / ⚡Önemli / 💡Optimizasyon
+- Mevcut: [Mevcut durum açıklaması]
+- Sorun: [Neden bu sorun]
+- Düzeltme: [Somut işlem, sayısal değer içerir]
 
-### 快速修复清单（Quick Wins）
-如果只有5分钟，优先做这3件事：
-- [ ] [最有影响力的修复]
-- [ ] [第二重要的修复]
-- [ ] [第三重要的修复]
+### Hızlı Kazanım Listesi (Quick Wins)
+Sadece 5 dakikan varsa, bu 3 şeyi önceliklendir:
+- [ ] [En etkili düzeltme]
+- [ ] [İkinci önemli düzeltme]
+- [ ] [Üçüncü önemli düzeltme]
 ```
 
 ---
 
-**版本**：v1.0
-**更新日期**：2026-02-13
+**Sürüm**: v1.0
+**Güncelleme tarihi**: 2026-02-13

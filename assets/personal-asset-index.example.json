@@ -1,25 +1,25 @@
 {
   "_meta": {
-    "description": "个人素材索引模板 — 复制此文件并填入你的真实数据",
-    "how_to_use": "1. 复制此文件到 ~/.claude/memory/personal-asset-index.json  2. 填入你的真实信息  3. design-philosophy skill 会自动读取",
-    "note": "真实数据文件不要放在 skill 目录内，避免随 skill 分发泄露隐私"
+    "description": "Kişisel varlık indeksi şablonu — Bu dosyayı kopyala ve gerçek verilerini gir",
+    "how_to_use": "1. Bu dosyayı ~/.claude/memory/personal-asset-index.json'a kopyala  2. Gerçek bilgilerini gir  3. design-philosophy skill otomatik olarak okuyacak",
+    "note": "Gerçek veri dosyalarını skill dizinine koyma, skill dağıtımıyla gizlilik sızdırmasını önle"
   },
 
   "identity": {
-    "real_name": "你的真名",
-    "pen_names": ["笔名1", "笔名2"],
+    "real_name": "Gerçek adın",
+    "pen_names": ["Takma ad 1", "Takma ad 2"],
     "english_name": "English Name",
-    "title": "你的头衔/一句话介绍",
-    "bio_short": "50-100字简介",
-    "bio_long": "200-300字详细介绍",
-    "avatar_url": "头像URL",
-    "source": "数据来源备注"
+    "title": "Unvanın/Bir cümlelik tanıtım",
+    "bio_short": "50-100 kelimelik tanıtım",
+    "bio_long": "200-300 kelimelik detaylı tanıtım",
+    "avatar_url": "Avatar URL",
+    "source": "Veri kaynağı notu"
   },
 
   "contact": {
     "email": "your@email.com",
-    "wechat_personal": "微信号",
-    "source": "数据来源备注"
+    "wechat_personal": "WeChat ID",
+    "source": "Veri kaynağı notu"
   },
 
   "social_media": {
@@ -29,33 +29,33 @@
     },
     "youtube": {
       "url": "https://www.youtube.com/@YourChannel",
-      "channel_name": "频道名"
+      "channel_name": "Kanal adı"
     },
-    "source": "数据来源备注"
+    "source": "Veri kaynağı notu"
   },
 
   "websites": {
     "main_site": {
       "url": "https://yoursite.com",
-      "description": "网站描述",
+      "description": "Web sitesi açıklaması",
       "local_path": "/path/to/local/project/"
     }
   },
 
   "products": {
     "product_1": {
-      "name": "产品名",
-      "type": "iOS App / Web App / CLI Tool / 电子书",
-      "achievement": "主要成就",
+      "name": "Ürün adı",
+      "type": "iOS App / Web App / CLI Tool / E-kitap",
+      "achievement": "Ana başarı",
       "icon_path": "/path/to/icon.png",
       "project_path": "/path/to/project/"
     }
   },
 
   "stats": {
-    "social_followers": "粉丝数",
-    "product_users": "用户数",
-    "source": "数据来源备注"
+    "social_followers": "Takipçi sayısı",
+    "product_users": "Kullanıcı sayısı",
+    "source": "Veri kaynağı notu"
   },
 
   "design_assets": {

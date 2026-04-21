@@ -1,41 +1,41 @@
 #!/usr/bin/env bash
-# Mix a BGM track into an MP4 video.
+# BGM parçasını MP4 videosuna karıştır.
 #
-# Usage:
-#   bash add-music.sh <input.mp4> [--mood=<name>] [--music=<path>] [--out=<path>]
+# Kullanım:
+#   bash add-music.sh <input.mp4> [--mood=<ad>] [--music=<yol>] [--out=<yol>]
 #
-# Mood library (in ../assets/, matching bgm-<mood>.mp3):
-#   tech              — Apple Silicon / product keynote vibe, minimal synth+piano (default)
-#   ad                — upbeat modern, clear build + drop, social-media ad energy
-#   educational       — warm, patient, inviting learning tone
-#   educational-alt   — alternate take of educational
-#   tutorial          — lo-fi background, stays out of voiceover's way
-#   tutorial-alt      — alternate take of tutorial
+# Mood kütüphanesi (../assets/ içinde, bgm-<mood>.mp3 ile eşleşir):
+#   tech              — Apple Silicon / ürün lansmanı havası, minimal synth+piano (varsayılan)
+#   ad                — canlı modern, net yükseliş + drop, sosyal medya reklam enerjisi
+#   educational       — sıcak, sabırlı, davetkar öğrenme tonu
+#   educational-alt   — educational'ın alternatif versiyonu
+#   tutorial          — lo-fi arka plan, voiceover'ın önüne geçmez
+#   tutorial-alt      — tutorial'ın alternatif versiyonu
 #
-# Flags (all optional):
-#   --mood=<name>     pick a preset from the library (default: tech)
-#   --music=<path>    override with your own audio file (wins over --mood)
-#   --out=<path>      output path (default: <input-basename>-bgm.mp4)
+# Bayraklar (tümü isteğe bağlı):
+#   --mood=<ad>     kütüphaneden bir preset seç (varsayılan: tech)
+#   --music=<yol>   kendi ses dosyanla geçersiz kıl (--mood'u ezer)
+#   --out=<yol>     çıktı yolu (varsayılan: <input-basename>-bgm.mp4)
 #
-# Legacy positional form still works: bash add-music.sh in.mp4 music.mp3 out.mp4
+# Eski konumsal form hâlâ çalışır: bash add-music.sh in.mp4 music.mp3 out.mp4
 #
-# Behavior:
-#   - Music is trimmed to match video duration
-#   - 0.3s fade in, 1.0s fade out (avoids hard cuts)
-#   - Video stream copied (no re-encode), audio AAC 192k
+# Davranış:
+#   - Müzik video süresine göre kısaltılır
+#   - 0.3s fade in, 1.0s fade out (sert kesmeleri önler)
+#   - Video akışı kopyalanır (yeniden kodlama yok), ses AAC 192k
 #
-# Examples:
-#   bash add-music.sh my.mp4                              # default: tech mood
-#   bash add-music.sh my.mp4 --mood=ad                    # switch mood
+# Örnekler:
+#   bash add-music.sh my.mp4                              # varsayılan: tech mood
+#   bash add-music.sh my.mp4 --mood=ad                    # mood değiştir
 #   bash add-music.sh my.mp4 --mood=educational --out=final.mp4
-#   bash add-music.sh my.mp4 --music=~/Downloads/song.mp3 # bring your own
+#   bash add-music.sh my.mp4 --music=~/Downloads/song.mp3 # kendi müziğinle getir
 #
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ASSETS_DIR="$SCRIPT_DIR/../assets"
 
-# ── Parse args ───────────────────────────────────────────────────────
+# ── Argümanları ayrıştır ───────────────────────────────────────────────────────
 INPUT=""
 MOOD="tech"
 CUSTOM_MUSIC=""
@@ -51,50 +51,50 @@ for arg in "$@"; do
   esac
 done
 
-# Legacy positional: <input> [music] [output]
+# Eski konumsal: <input> [music] [output]
 INPUT="${POSITIONAL[0]}"
 [ -z "$CUSTOM_MUSIC" ] && [ -n "${POSITIONAL[1]}" ] && CUSTOM_MUSIC="${POSITIONAL[1]}"
 [ -z "$OUTPUT" ]       && [ -n "${POSITIONAL[2]}" ] && OUTPUT="${POSITIONAL[2]}"
 
 if [ -z "$INPUT" ] || [ ! -f "$INPUT" ]; then
-  echo "Usage: bash add-music.sh <input.mp4> [--mood=<name>] [--music=<path>] [--out=<path>]" >&2
-  echo "Moods available: $(ls "$ASSETS_DIR" | grep -E '^bgm-.*\.mp3$' | sed 's/^bgm-//;s/\.mp3$//' | tr '\n' ' ')" >&2
+  echo "Kullanım: bash add-music.sh <input.mp4> [--mood=<ad>] [--music=<yol>] [--out=<yol>]" >&2
+  echo "Mevcut mood'lar: $(ls "$ASSETS_DIR" | grep -E '^bgm-.*\.mp3$' | sed 's/^bgm-//;s/\.mp3$//' | tr '\n' ' ')" >&2
   exit 1
 fi
 
-# ── Resolve music source: --music wins, else --mood ─────────────────
+# ── Müzik kaynağını çözümle: --music kazanır, yoksa --mood ────────────────────
 if [ -n "$CUSTOM_MUSIC" ]; then
   MUSIC="$CUSTOM_MUSIC"
-  SOURCE_LABEL="custom: $MUSIC"
+  SOURCE_LABEL="özel: $MUSIC"
 else
   MUSIC="$ASSETS_DIR/bgm-${MOOD}.mp3"
   SOURCE_LABEL="mood: $MOOD"
 fi
 
 if [ ! -f "$MUSIC" ]; then
-  echo "✗ Music not found: $MUSIC" >&2
-  echo "  Available moods: $(ls "$ASSETS_DIR" | grep -E '^bgm-.*\.mp3$' | sed 's/^bgm-//;s/\.mp3$//' | tr '\n' ' ')" >&2
+  echo "✗ Müzik bulunamadı: $MUSIC" >&2
+  echo "  Mevcut mood'lar: $(ls "$ASSETS_DIR" | grep -E '^bgm-.*\.mp3$' | sed 's/^bgm-//;s/\.mp3$//' | tr '\n' ' ')" >&2
   exit 1
 fi
 
-# ── Resolve output path ─────────────────────────────────────────────
+# ── Çıktı yolunu çözümle ──────────────────────────────────────────────────────
 INPUT_DIR="$(cd "$(dirname "$INPUT")" && pwd)"
 INPUT_NAME="$(basename "$INPUT" .mp4)"
 [ -z "$OUTPUT" ] && OUTPUT="$INPUT_DIR/$INPUT_NAME-bgm.mp4"
 
-# ── Measure video duration, compute fade-out start ──────────────────
+# ── Video süresini ölç, fade-out başlangıcını hesapla ─────────────────────────
 DURATION=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$INPUT")
 if [ -z "$DURATION" ]; then
-  echo "✗ Could not read video duration" >&2
+  echo "✗ Video süresi okunamadı" >&2
   exit 1
 fi
 FADE_OUT_START=$(awk "BEGIN { d = $DURATION - 1; if (d < 0) d = 0; print d }")
 
-echo "▸ Mixing BGM into video"
-echo "  input:    $INPUT"
-echo "  music:    $SOURCE_LABEL"
-echo "  duration: ${DURATION}s"
-echo "  output:   $OUTPUT"
+echo "▸ BGM video ile karıştırılıyor"
+echo "  giriş:    $INPUT"
+echo "  müzik:    $SOURCE_LABEL"
+echo "  süre:     ${DURATION}s"
+echo "  çıktı:    $OUTPUT"
 
 ffmpeg -y -loglevel error \
   -i "$INPUT" \
@@ -105,4 +105,4 @@ ffmpeg -y -loglevel error \
   "$OUTPUT"
 
 SIZE=$(du -h "$OUTPUT" | cut -f1)
-echo "✓ Done: $OUTPUT ($SIZE)"
+echo "✓ Tamamlandı: $OUTPUT ($SIZE)"

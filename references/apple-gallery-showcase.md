@@ -1,40 +1,40 @@
-# Apple Gallery Showcase · 画廊展示墙动画风格
+# Apple Gallery Showcase · Galeri Vitrin Duvarı Animasyon Stili
 
-> 灵感来源：Claude Design 官网 hero 视频 + 苹果产品页「作品墙」式陈列
-> 实战出处：huashu-design 发布 hero v5
-> 适用场景：**产品发布 hero 动画、skill 能力演示、作品集展示**——任何需要把「多件高质量产出」同时展陈并引导观众注意力的场景
-
----
-
-## 触发判断：什么时候用这个风格
-
-**适合**：
-- 有10张以上真实产出要同屏展示（PPT、App、网页、信息图）
-- 观众是专业受众（开发者、设计师、产品经理），对「质感」敏感
-- 希望传递的气质是「克制、展览式、高级、有空间感」
-- 需要焦点和全局同时存在（看细节但不失整体）
-
-**不适合**：
-- 单产品聚焦（用 frontend-design 的产品 hero 模板）
-- 情绪向/故事性强的动画（用时间轴叙事模板）
-- 小屏幕 / 竖屏（倾斜视角在小画面上会糊）
+> İlham kaynağı: Claude Design web sitesi hero videosu + Apple ürün sayfası "eser duvarı" tarzı sergileme
+> Gerçek uygulama: azygod-design hero v5 yayını
+> Uygun senaryolar: **Ürün lansmanı hero animasyonu, skill yetenek demosu, portfolyo vitrini** — "birden fazla yüksek kaliteli ürünü" aynı ekranda sergilemek ve izleyici dikkatini yönlendirmek gerektiğinde
 
 ---
 
-## 核心视觉 Token
+## Tetikleme Kararı: Bu stili ne zaman kullan
+
+**Uygun**:
+- 10'dan fazla gerçek ürün aynı ekranda gösterilecek (PPT, App, Web, İnfografik)
+- İzleyici profesyonel kitle (geliştirici, tasarımcı, ürün yöneticisi), "kaliteye" duyarlı
+- İletilmek istenen hava "öz gücü, sergi tarzı, premium, mekansal his"
+- Odak ve genel görünüm aynı anda var olmalı (detay gör ama bütünü kaybetme)
+
+**Uygun değil**:
+- Tek ürün odaklı (frontend-design ürün hero şablonunu kullan)
+- Duygusal/hikaye odaklı animasyon (zaman çizelgesi anlatı şablonunu kullan)
+- Küçük ekran / dikey ekran (eğimli perspektif küçük ekranda bulanıklaşır)
+
+---
+
+## Çekirdek Görsel Token
 
 ```css
 :root {
-  /* 浅色画廊调板 */
-  --bg:         #F5F5F7;   /* 主画布底 — 苹果官网灰 */
-  --bg-warm:    #FAF9F5;   /* 温暖米白变体 */
-  --ink:        #1D1D1F;   /* 主字色 */
+  /* Açık galeri paleti */
+  --bg:         #F5F5F7;   /* Ana tuval — Apple web sitesi gri */
+  --bg-warm:    #FAF9F5;   /* Sıcak krem beyaz varyant */
+  --ink:        #1D1D1F;   /* Ana yazı rengi */
   --ink-80:     #3A3A3D;
   --ink-60:     #545458;
-  --muted:      #86868B;   /* 次级文字 */
+  --muted:      #86868B;   /* İkincil yazı */
   --dim:        #C7C7CC;
-  --hairline:   #E5E5EA;   /* 卡片1px边框 */
-  --accent:     #D97757;   /* 赤陶橙 — Claude brand */
+  --hairline:   #E5E5EA;   /* Kart 1px kenarlık */
+  --accent:     #D97757;   /* Kiremit turuncu — Claude markası */
   --accent-deep:#B85D3D;
 
   --serif-cn: "Noto Serif SC", "Songti SC", Georgia, serif;
@@ -44,55 +44,55 @@
 }
 ```
 
-**关键原则**：
-1. **绝不用纯黑底**。黑底会让作品看起来像电影、不像「可以被采用的工作成果」
-2. **赤陶橙是唯一色相accent**，其他全部是灰阶 + 白
-3. **三字体栈**（serif英+serif中+sans+mono）营造「出版物」而非「互联网产品」的气质
+**Kilit prensip**:
+1. **Asla saf siyah zemin kullanma**. Siyah zemin eserleri film gibi gösterir, "benimsenebilecek çalışma sonucu" gibi değil
+2. **Kiremit turuncu tek renkli accent'tir**, gerisi tamamen tonlamalar + beyaz
+3. **Üç yazı tipi yığını** (serif EN + serif CN + sans + mono) "yayın" değil "internet ürünü" havası verir
 
 ---
 
-## 核心布局模式
+## Çekirdek Yerleşim Modeli
 
-### 1. 悬浮卡片（整个风格的基本单元）
+### 1. Süzülen Kartlar (Tüm stilin temel birimi)
 
 ```css
 .gallery-card {
   background: #FFFFFF;
   border-radius: 14px;
-  padding: 6px;                          /* 内边距是「装裱纸」 */
+  padding: 6px;                          /* İç boşluk "passepartout kağıdı" */
   border: 1px solid var(--hairline);
   box-shadow:
-    0 20px 60px -20px rgba(29, 29, 31, 0.12),   /* 主阴影，软且长 */
-    0 6px 18px -6px rgba(29, 29, 31, 0.06);     /* 第二层近光，制造浮感 */
-  aspect-ratio: 16 / 9;                  /* 统一 slide 比例 */
+    0 20px 60px -20px rgba(29, 29, 31, 0.12),   /* Ana gölge, yumuşak ve uzun */
+    0 6px 18px -6px rgba(29, 29, 31, 0.06);     /* İkinci yakın ışık, süzülme hissi */
+  aspect-ratio: 16 / 9;                  /* Birleşik slide oranı */
   overflow: hidden;
 }
 .gallery-card img {
   width: 100%; height: 100%;
   object-fit: cover;
-  border-radius: 9px;                    /* 比卡片圆角略小，视觉嵌套 */
+  border-radius: 9px;                    /* Kart köşe yarıçapından biraz küçük, görsel iç içe */
 }
 ```
 
-**反面教材**：不要贴边瓷砖（无padding无border无shadow）——那是信息图密度表达，不是展览。
+**Karşı örnek**: Kenara yapışık fayans (padding yok kenarlık yok gölge yok) — bu infografik yoğunluk ifadesi, sergi değil.
 
-### 2. 3D倾斜作品墙
+### 2. 3D Eğimli Eser Duvarı
 
 ```css
 .gallery-viewport {
   position: absolute; inset: 0;
   overflow: hidden;
-  perspective: 2400px;                   /* 深一些的透视，倾斜不夸张 */
+  perspective: 2400px;                   /* Biraz derin perspektif, eğim abartılı değil */
   perspective-origin: 50% 45%;
 }
 .gallery-canvas {
-  width: 4320px;                         /* 画布 = 2.25× viewport */
-  height: 2520px;                        /* 留出pan空间 */
+  width: 4320px;                         /* Tuval = 2.25× viewport */
+  height: 2520px;                        /* Pan alanı bırak */
   transform-origin: center center;
   transform: perspective(2400px)
-             rotateX(14deg)              /* 向后倾 */
-             rotateY(-10deg)             /* 向左转 */
-             rotateZ(-2deg);             /* 轻微倾斜，去掉太规整 */
+             rotateX(14deg)              /* Geriye eğil */
+             rotateY(-10deg)             /* Sola dön */
+             rotateZ(-2deg);             /* Hafif eğim, fazla düzenli olmaması için */
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   gap: 40px;
@@ -100,13 +100,13 @@
 }
 ```
 
-**参数 sweet spot**：
-- rotateX: 10-15deg（再多就像开酒会 VIP 背景板）
-- rotateY: ±8-12deg（左右对称感）
-- rotateZ: ±2-3deg（「这不是机器摆的」的人味）
-- perspective: 2000-2800px（小于2000会鱼眼，大于3000接近正投影）
+**Parametre tatlı noktası**:
+- rotateX: 10-15deg (daha fazla VIP arka planı gibi)
+- rotateY: ±8-12deg (sağ-sol simetri hissi)
+- rotateZ: ±2-3deg ("Bunu makine dizmedi" insani dokunuş)
+- perspective: 2000-2800px (2000'den az balık gözü, 3000'den fazla yaklaşık dik izdüşüm)
 
-### 3. 2×2 四角汇聚（选择场景）
+### 3. 2×2 Dört Köşe Toplanma (Seçim senaryosu)
 
 ```css
 .grid22 {
@@ -117,7 +117,7 @@
 }
 ```
 
-每张卡片从对应角落（tl/tr/bl/br）向中心滑入 + fade in。对应的 `cornerEntry` 向量：
+Her kart ilgili köşeden (tl/tr/bl/br) merkeze doğru kayarak + fade in. Karşılık gelen `cornerEntry` vektörü:
 
 ```js
 const cornerEntry = {
@@ -130,11 +130,11 @@ const cornerEntry = {
 
 ---
 
-## 五种核心动画模式
+## Beş Çekirdek Animasyon Modeli
 
-### 模式 A · 四角汇聚（0.8-1.2s）
+### Mod A · Dört Köşe Toplanma (0.8-1.2s)
 
-4 个元素从视口四角滑入，同时缩放 0.85→1.0，对应 ease-out。适合「展示多方向选择」的开场。
+4 öğe viewport köşelerinden kayarak içeri, aynı anda scale 0.85→1.0, karşılık gelen ease-out. "Çok yönlü seçim gösterimi" açılışı için uygun.
 
 ```js
 const inP = easeOut(clampLerp(t, start, end));
@@ -142,23 +142,23 @@ card.style.transform = `translate3d(${(1-inP)*ce.dx}px, ${(1-inP)*ce.dy}px, 0) s
 card.style.opacity = inP;
 ```
 
-### 模式 B · 选中放大 + 其他滑出（0.8s）
+### Mod B · Seçim Büyütme + Diğerleri Kayarak Çıkma (0.8s)
 
-被选中的卡片放大 1.0→1.28，其他卡片 fade out + blur + 向四角漂回：
+Seçilen kart büyütülür 1.0→1.28, diğer kartlar fade out + blur + köşelere geri kayar:
 
 ```js
-// 被选中
+// Seçilen
 card.style.transform = `translate3d(${cellDx*outP}px, ${cellDy*outP}px, 0) scale(${1 + 0.28*easeOut(zoomP)})`;
-// 未选中
+// Seçilmeyen
 card.style.opacity = 1 - outP;
 card.style.filter = `blur(${outP * 1.5}px)`;
 ```
 
-**关键**：未选中的要 blur，不是纯 fade。blur 模拟景深，视觉上把被选中的「推出来」。
+**Kilit**: Seçilmeyen blur olmalı, sadece fade değil. blur derinlik hissi simüle eder, görsel olarak seçileni "öne iter".
 
-### 模式 C · Ripple 涟漪展开（1.7s）
+### Mod C · Ripple Dalga Açılım (1.7s)
 
-从中心向外，按距离 delay，每张卡片依次淡入 + 从 1.25x 缩到 0.94x（「镜头拉远」）：
+Merkezden dışa doğru, mesafeye göre gecikme, her kart sırayla fade in + 1.25x'ten 0.94x'e küçülür ("kamera uzaklaşır"):
 
 ```js
 const col = i % COLS, row = Math.floor(i / COLS);
@@ -168,48 +168,48 @@ const delay = (dist / maxDist) * 0.8;
 const localT = Math.max(0, (t - rippleStart - delay) / 0.7);
 card.style.opacity = easeOut(Math.min(1, localT));
 
-// 同时整体 scale 1.25→0.94
+// Aynı anda toplam scale 1.25→0.94
 const galleryScale = 1.25 - 0.31 * easeOut(rippleProgress);
 ```
 
-### 模式 D · Sinusoidal Pan（持续漂移）
+### Mod D · Sinusoidal Pan (Sürekli süzülme)
 
-用正弦波 + 线性漂移组合，避免 marquee 那种「有起点有终点」的循环感：
+Sinüs dalgası + doğrusal süzülme kombinasyonu, marquee tarzı "başlangıcı ve bitişi olan" döngü hissinin önüne geçer:
 
 ```js
-const panX = Math.sin(panT * 0.12) * 220 - panT * 8;    // 横向左漂
-const panY = Math.cos(panT * 0.09) * 120 - panT * 5;    // 纵向上漂
-const clampedX = Math.max(-900, Math.min(900, panX));   // 防止露边
+const panX = Math.sin(panT * 0.12) * 220 - panT * 8;    // Yatay sola süzülme
+const panY = Math.cos(panT * 0.09) * 120 - panT * 5;    // Dikey yukarı süzülme
+const clampedX = Math.max(-900, Math.min(900, panX));   // Kenar taşmasını önle
 ```
 
-**参数**：
-- 正弦周期 `0.09-0.15 rad/s`（慢，约30-50秒一个摆动）
-- 线性漂移 `5-8 px/s`（比观众眨眼慢）
-- 振幅 `120-220 px`（大到能感觉，小到不会晕）
+**Parametreler**:
+- Sinüs periyodu `0.09-0.15 rad/s` (yavaş, yaklaşık 30-50 saniyede bir salınım)
+- Doğrusal süzülme `5-8 px/s` (izleyici göz kırpmasından yavaş)
+- Genlik `120-220 px` (hissetmeye yetecek kadar büyük, baş döndürmeyecek kadar küçük)
 
-### 模式 E · Focus Overlay（焦点切换）
+### Mod E · Focus Overlay (Odak değişimi)
 
-**关键设计**：focus overlay 是一个**平面元素**（不倾斜），浮在倾斜画布之上。被选中的 slide 从瓦片位置（约400×225）缩放到屏幕中央（960×540），背景画布不倾斜变化但**变暗到 45%**：
+**Kilit tasarım**: focus overlay **düz bir öğedir** (eğimli değil), eğimli tuvalin üzerinde yüzer. Seçilen slide karo konumundan (yaklaşık 400×225) ekran ortasına (960×540) büyütülür, arka plan tuvali eğim değişmez ama **%45'e kararır**:
 
 ```js
-// Focus overlay (flat, centered)
+// Focus overlay (düz, ortalanmış)
 focusOverlay.style.width = (startW + (endW - startW) * focusIntensity) + 'px';
 focusOverlay.style.height = (startH + (endH - startH) * focusIntensity) + 'px';
 focusOverlay.style.opacity = focusIntensity;
 
-// 背景卡片变暗，但依然可见（关键！不要100%遮罩）
+// Arka plan kartları kararır, ama hâlâ görünür (kilit! %100 maske yok)
 card.style.opacity = entryOp * (1 - 0.55 * focusIntensity);   // 1 → 0.45
 card.style.filter = `brightness(${1 - 0.3 * focusIntensity})`;
 ```
 
-**清晰度铁律**：
-- Focus overlay 的 `<img>` 必须 `src` 直连原图，**不要复用 gallery 里的压缩缩略**
-- 提前 preload 所有原图到 `new Image()[]` 数组
-- overlay 自身 `width/height` 按帧计算，浏览器每帧 resample 原图
+**Netlik kuralı**:
+- Focus overlay'in `<img>`'si `src` ile orijinal resme doğrudan bağlanmalı, **galeri içindeki sıkıştırılmış önizlemeyi yeniden kullanma**
+- Tüm orijinal resimleri önceden `new Image()[]` dizisine preload et
+- overlay kendisi `width/height`'i kare bazında hesaplanır, tarayıcı her karede orijinal resmi yeniden örnekler
 
 ---
 
-## 时间轴架构（可复用骨架）
+## Zaman Çizelgesi Mimarisi (Yeniden Kullanılabilir İskelet)
 
 ```js
 const T = {
@@ -227,7 +227,7 @@ const T = {
   s4_walloff: [21.1, 21.8], s4_in: [21.8, 22.7], s4_hold: [23.7, 25.0],
 };
 
-// 核心 easing
+// Çekirdek easing
 const easeOut = t => 1 - Math.pow(1 - t, 3);
 const easeInOut = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
 function lerp(time, start, end, fromV, toV, easing) {
@@ -238,7 +238,7 @@ function lerp(time, start, end, fromV, toV, easing) {
   return fromV + (toV - fromV) * p;
 }
 
-// 单一 render(t) 函数读时间戳、写所有元素
+// Tek bir render(t) fonksiyonu zaman damgası okur, tüm öğeleri yazar
 function render(t) { /* ... */ }
 requestAnimationFrame(function tick(now) {
   const t = ((now - startMs) / 1000) % T.DURATION;
@@ -247,18 +247,18 @@ requestAnimationFrame(function tick(now) {
 });
 ```
 
-**架构精髓**：**所有状态由时间戳 t 推导**，没有状态机、没有 setTimeout。这样：
-- 播放到任意时刻 `window.__setTime(12.3)` 立刻跳转（方便 playwright 逐帧截）
-- 循环天然无缝（t mod DURATION）
-- Debug 时能冻结任意一帧
+**Mimari özü**: **Tüm durum zaman damgası t'den türetilir**, durum makinesi yok, setTimeout yok. Böylece:
+- Herhangi bir ana `window.__setTime(12.3)` anında atla (playwright kare kare kesim için uygun)
+- Döngü doğal olarak dikişsiz (t mod DURATION)
+- Hata ayıklarken herhangi bir kareyi dondurabilirsin
 
 ---
 
-## 质感细节（容易被忽略但致命）
+## Doku Detayları (Gözden kaçar ama ölümcül)
 
 ### 1. SVG noise texture
 
-浅色底最怕「太平」。叠加一层极弱的 fractalNoise：
+Açık zemin en çok "çok düz" korkusu. Üzerine çok zayıf bir fractalNoise katmanı ekle:
 
 ```html
 <style>
@@ -273,9 +273,9 @@ requestAnimationFrame(function tick(now) {
 </style>
 ```
 
-看上去没区别，去掉就知道有了。
+Görünüşte fark yok, çıkarınca anlarsın.
 
-### 2. 角落品牌标识
+### 2. Köşe Marka Kimliği
 
 ```html
 <div class="corner-brand">
@@ -295,44 +295,44 @@ requestAnimationFrame(function tick(now) {
 }
 ```
 
-只在作品墙 scene 显示，淡入淡出。像美术馆展签。
+Yalnızca eser duvarı sahnesinde gösterilir, fade in fade out. Müze etiketi gibi.
 
-### 3. 品牌收束 wordmark
+### 3. Marka Toparlanma wordmark
 
 ```css
 .brand-wordmark {
   font-family: var(--sans);
   font-size: 148px;
   font-weight: 700;
-  letter-spacing: -0.045em;   /* 负字距是关键，让字紧凑成标志 */
+  letter-spacing: -0.045em;   /* Negatif harf aralığı kilit, harfleri sıkıştırarak logo yapar */
 }
 .brand-wordmark .accent {
   color: var(--accent);
-  font-weight: 500;           /* accent字符反而细一点，视觉差 */
+  font-weight: 500;           /* accent karakteri tersine biraz ince, görsel fark */
 }
 ```
 
-`letter-spacing: -0.045em` 是苹果产品页大字的标准做法。
+`letter-spacing: -0.045em` Apple ürün sayfası büyük yazısının standart uygulamasıdır.
 
 ---
 
-## 常见失败模式
+## Sık Başarısızlık Modelleri
 
-| 症状 | 原因 | 解法 |
+| Belirti | Neden | Çözüm |
 |---|---|---|
-| 看起来像 PPT 模板 | 卡片没有 shadow / hairline | 加上两层 box-shadow + 1px border |
-| 倾斜感廉价 | 只用了 rotateY 没加 rotateZ | 加 ±2-3deg rotateZ 打破工整 |
-| Pan 感觉「卡顿」 | 用了 setTimeout 或 CSS keyframes 循环 | 用 rAF + sin/cos 连续函数 |
-| Focus 时字看不清 | 复用了 gallery 瓦片的低分图 | 独立 overlay + 原图 src 直连 |
-| 背景太空 | 纯色 `#F5F5F7` | 叠加 SVG fractalNoise 0.5 opacity |
-| 字体太"互联网" | 只有 Inter | 加 Serif（中英各一）+ mono 三栈 |
+| PPT şablonu gibi görünüyor | Kart gölge/hairline yok | İki katman box-shadow + 1px kenarlık ekle |
+| Eğim hissi ucuz | Sadece rotateY kullanmış rotateZ eklemedi | ±2-3deg rotateZ ekle düzenliği kırmak için |
+| Pan "takılıyor" gibi hissediyor | setTimeout veya CSS keyframes döngüsü kullanılmış | rAF + sin/cos sürekli fonksiyon kullan |
+| Focus'ta yazı okunmuyor | Galeri karosunun düşük çözünürlüklü küçük resmini yeniden kullanmış | Bağımsız overlay + orijinal resim src doğrudan |
+| Arka plan çok boş | Saf renk `#F5F5F7` | Üzerine SVG fractalNoise 0.5 opacity ekle |
+| Yazı tipi çok "internet" | Sadece Inter | Serif (İngilizce ve Çince ayrı) + mono üç yığın ekle |
 
 ---
 
-## 引用
+## Referans
 
-- 完整实现样本：`/Users/alchain/Documents/写作/01-公众号写作/项目/2026.04-huashu-design发布/配图/hero-animation-v5.html`
-- 原始灵感：claude.ai/design hero 视频
-- 参考审美：Apple 产品页、Dribbble shot 集合页
+- Tam uygulama örneği: `/Users/alchain/Documents/writing/01-wechat-writing/project/2026.04-azygod-design-release/images/hero-animation-v5.html`
+- Orijinal ilham: claude.ai/design hero videosu
+- Referans estetik: Apple ürün sayfası, Dribbble shot koleksiyon sayfası
 
-遇到「多件高质量产出要陈列」的动画需求，直接从此文件 copy 骨架，换内容 + 调 timing 即可。
+"Birden fazla yüksek kaliteli ürün sergileme" animasyon ihtiyacıyla karşılaştığında, doğrudan bu dosyadan iskelet kopyala, içerik değiştir + timing ayarla.

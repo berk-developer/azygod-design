@@ -1,138 +1,138 @@
-# Design Context：从已有上下文出发
+# Design Context: Mevcut Bağlamdan Hareketle
 
-**这是这个skill最重要的one thing。**
+**Bu skill'ın en önemli tek şeyi budur.**
 
-好的hi-fi设计一定是从已有design context长出来的。**凭空做hi-fi是last resort，一定会产出generic的作品**。所以每次设计任务开始，先问：有没有可以参考的东西？
+İyi hi-fi tasarım mutlaka mevcut design context'ten büyür. **Boşu boşuna hi-fi yapmak son çaredir, kesinlikle generic bir ürün verir**. Bu yüzden her tasarım görevi başlarken sor: Referans alınabilecek bir şey var mı?
 
-## 什么是Design Context
+## Design Context Nedir
 
-按优先级从高到低：
+Öncelik yüksekten düşüğe:
 
-### 1. 用户的Design System/UI Kit
-用户自己产品已有的组件库、色彩token、字型规范、icon系统。**最完美的情况**。
+### 1. Kullanıcının Design System/UI Kit'i
+Kullanıcının kendi ürününde mevcut bileşen kütüphanesi, renk token'ı, yazı tipi kuralları, icon sistemi. **En mükemmel durum**.
 
-### 2. 用户的Codebase
-如果用户给了代码库，里面就有活生生的组件实现。Read那些组件文件：
+### 2. Kullanıcının Codebase'i
+Kullanıcı kod deposu verdiyse, içinde canlı bileşen uygulamaları vardır. Bu bileşen dosyalarını oku:
 - `theme.ts` / `colors.ts` / `tokens.css` / `_variables.scss`
-- 具体的组件（Button.tsx、Card.tsx）
-- Layout scaffold（App.tsx、MainLayout.tsx）
+- Somut bileşenler (Button.tsx, Card.tsx)
+- Yerleşim iskeleti (App.tsx, MainLayout.tsx)
 - Global stylesheets
 
-**读代码抄exact values**：hex codes、spacing scale、font stack、border radius。不要凭记忆重画。
+**Koddan tam değerleri kopyala**: hex kodları, aralık ölçeği, font stack, border radius. Hafızandan yeniden çizme.
 
-### 3. 用户已发布的产品
-如果用户有上线的产品但没给代码，用Playwright或让用户提供截图。
+### 3. Kullanıcının Yayınlanmış Ürünü
+Kullanıcının yayında ürünü varsa ama kod vermemişse, Playwright veya kullanıcıdan ekran görüntüsü iste.
 
 ```bash
-# 用Playwright截图一个公开URL
+# Herkese açık bir URL'nin Playwright ekran görüntüsünü al
 npx playwright screenshot https://example.com screenshot.png --viewport-size=1920,1080
 ```
 
-让你看到真实的视觉vocabulary。
+Gerçek görsel kelime dağarcığını görmene izin verir.
 
-### 4. 品牌指南/Logo/已有素材
-用户可能有：Logo文件、品牌色规范、营销物料、slide模板。这些都是context。
+### 4. Marka Kılavuzu/Logo/Mevcut Malzeme
+Kullanıcının olabilir: Logo dosyası, marka renk kuralları, pazarlama malzemeleri, slide şablonu. Bunların hepsi context'tir.
 
-### 5. 竞品参考
-用户说"像XX网站那样"——让他提供URL或截图。**不要**凭你训练数据里的模糊印象做。
+### 5. Rakip Referansı
+Kullanıcı "XX web sitesi gibi" dediğinde — ondan URL veya ekran görüntüsü iste. **Eğitim verindeki bulanık izlenimle yapma**.
 
-### 6. 已知的design system（fallback）
-如果以上都没有，用公认的设计系统作为base：
+### 6. Bilinen design system (fallback)
+Yukarıdakilerin hiçbiri yoksa, tanınmış bir tasarım sistemini temel olarak kullan:
 - Apple HIG
 - Material Design 3
-- Radix Colors（配色）
-- shadcn/ui（组件）
-- Tailwind默认palette
+- Radix Colors (renk)
+- shadcn/ui (bileşen)
+- Tailwind varsayılan palet
 
-明确告诉用户你用的什么，让他知道这是起点不是定稿。
+Kullanıcıya ne kullandığını açıkça söyle, bunun başlangıç noktası olduğunu, nihai tasarım olmadığını bilsin.
 
-## 获取Context的流程
+## Context Alma Akışı
 
-### Step 1：问用户
+### Adım 1: Kullanıcıya Sor
 
-任务开始时的必问清单（来自`workflow.md`）：
+Görev başlangıcında mutlaka sorulacak liste (`workflow.md`'den):
 
 ```markdown
-1. 你有现成的design system/UI kit/组件库吗？在哪？
-2. 有品牌指南、色彩/字体规范吗？
-3. 可以给我现有产品的截图或URL吗？
-4. 有codebase我可以读吗？
+1. Hazır design system/UI kit/bileşen kütüphaneniz var mı? Nerede?
+2. Marka kılavuzu, renk/yazı tipi kuralları var mı?
+3. Mevcut ürününüzün ekran görüntüsü veya URL'sini verebilir misiniz?
+4. Okuyabileceğim bir codebase var mı?
 ```
 
-### Step 2：用户说"没有"时，帮他找
+### Adım 2: Kullanıcı "Yok" Dediğinde, Ona Yardım Et
 
-别直接放弃。尝试：
+Doğrudan vazgeçme. Dene:
 
 ```markdown
-让我看看有没有线索：
-- 你之前的项目有相关设计吗？
-- 公司的marketing网站用什么色彩/字型？
-- 你产品的Logo什么风格？能给我一张吗？
-- 有什么你欣赏的产品作为参考？
+Bakalım ipucu var mı:
+- Daha önceki projelerinizde ilgili tasarım var mı?
+- Şirketinizin pazarlama web sitesi hangi renk/yazı tipini kullanıyor?
+- Ürününüzün Logo'su ne stil? Bana bir resim verebilir misiniz?
+- Referans olarak beğendiğiniz bir ürün var mı?
 ```
 
-### Step 3：Read所有能找到的context
+### Adım 3: Bulunabilen Tüm Context'i Oku
 
-如果用户给了codebase路径，你读：
-1. **先list文件结构**：找style/theme/component相关的文件
-2. **读theme/token文件**：lift具体的hex/px values
-3. **读2-3个代表性组件**：看视觉vocabulary（hover state、shadow、border、padding node pattern）
-4. **读global stylesheet**：基础重置、font loading
-5. **如果有Figma链接/截图**：看图，但**更相信代码**
+Kullanıcı codebase yolu verdiyse, şunları oku:
+1. **Önce dosya yapısını listele**: stil/tema/bileşen ile ilgili dosyaları bul
+2. **Tema/token dosyalarını oku**: Somut hex/px değerlerini kaldır
+3. **2-3 temsili bileşen oku**: Görsel kelime dağarcığına bak (hover state, gölge, kenarlık, padding node pattern)
+4. **Global stylesheet'i oku**: Temel reset, font yükleme
+5. **Figma bağlantısı/ekran görüntüsü varsa**: Resme bak, ama **koda daha fazla güven**
 
-**重要**：**不要**看了一眼就凭印象做。读下来有30+个具体values才真的lift到了。
+**Önemli**: **Bir bakışta izlenimle yapma**. Okuduğunda 30+ somut değer varsa gerçekten kaldırılmış demektir.
 
-### Step 4：Vocalize你要用的系统
+### Adım 4: Kullanacağın Sistemi Seslendir
 
-看完context后，告诉用户你要用的系统：
+Context'i okuduktan sonra, kullanıcıya kullanacağın sistemi söyle:
 
 ```markdown
-根据你的codebase和产品截图，我提炼的设计系统：
+Codebase'iniz ve ürün ekran görüntünüzden çıkardığım tasarım sistemi:
 
-**色彩**
-- Primary: #C27558（从tokens.css）
+**Renk**
+- Primary: #C27558 (tokens.css'ten)
 - Background: #FDF9F0
 - Text: #1A1A1A
 - Muted: #6B6B6B
 
-**字型**
-- Display: Instrument Serif（从global.css的@font-face）
+**Yazı Tipi**
+- Display: Instrument Serif (global.css'in @font-face'inden)
 - Body: Geist Sans
 - Mono: JetBrains Mono
 
-**Spacing**（来自你的scale系统）
+**Aralık** (ölçek sisteminizden)
 - 4, 8, 12, 16, 24, 32, 48, 64
 
-**Shadow pattern**
-- `0 1px 2px rgba(0,0,0,0.04)`（subtle card）
-- `0 10px 40px rgba(0,0,0,0.1)`（elevated modal）
+**Gölge pattern**
+- `0 1px 2px rgba(0,0,0,0.04)` (subtle card)
+- `0 10px 40px rgba(0,0,0,0.1)` (elevated modal)
 
 **Border-radius**
-- 小组件 4px，卡片 12px，按钮 8px
+- Küçük bileşen 4px, kart 12px, düğme 8px
 
-**component vocabulary**
-- Button：filled primary，outlined secondary，ghost tertiary，全部圆角8px
-- Card：白色背景，subtle shadow，无border
+**Bileşen kelime dağarcığı**
+- Düğme: filled primary, outlined secondary, ghost tertiary, hepsi 8px köşe yuvarlak
+- Kart: Beyaz arka plan, subtle gölge, kenarlık yok
 
-我按这套系统开始做。确认没问题？
+Buna göre başlıyorum. Sorun yok mu?
 ```
 
-用户确认后再动手。
+Kullanıcı onayladıktan sonra işe başla.
 
-## 凭空做设计（没Context时的 fallback）
+## Boşu Boşuna Tasarım (Context Yoksa Fallback)
 
-**强烈警告**：这种情况下的产出质量会显著下降。明确告诉用户。
+**Şiddetle uyarı**: Bu durumda ürün kalitesi önemli ölçüde düşer. Kullanıcıya açıkça söyle.
 
 ```markdown
-你没有design context，我就只能基于通用直觉做。
-产出会是"看起来OK但缺乏独特性"的东西。
-你愿意继续，还是先补一些参考材料？
+Design context'iniz yok, yalnızca genel sezgisellik üzerine yapabilirim.
+Ürün "görünürde tamam ama benzersizlikten yoksun" olacak.
+Devam etmek istiyorsunuz, yoksa önce referans malzeme tamamlamak mı istersiniz?
 ```
 
-用户执意要你做，按这个顺序做决策：
+Kullanıcı ısrarla yapmanı istiyorsa, bu sırayla karar ver:
 
-### 1. 选一个aesthetic direction
-不要给generic结果。挑一个明确方向：
+### 1. Bir estetik yön seç
+Generic sonuç verme. Belirli bir yön seç:
 - brutally minimal
 - editorial/magazine
 - brutalist/raw
@@ -142,72 +142,72 @@ npx playwright screenshot https://example.com screenshot.png --viewport-size=192
 - retro-futuristic
 - soft/pastel
 
-告诉用户你选了哪个。
+Kullanıcıya hangisini seçtiğini söyle.
 
-### 2. 选一个known design system作为骨架
-- 用Radix Colors做配色（https://www.radix-ui.com/colors）
-- 用shadcn/ui做组件vocabulary（https://ui.shadcn.com）
-- 用Tailwind spacing scale（4的倍数）
+### 2. Bilinen bir design system'i iskelet olarak seç
+- Renk için Radix Colors kullan (https://www.radix-ui.com/colors)
+- Bileşen kelime dağarcığı için shadcn/ui kullan (https://ui.shadcn.com)
+- Aralık ölçeği için Tailwind (4'ün katları)
 
-### 3. 选有特点的字体配对
+### 3. Özellikli yazı tipi eşleştirmesi seç
 
-不要用Inter/Roboto。建议组合（从Google Fonts白嫖）：
+Inter/Roboto kullanma. Önerilen kombinasyonlar (Google Fonts'tan ücretsiz):
 - Instrument Serif + Geist Sans
 - Cormorant Garamond + Inter Tight
-- Bricolage Grotesque + Söhne（付费）
-- Fraunces + Work Sans（注意Fraunces已经被AI用烂）
-- JetBrains Mono + Geist Sans（technical feel）
+- Bricolage Grotesque + Söhne (ücretli)
+- Fraunces + Work Sans (Fraunces'in AI tarafından tüketildiğine dikkat)
+- JetBrains Mono + Geist Sans (teknik his)
 
-### 4. 每个关键决策都有reasoning
+### 4. Her Kilit Kararın Gerekçesi Olsun
 
-不要默默选。在HTML的comment里写：
+Sessizce seçme. HTML yorumuna yaz:
 
 ```html
 <!--
 Design decisions:
-- Primary color: warm terracotta (oklch 0.65 0.18 25) — fits the "editorial" direction  
+- Primary color: warm terracotta (oklch 0.65 0.18 25) — "editorial" yönüne uygun  
 - Display: Instrument Serif for humanist, literary feel
 - Body: Geist Sans for cleanness contrast
-- No gradients — committed to minimal, no AI slop
+- No gradients — minimal kararlı, AI slop yok
 - Spacing: 8px base, golden ratio friendly (8/13/21/34)
 -->
 ```
 
-## Import策略（用户给了codebase）
+## Import Stratejisi (Kullanıcı Codebase Verdiyse)
 
-如果用户说"import这个codebase做参考"：
+Kullanıcı "bu codebase'i referans olarak import et" dediyse:
 
-### 小型（<50文件）
-全部Read，把context内化。
+### Küçük (<50 dosya)
+Tamamını Oku, context'i içselleştir.
 
-### 中型（50-500文件）
-Focus在：
-- `src/components/` 或 `components/`
-- 所有styles/tokens/theme相关的文件
-- 2-3个代表性的整页组件（Home.tsx、Dashboard.tsx）
+### Orta (50-500 dosya)
+Odak noktaları:
+- `src/components/` veya `components/`
+- Tüm styles/tokens/theme ile ilgili dosyalar
+- 2-3 temsili tam sayfa bileşeni (Home.tsx, Dashboard.tsx)
 
-### 大型（>500文件）
-让用户指明focus：
-- "我要做settings页面" → 读现有的settings相关
-- "我要做一个新的feature" → 读整体shell + 最接近的参考
-- 不求全，求准
+### Büyük (>500 dosya)
+Kullanıcıdan odak noktası belirtmesini iste:
+- "Settings sayfası yapacağım" → Mevcut settings ile ilgili olanları oku
+- "Yeni bir feature yapacağım" → Genel shell + en yakın referansı oku
+- Tamamı değil, doğruluk
 
-## 和Figma/设计稿的配合
+## Figma/Tasarım Çizimi ile Eşgüdüm
 
-如果用户给了Figma链接：
+Kullanıcı Figma bağlantısı verdiyse:
 
-- **不要**期望你能直接"转Figma为HTML"——那需要额外工具
-- Figma链接通常不公开可访问
-- 让用户：导出为**截图**发给你 + 告诉你具体的color/spacing values
+- **Figma'yı doğrudan HTML'e dönüştürebileceğini bekleme** — bu ek araç gerektirir
+- Figma bağlantıları genellikle herkese açık erişilebilir değil
+- Kullanıcıdan: **Ekran görüntüsü** göndermesini iste + somut renk/aralık değerlerini söylemesini iste
 
-如果只给了Figma截图，告诉用户：
-- 我能看到视觉，但取不到精确values
-- 关键数字（hex、px）请告诉我，或者export as code（Figma支持）
+Yalnızca Figma ekran görüntüsü verdiyse, kullanıcıya söyle:
+- Görseli görebiliyorum, ama hassas değerleri alamıyorum
+- Kilit sayılar (hex, px) lütfen bana söyleyin, veya code olarak export edin (Figma destekler)
 
-## 最后的提醒
+## Son Hatırlatma
 
-**一个项目的设计质量上限，由你拿到的context质量决定**。
+**Bir projenin tasarım kalite sınırı, aldığın context kalitesiyle belirlenir**.
 
-花10分钟收集context，比花1小时凭空画hi-fi更有价值。
+Context toplamak için 10 dakika harcamak, boşu boşuna 1 saat hi-fi çizmekten daha değerlidir.
 
-**遇到没context的情况，优先问用户要，而不是硬上**。
+**Context olmayan durumda, önce kullanıcıdan iste, zorla devam etme**.

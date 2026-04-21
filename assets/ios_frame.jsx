@@ -1,15 +1,15 @@
 /**
- * IosFrame — iPhone设备边框
+ * IosFrame — iPhone Cihaz Cercevesi
  *
- * 参考iPhone 15 Pro（393×852 logical pixels）
- * 含：灵动岛 + 状态栏（时间/信号/电池）+ Home Indicator + 圆角
+ * iPhone 15 Pro referansi (393x852 logical pixels)
+ * Icerir: Dynamic Island + durum cubugu (saat/sinyal/pil) + Home Indicator + yuvarlak kose
  *
- * 用法：
+ * Kullanim:
  *   <IosFrame time="9:41" battery={85}>
  *     <YourAppContent />
  *   </IosFrame>
  *
- * 自定义：
+ * Ozel:
  *   <IosFrame width={390} height={844} darkMode showKeyboard>
  *     ...
  *   </IosFrame>

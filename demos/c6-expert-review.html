@@ -2,7 +2,7 @@
 <html lang="zh-Hans">
 <head>
 <meta charset="utf-8" />
-<title>c6 · 五个维度，给你一份手术单</title>
+<title>c6 · Beş Boyut, Sana Bir Cerrahi Rapor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=Noto+Serif+SC:wght@200;300;400;500;600&family=Inter:wght@100;200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -520,10 +520,10 @@
 </head>
 <body>
   <div class="stage" id="stage">
-    <div class="mark">HUASHU · DESIGN</div>
+    <div class="mark">AZYGOD · DESIGN</div>
     <div class="mark-right">V2 · 2026</div>
 
-    <div class="title-line" id="titleLine">c6 · 专家评审 · 五个维度</div>
+    <div class="title-line" id="titleLine">c6 · Uzman İnceleme · Beş Boyut</div>
 
     <div class="camera" id="camera">
       <!-- Subject: design under review -->
@@ -553,7 +553,7 @@
       <div class="sweep-line" id="sweepLine"></div>
 
       <!-- Radar chart (right) -->
-      <div class="radar-title" id="radarTitle">五维诊断 · RADAR</div>
+      <div class="radar-title" id="radarTitle">Beş Boyutlu Teşhis · RADAR</div>
       <div class="radar-wrap" id="radarWrap">
         <svg viewBox="-270 -270 540 540" xmlns="http://www.w3.org/2000/svg">
           <!-- Grid rings (5 levels) -->
@@ -573,8 +573,8 @@
         <div class="score-row">
           <div class="score-num"><span id="scoreNum">0</span><span class="accent">/50</span></div>
           <div>
-            <div class="score-label">总评 · PASSED</div>
-            <div class="score-total">五维加权 · 7.4</div>
+            <div class="score-label">Genel Değerlendirme · BAŞARILI</div>
+            <div class="score-total">Beş Boyut Ağırlıklandırma · 7.4</div>
           </div>
         </div>
       </div>
@@ -583,12 +583,12 @@
       <div class="fix-lane" id="fixLane">
         <div class="fix-head">
           <span class="fix-mark">FIX</span>
-          <span class="fix-zh">修复</span>
+          <span class="fix-zh">Düzelt</span>
           <span class="fix-count">01 / 01</span>
         </div>
         <div class="fix-row">
           <span class="idx">01</span>
-          <span><span class="fix-severity">⚡</span>字距 <span class="mono">0.02em</span><span class="arrow"> → </span><span class="mono">0.04em</span></span>
+          <span><span class="fix-severity">⚡</span>Harf Aralığı <span class="mono">0.02em</span><span class="arrow"> → </span><span class="mono">0.04em</span></span>
           <div class="fix-pulse" id="fixPulse"></div>
         </div>
       </div>
@@ -597,7 +597,7 @@
     <!-- Brand Reveal (hero-v10 signature) -->
     <div class="stage-dimmer" id="stageDimmer"></div>
     <div class="brand-panel" id="brandPanel">
-      <div class="brand-wordmark" id="brandMark">huashu<span class="accent">-</span>design</div>
+      <div class="brand-wordmark" id="brandMark">azygod<span class="accent">-</span>design</div>
       <div class="brand-line" id="brandLine"></div>
     </div>
   </div>
@@ -635,11 +635,11 @@
   // ============ Build radar SVG ============
   const RADIUS = 210;
   const AXES = [
-    { zh: '哲学', en: 'PHILOSOPHY', score: 8 },
-    { zh: '层级', en: 'HIERARCHY',  score: 6 },
-    { zh: '执行', en: 'EXECUTION',  score: 8 },
-    { zh: '功能', en: 'FUNCTION',   score: 7 },
-    { zh: '创新', en: 'INNOVATION', score: 8 },
+    { zh: 'Felsefe', en: 'PHILOSOPHY', score: 8 },
+    { zh: 'Hiyerarşi', en: 'HIERARCHY',  score: 6 },
+    { zh: 'Uygulama', en: 'EXECUTION',  score: 8 },
+    { zh: 'İşlev', en: 'FUNCTION',   score: 7 },
+    { zh: 'Yenilik', en: 'INNOVATION', score: 8 },
   ];
   const N = AXES.length;
 

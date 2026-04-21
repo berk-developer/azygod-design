@@ -1,20 +1,20 @@
-# Animations：时间轴动画引擎
+# Animations: Zaman Çizelgesi Animasyon Motoru
 
-做动画/motion design HTML时读这个。原理、用法、典型模式。
+Animasyon/motion design HTML yaparken bunu oku. Prensip, kullanım, tipik modeller.
 
-## 核心模式：Stage + Sprite
+## Çekirdek Model: Stage + Sprite
 
-我们的动画系统（`assets/animations.jsx`）提供一个时间轴驱动的引擎：
+Animasyon sistemimiz (`assets/animations.jsx`) zaman çizelgesi güdümlü bir motor sağlar:
 
-- **`<Stage>`**：整个动画的容器，自动提供auto-scale（fit viewport）+ scrubber + play/pause/loop控制
-- **`<Sprite start end>`**：时间片段。一个Sprite只在`start`到`end`这段时间内显示。内部可以通过`useSprite()` hook读取自己的本地进度`t` (0→1)
-- **`useTime()`**：读当前全局时间（秒）
-- **`Easing.easeInOut` / `Easing.easeOut` / ...**：缓动函数
-- **`interpolate(t, from, to, easing?)`**：根据t插值
+- **`<Stage>`**: Tüm animasyonun kapsayıcısı, otomatik auto-scale (viewport'a sığdırma) + scrubber + play/pause/loop kontrolü sağlar
+- **`<Sprite start end>`**: Zaman parçacığı. Bir Sprite yalnızca `start`'tan `end`'e kadar gösterilir. İçinde `useSprite()` hook ile kendi yerel ilerlemesi `t` (0→1) okunabilir
+- **`useTime()`**: Mevcut global zamanı (saniye) okur
+- **`Easing.easeInOut` / `Easing.easeOut` / ...**: Yumuşatma fonksiyonları
+- **`interpolate(t, from, to, easing?)`**: t'ye göre interpolasyon
 
-这套模式借鉴Remotion/After Effects思路，但轻量、零依赖。
+Bu model Remotion/After Effects fikrinden esinlenmiştir, ama hafif, sıfır bağımlılık.
 
-## 起手
+## Başlangıç
 
 ```html
 <script type="text/babel" src="animations.jsx"></script>
@@ -22,7 +22,7 @@
   const { Stage, Sprite, useTime, useSprite, Easing, interpolate } = window.Animations;
 
   function Title() {
-    const { t } = useSprite();  // 本地进度 0→1
+    const { t } = useSprite();  // Yerel ilerleme 0→1
     const opacity = interpolate(t, [0, 1], [0, 1], Easing.easeOut);
     const y = interpolate(t, [0, 1], [40, 0], Easing.easeOut);
     return (
@@ -39,7 +39,7 @@
 
   function Scene() {
     return (
-      <Stage duration={10}>  {/* 10秒动画 */}
+      <Stage duration={10}>  {/* 10 saniyelik animasyon */}
         <Sprite start={0} end={3}>
           <Title />
         </Sprite>
@@ -56,7 +56,7 @@
 </script>
 ```
 
-## 常用动画模式
+## Sık Kullanılan Animasyon Modelleri
 
 ### 1. Fade In / Fade Out
 
@@ -68,7 +68,7 @@ function FadeIn({ children }) {
 }
 ```
 
-**注意范围**：`[0, 0.3]`意思是在sprite的前30%时间完成渐入，后面保持opacity=1。
+**Aralık dikkati**: `[0, 0.3]` sprite'ın ilk %30 zamanında fade-in tamamlanır, gerisi opacity=1 kalır demektir.
 
 ### 2. Slide In
 
@@ -94,7 +94,7 @@ function SlideIn({ children, from = 'left' }) {
 }
 ```
 
-### 3. 逐字打字机
+### 3. Karakter Karakter Daktilo
 
 ```jsx
 function Typewriter({ text }) {
@@ -104,7 +104,7 @@ function Typewriter({ text }) {
 }
 ```
 
-### 4. 数字计数
+### 4. Sayı Sayma
 
 ```jsx
 function CountUp({ from = 0, to = 100, duration = 0.6 }) {
@@ -115,28 +115,28 @@ function CountUp({ from = 0, to = 100, duration = 0.6 }) {
 }
 ```
 
-### 5. 分段解释（典型教学动画）
+### 5. Aşamalı Açıklama (Tipik eğitim animasyonu)
 
 ```jsx
 function Scene() {
   return (
     <Stage duration={20}>
-      {/* Phase 1: 展示问题 */}
+      {/* Aşama 1: Sorunu göster */}
       <Sprite start={0} end={4}>
         <Problem />
       </Sprite>
 
-      {/* Phase 2: 展示思路 */}
+      {/* Aşama 2: Yaklaşımı göster */}
       <Sprite start={4} end={10}>
         <Approach />
       </Sprite>
 
-      {/* Phase 3: 展示结果 */}
+      {/* Aşama 3: Sonucu göster */}
       <Sprite start={10} end={16}>
         <Result />
       </Sprite>
 
-      {/* 全程显示的字幕 */}
+      {/* Tüm süre boyunca gösterilen altyazı */}
       <Sprite start={0} end={20}>
         <Caption />
       </Sprite>
@@ -145,105 +145,105 @@ function Scene() {
 }
 ```
 
-## Easing函数
+## Easing Fonksiyonları
 
-预设的easing curves：
+Hazır easing eğrileri:
 
-| Easing | 特性 | 用在 |
+| Easing | Özellik | Kullanım |
 |--------|------|------|
-| `linear` | 匀速 | 滚动字幕、持续动画 |
-| `easeIn` | 慢→快 | 退场消失 |
-| `easeOut` | 快→慢 | 入场出现 |
-| `easeInOut` | 慢→快→慢 | 位置变化 |
-| **`expoOut`** ⭐ | **指数缓出** | **Anthropic 级主 easing**（物理重量感）|
-| **`overshoot`** ⭐ | **弹性回弹** | **Toggle / 按钮弹出 / 强调交互** |
-| `spring` | 弹簧 | 交互反馈、几何体归位 |
-| `anticipation` | 先反向再正向 | 强调动作 |
+| `linear` | Sabit hız | Kaydırma altyazısı, sürekli animasyon |
+| `easeIn` | Yavaş→Hızlı | Sahne dışı kaybolma |
+| `easeOut` | Hızlı→Yavaş | Sahne içi belirme |
+| `easeInOut` | Yavaş→Hızlı→Yavaş | Konum değişimi |
+| **`expoOut`** ⭐ | **Üstel yumuşatma** | **Anthropic seviyesi ana easing** (fiziksel ağırlık hissi) |
+| **`overshoot`** ⭐ | **Elastik geri zıplama** | **Toggle / düğme patlaması / etkileşim vurgusu** |
+| `spring` | Yay | Etkileşim geri bildirimi, geometrik cisim yerine dönme |
+| `anticipation` | Önce ters sonra ileri | Eylem vurgusu |
 
-**默认主 easing 用 `expoOut`**（不是 `easeOut`）—— 见 `animation-best-practices.md` §2。
-入场用 `expoOut`、出场用 `easeIn`、toggle 用 `overshoot`——Anthropic 级动画的基础规律。
+**Varsayılan ana easing `expoOut`** (`easeOut` değil) — bkz. `animation-best-practices.md` §2.
+Giriş `expoOut`, çıkış `easeIn`, toggle `overshoot` — Anthropic seviyesi animasyonun temel kuralı.
 
-## 节奏和时长指南
+## Ritim ve Süre Kılavuzu
 
-### 微交互（0.1-0.3秒）
-- 按钮hover
-- 卡片expand
-- Tooltip出现
+### Mikro Etkileşim (0.1-0.3 saniye)
+- Düğme hover
+- Kart expand
+- Tooltip belirme
 
-### UI过渡（0.3-0.8秒）
-- 页面切换
-- 模态框出现
-- 列表item加入
+### UI Geçiş (0.3-0.8 saniye)
+- Sayfa geçişi
+- Modal belirme
+- Liste öğesi ekleme
 
-### 叙事动画（2-10秒每段）
-- 概念解释的一个phase
-- 数据图表的reveal
-- 场景转换
+### Anlatı Animasyonu (2-10 saniye her parça)
+- Bir kavram açıklamanın fazı
+- Veri grafiğinin reveal'i
+- Sahne dönüşümü
 
-### 单段叙事动画最长不超过10秒
-人类注意力有限。10秒讲一件事，讲完换下一件。
+### Tek parça anlatı animasyonu en fazla 10 saniye
+İnsan dikkat sınırlıdır. 10 saniyede bir şey anlat, anlatınca bir sonraki.
 
-## 设计动画的思考顺序
+## Animasyon Tasarlamada Düşünme Sırası
 
-### 1. 先有内容/故事，再有动画
+### 1. Önce İçerik/Hikaye, Sonra Animasyon
 
-**错误**：先想要做fancy动画，再塞内容进去
-**正确**：先想清楚要传达什么信息，再用动画手段serve这个信息
+**Yanlış**: Önce havalı animasyon yapmak iste, sonra içerik sığdır
+**Doğru**: Önce ne bilgi iletmek istediğini düşün, sonra animasyon araçları bu bilgiye hizmet etsin
 
-动画是**signal**，不是**装饰**。一个fade-in强调的是"这里很重要，请看"——如果什么都fade-in，signal就失效。
+Animasyon **sinyal**dir, **dekorasyon** değil. Bir fade-in "burası çok önemli, lütfen bak" vurgusu yapar — her şey fade-in olursa sinyal etkisizleşir.
 
-### 2. 分Scene写时间轴
+### 2. Sahneye Göre Zaman Çizelgesi Yaz
 
 ```
-0:00 - 0:03   问题出现（fade in）
-0:03 - 0:06   问题放大/展开（zoom+pan）
-0:06 - 0:09   解法出现（slide in from right）
-0:09 - 0:12   解法展开说明（typewriter）
-0:12 - 0:15   结果演示（counter up + chart reveal）
-0:15 - 0:18   总结一句话（static，读3秒）
-0:18 - 0:20   CTA或fade out
+0:00 - 0:03   Sorun belirir (fade in)
+0:03 - 0:06   Sorun büyür/açılır (zoom+pan)
+0:06 - 0:09   Çözüm belirir (sağdan slide in)
+0:09 - 0:12   Çözüm açıklanır (typewriter)
+0:12 - 0:15   Sonuç gösterilir (counter up + chart reveal)
+0:15 - 0:18   Tek cümle özet (static, 3 saniye oku)
+0:18 - 0:20   CTA veya fade out
 ```
 
-写完时间轴再写组件。
+Zaman çizelgesini yaz, sonra bileşen yaz.
 
-### 3. 资源先行
+### 3. Kaynaklar Önce
 
-动画要用的图片/图标/字体**先**准备好。不要画到一半去找素材——打断节奏。
+Animasyonda kullanılacak resim/ikon/yazı tipi **önce** hazırla. Yarıda malzeme aramaya çıkma — ritmi bozar.
 
-## 常见问题
+## Sık Sorulan Sorular
 
-**动画卡顿**
-→ 主要是layout thrashing。用`transform`和`opacity`，不要动`top`/`left`/`width`/`height`/`margin`。浏览器GPU加速`transform`。
+**Animasyon takılıyor**
+→ Esas olarak layout thrashing. `transform` ve `opacity` kullan, `top`/`left`/`width`/`height`/`margin`'i hareket ettirme. Tarayıcı GPU'su `transform`'u hızlandırır.
 
-**动画太快，看不清楚**
-→ 人读一个汉字需要100-150ms，一个词300-500ms。如果你用文字讲故事，单句至少留3秒。
+**Animasyon çok hızlı, anlaşılmıyor**
+→ Bir Çin karakteri okumak 100-150ms, bir kelime 300-500ms sürer. Metinle hikaye anlatıyorsan, tek cümle en az 3 saniye bırak.
 
-**动画太慢，观众无聊**
-→ 有趣的视觉变化要密集。静态画面超过5秒就会闷。
+**Animasyon çok yavaş, izleyici sıkılıyor**
+→ İlginç görsel değişiklikler yoğun olmalı. Statik görüntü 5 saniyeden fazla dayanmaz.
 
-**多个动画互相影响**
-→ 用CSS的`will-change: transform`提前告诉浏览器这个元素会动，减少reflow。
+**Birden fazla animasyon birbirini etkiliyor**
+→ CSS `will-change: transform` kullanarak tarayıcıya bu öğenin hareket edeceğini önceden bildir, reflow azalt.
 
-**录制成视频**
-→ 用 skill 自带工具链（一条命令出三种格式）：见 `video-export.md`
-- `scripts/render-video.js` — HTML → 25fps MP4（Playwright + ffmpeg）
-- `scripts/convert-formats.sh` — 25fps MP4 → 60fps MP4 + 优化 GIF
-- 想要更精确的帧渲染？让 render(t) 成为 pure function，见 `animation-pitfalls.md` 第 5 条
+**Video olarak kaydetme**
+→ Skill kendi araç zincirini kullan (tek komut üç format çıkarır): bkz. `video-export.md`
+- `scripts/render-video.js` — HTML → 25fps MP4 (Playwright + ffmpeg)
+- `scripts/convert-formats.sh` — 25fps MP4 → 60fps MP4 + optimize GIF
+- Daha hassas kare render'ı mı istiyorsun? render(t)'yi pure function yap, bkz. `animation-pitfalls.md` madde 5
 
-## 和视频工具的配合
+## Video Araçlarıyla Eşgüdüm
 
-这个skill做的是**HTML动画**（在浏览器里跑的）。如果最终产出要作为视频素材：
+Bu skill **HTML animasyonu** yapar (tarayıcıda çalışır). Son ürün video malzemesi olarak kullanılacaksa:
 
-- **短动画/concept demo**：用这里的方法做HTML动画 → 屏幕录制
-- **长视频/叙事**：本 skill 专注 HTML 动画，长视频用 AI 视频生成类 skill 或专业视频软件
-- **motion graphics**：专业的After Effects/Motion Canvas更合适
+- **Kısa animasyon/kavram demo**: Buradaki yöntemle HTML animasyonu yap → ekran kaydı
+- **Uzun video/anlatı**: Bu skill HTML animasyona odaklanır, uzun video AI video üretim skill'i veya profesyonel video yazılımı kullanır
+- **Motion graphics**: Profesyonel After Effects/Motion Canvas daha uygun
 
-## 关于Popmotion等库
+## Popmotion vb. Kütüphaneler Hakkında
 
-如果你真的需要物理动画（spring、decay、keyframes with precise timing），我们的engine搞不定，可以fallback到Popmotion：
+Gerçekten fizik animasyonu (spring, decay, keyframes with precise timing) gerekiyorsa, motorumuz yetmez, Popmotion'a fallback yapabilirsin:
 
 ```html
 <script src="https://unpkg.com/popmotion@11.0.5/dist/popmotion.min.js"></script>
 ```
 
-但**先试试我们的engine**。90%的情况够用。
+Ama **önce motorumuzu dene**. %90 durumda yeterli.

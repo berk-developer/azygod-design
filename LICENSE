@@ -1,44 +1,44 @@
-Huashu Design · Personal Use License
-Copyright (c) 2026 alchaincyf (花叔 · 花生)
+Azygod Design · Kişisel Kullanım Lisansı
+Copyright (c) 2026 alchaincyf (Azygod)
 
-本 skill（以下简称「本作品」）包含 SKILL.md、scripts、references、assets、demos 及其全部派生内容。使用本作品视为同意以下条款：
-
----
-
-## 1. 允许的使用（个人免费）
-
-以下场景无需授权、无需打招呼：
-
-- **学习与研究**：阅读代码、修改、二次开发用于自己理解
-- **个人创作**：为自己的文章、视频、副业项目、小红书/公众号/B站等内容创作使用
-- **非营利分享**：基于本作品做 demo、教程，发布到社交平台、博客、播客
-- **派生作品**：在自己名下的个人仓库里基于本作品做派生 skill，需在 README 显著位置注明来源（`Derived from alchaincyf/huashu-design`）
-
-## 2. 禁止的使用（必须事先授权）
-
-以下场景**必须联系花生获得书面授权后方可使用**：
-
-- 任何**公司、团队、工作室、机构**将本作品集成到其内部工具链或对外产品
-- 将本作品或其派生物作为**面向付费客户的交付手段**（包括设计外包、品牌咨询、B 端 SaaS 等）
-- 基于本作品做**商业软件产品**、付费模板、付费订阅服务
-- 以**营利为目的**的培训课程、商业工作坊、闭门付费社群
-- 在**商单创作**（乙方向甲方交付物）中使用本作品生成的内容
-
-## 3. 授权联系方式
-
-商用授权请通过以下任一平台联系花生：
-
-- X / Twitter：https://x.com/AlchainHust
-- 公众号：微信搜索「花叔」
-- B 站：https://space.bilibili.com/14097567
-- YouTube：https://www.youtube.com/@Alchain
-- 小红书：https://www.xiaohongshu.com/user/profile/5abc6f17e8ac2b109179dfdf
-- 官网：https://www.huasheng.ai/
-
-## 4. 免责声明
-
-本作品按「现状」提供，不提供任何明示或默示的担保。作者不对因使用本作品导致的任何损失承担责任。
+Bu skill (bundan böyle "Bu Eser" olarak anılacaktır) SKILL.md, scripts, references, assets, demos ve bunların tüm türev içeriklerini kapsar. Bu Eser'i kullanmak aşağıdaki şartları kabul etmek anlamına gelir:
 
 ---
 
-简而言之：**个人随便用，企业要打招呼。**
+## 1. İzin Verilen Kullanım (Kişisel Ücretsiz)
+
+Aşağıdaki senaryolar için yetki veya bildirim gerekmez:
+
+- **Öğrenme ve Araştırma**: Kodu okuma, değiştirme, kendi anlayışını geliştirmek için ikincil geliştirme
+- **Kişisel İçerik Üretimi**: Kendi makalelerin, videoların, yan projelerin, Xiaohongshu/resmi hesap/Bilibili vb. içerik üretimlerin için kullanma
+- **Kar Amacı Gütmeyen Paylaşım**: Bu Eser üzerine demo, eğitim oluşturma ve sosyal platformlara, bloglara, podcast'lere yayınlama
+- **Türev Eserler**: Kendi adın altındaki kişisel depolarda bu Eser üzerine türev skill geliştirme, README'de belirgin bir şekilde kaynağı belirtmek şartıyla (`Derived from alchaincyf/azygod-design`)
+
+## 2. Yasaklanan Kullanım (Önceden Yetki Gerekir)
+
+Aşağıdaki senaryolar için **Azygod ile iletişime geçip yazılı yetki alınması zorunludur**:
+
+- Herhangi bir **şirket, ekip, stüdyo, kurum** tarafından bu Eser'in dahili araç zincirine veya harici ürüne entegre edilmesi
+- Bu Eser veya türevlerinin **ücretli müşterilere yönelik teslimat aracı** olarak kullanılması (tasarım outsourcing, marka danışmanlığı, B2B SaaS vb. dahil)
+- Bu Eser üzerine **ticari yazılım ürünü**, ücretli şablon, ücretli abonelik hizmeti geliştirilmesi
+- **Kar amacı güden** eğitim kursları, ticari atölyeler, kapalı ücretli topluluklar
+- **Ticari sipariş üretiminde** (B2B teslimat) bu Eser tarafından oluşturulan içeriklerin kullanılması
+
+## 3. Yetki İletişim Bilgileri
+
+Ticari kullanım yetkisi için aşağıdaki platformlardan herhangi biri üzerinden Azygod ile iletişime geçin:
+
+- X / Twitter: https://x.com/AlchainHust
+- Resmi Hesap: WeChat'te "Azygod" ara
+- Bilibili: https://space.bilibili.com/14097567
+- YouTube: https://www.youtube.com/@Alchain
+- Xiaohongshu: https://www.xiaohongshu.com/user/profile/5abc6f17e8ac2b109179dfdf
+- Resmi Site: https://www.huasheng.ai/
+
+## 4. Sorumluluk Reddi
+
+Bu Eser "olduğu gibi" sağlanır, herhangi bir açık veya zımni garanti verilmez. Yazar, Bu Eser'in kullanımından kaynaklanan herhangi bir kayıptan sorumlu tutulamaz.
+
+---
+
+Özetle: **Kişisel kullanımda serbestsin, kurumsal kullanımda izin al.**

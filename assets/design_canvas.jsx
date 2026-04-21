@@ -1,20 +1,20 @@
 /**
- * DesignCanvas — 变体并排网格布局
+ * DesignCanvas — Varyasyon Yan Yana Grid Duzeni
  *
- * 用于展示2+个静态设计variations让用户对比选择。
- * 每个variation有label，可hover放大。
+ * 2+ statik tasarim varyasyonunu kullanicinin karsilastirip secmesi icin gosterir.
+ * Her varyasyonun label'i vardir, hover ile buyutulebilir.
  *
- * 用法：
+ * Kullanim:
  *   <DesignCanvas
- *     title="Hero区设计探索"
- *     subtitle="3个方向对比"
+ *     title="Hero Alani Tasarim Kesfi"
+ *     subtitle="3 yon karsilastirmasi"
  *     columns={3}
  *   >
- *     <Variation label="Minimal" description="极简克制版">
- *       <div>...你的设计1...</div>
+ *     <Variation label="Minimal" description="Minimal olculu surum">
+ *       <div>...tasarim1...</div>
  *     </Variation>
- *     <Variation label="Editorial" description="杂志编辑风">
- *       <div>...你的设计2...</div>
+ *     <Variation label="Editorial" description="Dergi editoriyal tarzi">
+ *       <div>...tasarim2...</div>
  *     </Variation>
  *     <Variation label="Brutalist" description="粗粝原始">
  *       <div>...你的设计3...</div>

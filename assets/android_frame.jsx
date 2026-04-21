@@ -1,9 +1,9 @@
 /**
- * AndroidFrame — Android设备边框（参考Pixel 8系列）
+ * AndroidFrame — Android Cihaz Cercevesi (Pixel 8 Serisi Referansi)
  *
- * 含：punch-hole相机 + 状态栏 + 导航栏 + 圆角
+ * Icerir: punch-hole kamera + durum cubugu + navigasyon cubugu + yuvarlak kose
  *
- * 用法：
+ * Kullanim:
  *   <AndroidFrame time="9:41" battery={85}>
  *     <YourAppContent />
  *   </AndroidFrame>

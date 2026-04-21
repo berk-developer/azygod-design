@@ -1,39 +1,39 @@
 #!/usr/bin/env node
 /**
- * export_deck_pptx.mjs — 把多文件 slide deck 导出为 PPTX
+ * export_deck_pptx.mjs — Çoklu dosya slayt deck'ini PPTX'e dışa aktarır
  *
- * 两种模式：
- *   --mode image     图片铺底，视觉 100% 保真，⚠️ 文字不可编辑
- *   --mode editable  文本框原生，文字可编辑，要求 HTML 符合 4 条硬约束（见 references/editable-pptx.md）
+ * İki Mod:
+ *   --mode image     Gorsel tabanli, gorsel %100 butunluk, ⚠️ metin duzenlenemez
+ *   --mode editable  Metin kutusu yerli, metin duzenlenebilir, HTML 4 sert kisitlamaya uymali (bkz. references/editable-pptx.md)
  *
- * 用法：
- *   # 图片模式（默认）
+ * Kullanim:
+ *   # Gorsel modu (varsayilan)
  *   node export_deck_pptx.mjs --slides <dir> --out <file.pptx>
- *   # 可编辑模式
+ *   # Duzenlenebilir mod
  *   node export_deck_pptx.mjs --slides <dir> --out <file.pptx> --mode editable
  *
- * --mode image 特点：
- *   - 每张 slide 截图成 PNG，满铺一张 PPTX 页面
- *   - 视觉 100% 保真（因为就是图片）
- *   - 文字不可编辑
- *   - HTML 随便写，不挑格式
+ * --mode image ozellikleri:
+ *   - Her slayt PNG olarak ekran goruntusu alinir, bir PPTX sayfasina tamamen yayilir
+ *   - Gorsel %100 butunluk (cunku resimdir)
+ *   - Metin düzenlenemez
+ *   - HTML istedigin gibi yaz, format secmez
  *
- * --mode editable 特点：
- *   - 调用 scripts/html2pptx.js 把 HTML DOM 逐元素翻译成 PowerPoint 对象
- *   - 文字是真文本框，PPT 里直接双击能编辑
- *   - ⚠️ HTML 必须符合 4 条硬约束（见 references/editable-pptx.md）：
- *     1. 文字包在 <p>/<h1>-<h6> 里（div 不能直接放文字）
- *     2. 不用 CSS 渐变
- *     3. <p>/<h*> 不能有 background/border/shadow（放外层 div）
- *     4. div 不能 background-image（用 <img>）
- *   - body 尺寸默认 960pt × 540pt（LAYOUT_WIDE，13.333″ × 7.5″）
- *   - 视觉驱动的 HTML 几乎无法 pass —— 必须从写 HTML 的第一行就按约束写
+ * --mode editable özellikleri:
+ *   - scripts/html2pptx.js çağırarak HTML DOM'u eleman eleman PowerPoint nesnesine çevirir
+ *   - Metin gerçek metin kutusu, PPT'de doğrudan çift tıklayarak düzenlenebilir
+ *   - ⚠️ HTML 4 sert kısıtlamaya uymalı (bkz. references/editable-pptx.md):
+ *     1. Metin <p>/<h1>-<h6> içinde olmalı (div doğrudan metin içeremez)
+ *     2. CSS gradyan kullanılmamalı
+ *     3. <p>/<h*> background/border/shadow olmamalı (dış div'e konulmalı)
+ *     4. div'de background-image olmamalı (<img> kullanılmalı)
+ *   - body boyutu varsayılan 960pt × 540pt (LAYOUT_WIDE, 13.333″ × 7.5″)
+ *   - Görsel odaklı HTML neredeyse geçemez — HTML'yi ilk satırdan itibaren kısıtlamalara göre yazılmalı
  *
- * 依赖：
+ * Bağımlılıklar:
  *   --mode image:    npm install playwright pptxgenjs
  *   --mode editable: npm install playwright pptxgenjs sharp
  *
- * 按文件名排序（01-xxx.html → 02-xxx.html → ...）。
+ * Dosya adına göre sıralanır (01-xxx.html → 02-xxx.html → ...).
  */
 
 import { chromium } from 'playwright';
@@ -53,13 +53,13 @@ function parseArgs() {
     args[k] = a[i + 1];
   }
   if (!args.slides || !args.out) {
-    console.error('用法: node export_deck_pptx.mjs --slides <dir> --out <file.pptx> [--mode image|editable] [--width 1920] [--height 1080]');
+    console.error('Kullanim: node export_deck_pptx.mjs --slides <dizin> --out <dosya.pptx> [--mode image|editable] [--width 1920] [--height 1080]');
     process.exit(1);
   }
   args.width = parseInt(args.width);
   args.height = parseInt(args.height);
   if (!['image', 'editable'].includes(args.mode)) {
-    console.error(`未知 --mode: ${args.mode}。支持: image, editable`);
+    console.error(`Bilinmeyen --mode: ${args.mode}. Desteklenen: image, editable`);
     process.exit(1);
   }
   return args;
@@ -97,26 +97,26 @@ async function exportImage({ slidesDir, outFile, files, width, height }) {
   for (const p of pngs) await fs.unlink(p).catch(() => {});
   await fs.rmdir(tmpDir).catch(() => {});
 
-  console.log(`\n✓ Wrote ${outFile}  (${files.length} slides, image mode, 文字不可编辑)`);
+  console.log(`\n✓ Wrote ${outFile}  (${files.length} slayt, image modu, metin duzenlenemez)`);
 }
 
 async function exportEditable({ slidesDir, outFile, files }) {
   console.log(`[editable mode] Converting ${files.length} slides via html2pptx...`);
 
-  // 动态 require html2pptx.js（CommonJS 模块）
+  // html2pptx.js dinamik require (CommonJS modülü)
   const { createRequire } = await import('module');
   const require = createRequire(import.meta.url);
   let html2pptx;
   try {
     html2pptx = require(path.join(__dirname, 'html2pptx.js'));
   } catch (e) {
-    console.error(`✗ 加载 html2pptx.js 失败：${e.message}`);
-    console.error(`  该模块依赖 sharp —— 请跑 npm install sharp 后重试。`);
+    console.error(`✗ html2pptx.js yuklenemedi: ${e.message}`);
+    console.error(`  Bu modul sharp bagimliligi iceriyor — lutfen npm install sharp calistirin.`);
     process.exit(1);
   }
 
   const pres = new pptxgen();
-  pres.layout = 'LAYOUT_WIDE';  // 13.333 × 7.5 inch，对应 HTML body 960 × 540 pt
+  pres.layout = 'LAYOUT_WIDE';  // 13.333 × 7.5 inch, HTML body 960 × 540 pt karşılığı
 
   const errors = [];
   for (let i = 0; i < files.length; i++) {
@@ -132,16 +132,16 @@ async function exportEditable({ slidesDir, outFile, files }) {
   }
 
   if (errors.length) {
-    console.error(`\n⚠️ ${errors.length} 张 slide 转换失败。常见原因：HTML 不符合 4 条硬约束。`);
-    console.error(`  详见 references/editable-pptx.md 的「常见错误速查」。`);
+    console.error(`\n⚠️ ${errors.length} slayt donusturme basarisiz. Sik neden: HTML 4 sert kisitlamaya uymuyor.`);
+    console.error(`  Detaylar icin references/editable-pptx.md icindeki "Sik Hata Hizli Bakis".`);
     if (errors.length === files.length) {
-      console.error(`✗ 全部失败，不生成 PPTX。`);
+      console.error(`✗ Tumu basarisiz, PPTX olusturulmuyor.`);
       process.exit(1);
     }
   }
 
   await pres.writeFile({ fileName: outFile });
-  console.log(`\n✓ Wrote ${outFile}  (${files.length - errors.length}/${files.length} slides, editable mode, 文字可在 PPT 中直接编辑)`);
+  console.log(`\n✓ Wrote ${outFile}  (${files.length - errors.length}/${files.length} slayt, editable modu, metin PPT'te dogrudan duzenlenebilir)`);
 }
 
 async function main() {

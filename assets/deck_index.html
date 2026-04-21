@@ -4,40 +4,40 @@
 <meta charset="UTF-8">
 <title>Deck · Multi-file Slide Index</title>
 <!--
-  deck_index.html — 多文件 slide deck 的拼接器
+  deck_index.html — Çoklu dosya slayt deck birleştirici
 
-  配合「每页一个独立 HTML」架构使用。与单文件 deck_stage.js 对比：
-  · 每页独立作用域（CSS/JS 都隔离），一页出 bug 不影响其他页
-  · 单页可直接在浏览器打开验证，不依赖 JS goTo()
-  · 多 agent 可并行做不同页，merge 时零冲突
-  · 适合 ≥15 页的讲座/课件/长 deck
+  Her sayfa bağımsız HTML mimarisiyle kullanılır. Tek dosya deck_stage.js ile karşılaştırma:
+  · Her sayfa bağımsız kapsam (CSS/JS izole), bir sayfada hata diğerini etkilemez
+  · Tek sayfa doğrudan tarayıcıda açılarak doğrulanabilir, JS goTo()'ya bağımlı değil
+  · Çok agent farklı sayfaları paralel yapabilir, merge sıfır çakışma
+  · ≥15 sayfalık sunum/ders notları/uzun deck için uygundur
 
-  用法：
-    1. 把本文件复制到 deck 根目录，重命名 index.html
-    2. 在同目录建 slides/ 子目录，放每一页独立 HTML
-    3. 编辑下方 MANIFEST 数组，按顺序列出文件名和人类可读标签
-    4. 每张 slide HTML 建议尺寸 1920×1080，自带背景/字体；不要依赖外层 CSS
+  Kullanım:
+    1. Bu dosyayı deck kök dizinine kopyala, index.html olarak yeniden adlandır
+    2. Aynı dizinde slides/ alt dizini oluştur, her sayfa bağımsız HTML'i yerleştir
+    3. Aşağıdaki MANIFEST dizisini düzenle, dosya adlarını ve insan tarafından okunabilir etiketleri sırayla listele
+    4. Her slayt HTML önerilen boyut 1920×1080, kendi arka planı/yazı tipi; dış CSS'e bağımlı olma
 
-  共享资源（如果需要）：
-    · shared/tokens.css  — 跨页 CSS 变量（色板/字号）
-    · shared/chrome.html — 页眉页脚可复用片段
-    · 每页 HTML 自己 <link> 进去即可
+  Paylaşılan kaynaklar (gerekirse):
+    · shared/tokens.css  — Sayfalar arası CSS değişkenleri (renk paleti/yazı boyutu)
+    · shared/chrome.html — Sayfa başlığı/alt bilgisi yeniden kullanılabilir parçaları
+    · Her sayfa HTML kendi <link> ile dahil edebilir
 
-  键盘：← / → / Space / PgUp / PgDown / Home / End / 1-9 跳页 / P 打印
+  Klavye: ← / → / Space / PgUp / PgDown / Home / End / 1-9 sayfa atla / P yazdır
 -->
 
 <!-- ═══════════════════════════════════════════════════════ -->
-<!-- EDIT THIS — deck 所有页按顺序列出                        -->
+<!-- EDIT THIS — deck tüm sayfaları sırayla listeleniyor                        -->
 <!-- ═══════════════════════════════════════════════════════ -->
 <script>
   window.DECK_MANIFEST = [
     { file: "slides/01-cover.html",       label: "Cover" },
     { file: "slides/02-quote.html",       label: "Opening Quote" },
     { file: "slides/03-intro.html",       label: "Self-intro" },
-    // 继续往下加。file 是相对本文件的路径，label 用于计数器
+    // Devam et ekle. file bu dosyaya göre göreceli yol, label sayaç için kullanılır
   ];
 
-  // 固定 canvas 尺寸。每页 HTML 都应该按这个尺寸设计。
+  // Sabit canvas boyutu. Her sayfa HTML bu boyuta göre tasarlanmalıdır.
   window.DECK_WIDTH = 1920;
   window.DECK_HEIGHT = 1080;
 </script>
