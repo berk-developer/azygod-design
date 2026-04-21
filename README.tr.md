@@ -24,7 +24,7 @@
 **Bu README'deki her animasyon azygod-design tarafından kendisi yapıldı.** Figma yok, After Effects yok — sadece bir cümle + skill çalıştırması. Bir sonraki ürün lansmanı için tanıtım videosu mu lazım? Sen de yapabilirsin.
 
 ```
-npx skills add alchaincyf/azygod-design
+npx skills add berk-developer/azygod-design
 ```
 
 [Çalışırken gör](#demo-galerisi) · [Kurulum](#kurulum) · [Ne yapar](#ne-yapar) · [Nasıl çalışır](#temel-mekanikler) · [vs. Claude Design](#claude-designa-karşı)
@@ -36,19 +36,19 @@ npx skills add alchaincyf/azygod-design
 ---
 
 <p align="center">
-  <video src="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/hero-animation-v10-en.mp4" autoplay muted loop playsinline width="100%">
-    Tarayıcınız inline video desteklemiyor. <a href="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/hero-animation-v10-en.mp4">MP4 indir</a>.
+  <video src="https://github.com/berk-developer/azygod-design/releases/download/v2.0/hero-animation-v10-en.mp4" autoplay muted loop playsinline width="100%">
+    Tarayıcınız inline video desteklemiyor. <a href="https://github.com/berk-developer/azygod-design/releases/download/v2.0/hero-animation-v10-en.mp4">MP4 indir</a>.
   </video>
 </p>
 
-<p align="center"><sub>▲ azygod-design'ın ne yaptığını gösteren 10 saniyelik hero animasyonu (autoplay çalışmazsa <a href="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/hero-animation-v10-en.mp4">MP4 indir</a>)</sub></p>
+<p align="center"><sub>▲ azygod-design'ın ne yaptığını gösteren 10 saniyelik hero animasyonu (autoplay çalışmazsa <a href="https://github.com/berk-developer/azygod-design/releases/download/v2.0/hero-animation-v10-en.mp4">MP4 indir</a>)</sub></p>
 
 ---
 
 ## Kurulum
 
 ```bash
-npx skills add alchaincyf/azygod-design
+npx skills add berk-developer/azygod-design
 ```
 
 Sonra sadece Claude Code ile konuş:
@@ -67,8 +67,8 @@ Hiçbir düğme, panel, Figma eklentisi yok. Ajan-agnostik — Claude Code, Curs
 ## Yıldız Geçmişi
 
 <p align="center">
-  <a href="https://star-history.com/#alchaincyf/azygod-design&Date">
-    <img src="https://api.star-history.com/svg?repos=alchaincyf/azygod-design&type=Date" alt="azygod-design Star History" width="80%">
+  <a href="https://star-history.com/#berk-developer/azygod-design&Date">
+    <img src="https://api.star-history.com/svg?repos=berk-developer/azygod-design&type=Date" alt="azygod-design Star History" width="80%">
   </a>
 </p>
 
@@ -96,55 +96,55 @@ Hiçbir düğme, panel, Figma eklentisi yok. Ajan-agnostik — Claude Code, Curs
 
 Belirsiz brief'ler için yedek çözüm: 5 ekol × 20 felsefeden 3 farklı yön seç, 3 demo'yu paralel oluştur, kullanıcının seçmesine izin ver.
 
-<p align="center"><img src="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/w3-fallback-advisor-en.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/berk-developer/azygod-design/releases/download/v2.0/w3-fallback-advisor-en.gif" width="100%"></p>
 
 ### iOS App Prototipi
 
 Piksel hassasiyetinde iPhone 15 Pro kasası (Dynamic Island / durum çubuğu / Home Indicator) · durum odaklı çoklu ekran navigasyonu · Wikimedia/Met/Unsplash'tan çekilmiş gerçek görseller · teslimattan önce Playwright tıklama testleri.
 
-<p align="center"><img src="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/c1-ios-prototype-en.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/berk-developer/azygod-design/releases/download/v2.0/c1-ios-prototype-en.gif" width="100%"></p>
 
 ### Motion Design Motoru
 
 Stage + Sprite zaman dilimi modeli · `useTime` / `useSprite` / `interpolate` / `Easing` — dört API tüm animasyon ihtiyacını karşılar · tek komut MP4 / GIF / 60fps interpolasyonlu / BGM eşlikli final dosyalarını export eder.
 
-<p align="center"><img src="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/c3-motion-design-en.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/berk-developer/azygod-design/releases/download/v2.0/c3-motion-design-en.gif" width="100%"></p>
 
 ### HTML Slaytlar → Düzenlenebilir PPTX
 
 Tarayıcıda sunum için HTML sunumlar · `html2pptx.js` DOM computed style'larını okur ve her elementi gerçek PowerPoint nesnesine dönüştürür · export edilenler **gerçek metin çerçeveleridir**, görüntü yatağı sahtekarlığı değil.
 
-<p align="center"><img src="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/c2-slides-pptx-en.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/berk-developer/azygod-design/releases/download/v2.0/c2-slides-pptx-en.gif" width="100%"></p>
 
 ### Tweaks · Canlı Varyasyon Değiştirme
 
 Renkler / tipografi / bilgi yoğunluğu parametrelendirilmiş · yan panel toggle · saf frontend + `localStorage` kalıcılığı · yenilemeden korunur.
 
-<p align="center"><img src="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/c4-tweaks-en.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/berk-developer/azygod-design/releases/download/v2.0/c4-tweaks-en.gif" width="100%"></p>
 
 ### İnfografik / Data Viz
 
 Dergi kalitesinde tipografi · hassas CSS Grid sütunları · `text-wrap: pretty` tipografik detaylar · gerçek veri ile yönlendirilir · vektör PDF / 300dpi PNG / SVG olarak export eder.
 
-<p align="center"><img src="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/c5-infographic-en.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/berk-developer/azygod-design/releases/download/v2.0/c5-infographic-en.gif" width="100%"></p>
 
 ### 5 Boyutlu Uzman Eleştirisi
 
 Felsefi tutarlılık · görsel hiyerarşi · uygulama zanaati · işlevsellik · yenilikçilik — her biri 0–10 arası puanlanır · radar grafik görselleştirmesi · Tut / Sıfırla / Hızlı Kazanımlar görev listesi çıktıları.
 
-<p align="center"><img src="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/c6-expert-review-en.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/berk-developer/azygod-design/releases/download/v2.0/c6-expert-review-en.gif" width="100%"></p>
 
 ### Junior Tasarımcı İş Akışı
 
 Kahramanca tek seferlik denemeler yok: varsayımlar + placeholder'lar + gerekçe ile başla, kullanıcıya erken göster, sonra iterasyon yap. Erken bir yanlış anlamayı düzeltmek, geç düzeltmekten 100 kat daha ucuzdur.
 
-<p align="center"><img src="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/w2-junior-designer-en.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/berk-developer/azygod-design/releases/download/v2.0/w2-junior-designer-en.gif" width="100%"></p>
 
 ### Temel Varlık Protokolü · 5 adımlı sert süreç
 
 Görev belirli bir marka içerdiğinde zorunlu: sor → ara → indir (üç yedek yol) → doğrula + çıkar → **logo, ürün çekimleri, UI ekran görüntüleri, renkler, fontlar** dahil tüm gerekli varlıkları kapsayan `brand-spec.md` yaz — sadece renkler değil.
 
-<p align="center"><img src="https://github.com/alchaincyf/azygod-design/releases/download/v2.0/w1-brand-protocol-en.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/berk-developer/azygod-design/releases/download/v2.0/w1-brand-protocol-en.gif" width="100%"></p>
 
 ---
 
@@ -284,7 +284,7 @@ Claude Design promptlarını bu kadar net yazdıkları için Anthropic'e teşekk
 
 **Kişisel kullanım ücretsiz ve kısıtsızdır** — öğrenme, araştırma, kendin için bir şeyler oluşturma, makale yazma, yan projeler, kişisel sosyal medya. Özgürce kullan, sormana gerek yok.
 
-**Kurumsal / ticari kullanım kısıtlıdır** — bu skill'i bir ürün, harici hizmet veya müşteri teslimatına entegre eden herhangi bir şirket, ekip veya kar amaçlı kuruluş **önce Azygod'dan yetki almalıdır**. Şunları dahil ancak bunlarla sınırlı değil:
+**Kurumsal / ticari kullanım kısıtlıdır** — bu skill'i bir ürün, harici hizmet veya müşteri teslimatına entegre eden herhangi bir şirket, ekip veya kar amaçlı kuruluş **önce berk-developer'dan yetki almalıdır**. Şunları dahil ancak bunlarla sınırlı değil:
 - Skill'i dahili şirket araç zincirinin bir parçası olarak kullanma
 - Skill çıktılarını harici teslimatlar için birincik yaratıcı yöntem olarak kullanma
 - Skill üzerine ticari bir ürün inşa etme
@@ -294,18 +294,16 @@ Claude Design promptlarını bu kadar net yazdıkları için Anthropic'e teşekk
 
 ---
 
-## Bağlantı · Azygod (Azygod)
+## Bağlantı · berk-developer
 
-Azygod, AI-native bir kodcu, bağımsız geliştirici ve AI içerik oluşturucusudur. Dikkat çekici çalışmaları: Cat Fill Light (App Store Ücretli kategorisinde 1. sırada), *A Book on DeepSeek*, Nüwa.skill (GitHub'da 12k+ yıldız). Platformlar arası toplam 300k+ takipçi.
+berk-developer, AI-native bir kodcu, bağımsız geliştirici ve AI içerik oluşturucusudur. Dikkat çekici çalışmaları: Cat Fill Light (App Store Ücretli kategorisinde 1. sırada), *A Book on DeepSeek*, Nüwa.skill (GitHub'da 12k+ yıldız). Platformlar arası toplam 300k+ takipçi.
 
 | Platform | Kullanıcı adı | Bağlantı |
 |---|---|---|
-| X / Twitter | @AlchainHust | https://x.com/AlchainHust |
-| WeChat Resmi Hesabı | Azygod | WeChat'te "Azygod" ara |
-| Bilibili | Azygod | https://space.bilibili.com/14097567 |
-| YouTube | Azygod | https://www.youtube.com/@Alchain |
-| Xiaohongshu | Azygod | https://www.xiaohongshu.com/user/profile/5abc6f17e8ac2b109179dfdf |
-| Resmi Site | huasheng.ai | https://www.huasheng.ai/ |
-| Geliştirici Merkezi | bookai.top | https://bookai.top |
+| X / Twitter | @berk-developer | https://x.com/berk-developer |
+| WeChat Resmi Hesabı | berk-developer | WeChat'te "berk-developer" ara |
+| Bilibili | berk-developer | https://space.bilibili.com/14097567 |
+| YouTube | berk-developer | https://www.youtube.com/@berk-developer |
+| Xiaohongshu | berk-developer | https://www.xiaohongshu.com/user/profile/5abc6f17e8ac2b109179dfdf |
 
 Ticari lisanslama, işbirlikleri veya sponsorlu içerik için yukarıdakilerden herhangi biri üzerinden DM atın.

@@ -498,7 +498,7 @@ Referans materyaldeki üç video üç ürün karakterine karşılık gelir. **Ü
 
 ## Ek · Bu Dosyanın Malzeme Kaynakları
 
-- Anthropic resmi animasyon çözümlemesi: Azygod proje dizinindeki `referans-animasyon/BEST-PRACTICES.md`
+- Anthropic resmi animasyon çözümlemesi: proje dizinindeki `referans-animasyon/BEST-PRACTICES.md`
 - Anthropic ses çözümlemesi: Aynı dizinde `AUDIO-BEST-PRACTICES.md`
 - 3 referans videosu: `ref-{1,2,3}.mp4` + karşılık gelen `gemini-ref-*.md` / `audio-ref-*.md`
 - **Sıkı filtreleme**: Bu referans hiçbir spesifik marka renk değerini, yazı tipi adını, ürün adını içermez.

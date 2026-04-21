@@ -2,7 +2,7 @@
 
 > azygod-design hero animasyonu v9'dan (25 saniye, 8 sahne) çıkarılan **yeniden kullanılabilir bir görsel kurgu yapısı**.
 > Animasyon üretim hattı değil, **bu kurgunun "doğru" olduğu senaryolar**.
-> Gerçek referans: [demos/hero-animation-v9.mp4](../demos/hero-animation-v9.mp4) · [https://www.huasheng.ai/azygod-design-hero/](https://www.huasheng.ai/azygod-design-hero/)
+> Gerçek referans: [demos/hero-animation-v9.mp4](../demos/hero-animation-v9.mp4) · [#azygod-design-hero/](#azygod-design-hero/)
 
 ## Tek Cümle Öncesi
 
@@ -247,4 +247,4 @@ Gallery aşamasında sol üst köşede `HUASHU · DESIGN` küçük bir kimlik, %
 - Animasyon dışa aktarım hattı: [references/video-export.md](video-export.md)
 - Ses yapılandırması (BGM + SFX çift yol): [references/audio-design-rules.md](audio-design-rules.md)
 - Apple galeri stili yatay referans: [references/apple-gallery-showcase.md](apple-gallery-showcase.md)
-- Kaynak HTML (v6 + ses entegrasyonu): `www.huasheng.ai/azygod-design-hero/index.html`
+- Kaynak HTML (v6 + ses entegrasyonu): `#`

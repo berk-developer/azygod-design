@@ -70,7 +70,7 @@ Uygun olmayan senaryolar: Üretim seviyesinde Web App, SEO web sitesi, arka uç 
 
 > **Bu, v1'in en temel kısıtıdır ve aynı zamanda stabilitesinin can damarıdır.** Agent'in bu protokolü takip edip etmemesi, çıktı kalitesinin 40 puan mı yoksa 90 puan mı olacağını doğrudan belirler. Hiçbir adımı atlamayın.
 >
-> **v1.1 Yeniden Yapılandırma (2026-04-20)**: "Marka Varlık Protokolü"nden "Çekirdek Varlık Protokolü"ne yükseltildi. Önceki versiyon aşırı derecede renk değerleri ve yazı tiplerine odaklanıyordu, tasarımın en temelindeki logo / ürün görseli / UI ekran görüntüsünü atlıyordu. Azygod'un sözleri: "Sözde marka renginden başka, açıkça DJI'nin logosunu bulup kullanmalıyız, Pocket 4'ün ürün görselini kullanmalıyız. Eğer web sitesi veya app gibi somut olmayan bir ürünse, logo en azından zorunlu olmalıdır. Bu, sözde marka tasarımı spec'inden daha önemli bir temel mantık olabilir. Aksi takdirde, neyi ifade ediyoruz?"
+> **v1.1 Yeniden Yapılandırma (2026-04-20)**: "Marka Varlık Protokolü"nden "Çekirdek Varlık Protokolü"ne yükseltildi. Önceki versiyon aşırı derecede renk değerleri ve yazı tiplerine odaklanıyordu, tasarımın en temelindeki logo / ürün görseli / UI ekran görüntüsünü atlıyordu. berk-developer'ın sözleri: "Sözde marka renginden başka, açıkça DJI'nin logosunu bulup kullanmalıyız, Pocket 4'ün ürün görselini kullanmalıyız. Eğer web sitesi veya app gibi somut olmayan bir ürünse, logo en azından zorunlu olmalıdır. Bu, sözde marka tasarımı spec'inden daha önemli bir temel mantık olabilir. Aksi takdirde, neyi ifade ediyoruz?"
 
 **Tetikleyici Koşul**: Görev belirli bir markayı içeriyor — kullanıcı ürün adı/şirket adı/belirli bir müşteri (Stripe, Linear, Anthropic, Notion, Lovart, DJI, kendi şirketi vb.) belirttiğinde, kullanıcı marka materyali sağlamış olsun veya olmasın.
 
@@ -171,7 +171,7 @@ curl -A "Mozilla/5.0" -L "<hero-image-url>" -o assets/<marka>-brand/product-hero
 
 > **Logo'nun kuralları diğer materyallerden farklıdır**. Logo varsa kullanılmak zorundadır (yoksa durup kullanıcıya sorulur); diğer materyaller (ürün görseli/UI/referans görsel/ek görsel) "5-10-2-8" kalite eşiğine tabidir.
 >
-> 2026-04-20 Azygod'un sözleri: "Prensibimiz 5 tur arama yapmak, 10 materyal bulmak, 2 tane iyi olanı seçmek. Her biri 8/10 üzerinden 8 puan ve üstü olmalı, az ama öz olsun, görevi tamamlamak için kalitesiz materyal kullanılmasın."
+> 2026-04-20 berk-developer'ın sözleri: "Prensibimiz 5 tur arama yapmak, 10 materyal bulmak, 2 tane iyi olanı seçmek. Her biri 8/10 üzerinden 8 puan ve üstü olmalı, az ama öz olsun, görevi tamamlamak için kalitesiz materyal kullanılmasın."
 
 | Boyut | Standart | Anti-patern |
 |---|---|---|
@@ -189,7 +189,7 @@ curl -A "Mozilla/5.0" -L "<hero-image-url>" -o assets/<marka>-brand/product-hero
 5. **Bağımsız Anlatım Yeteneği** · Tek başına bir anlatım rolü ifade edebilir (sadece süs değil)
 
 **Bu eşiğin neden demir kural olduğu**:
-- Azygod'un felsefesi: **Az ama öz**. Kalitesiz materyal, hiç yoktan daha kötüdür — görsel zevki kirletir, "profesyonel değil" sinyali verir
+- berk-developer'ın felsefesi: **Az ama öz**. Kalitesiz materyal, hiç yoktan daha kötüdür — görsel zevki kirletir, "profesyonel değil" sinyali verir
 - **"Bir detayı %120 yap, diğerlerini %80" ilkesinin niceliksel versiyonu**: 8 puan "diğerlerinin %80'i" için taban, gerçekten hero materyaller 9-10 puan olmalıdır
 - Tüketici eseri görürken, her görsel unsur **puan kazandırır veya kaybettirir**. 7 puanlık materyal = eksi puan unsurudur, boş bırakmak daha iyi
 
@@ -283,7 +283,7 @@ Varlık türüne göre ayrı ayrı işlem:
 
 - **Kimi animasyonu**: Hafızaya dayanarak "turuncu olmalı" tahmin edildi, gerçek Kimi rengi `#1783FF` mavisi — bir tur geri dönüş
 - **Lovart tasarımı**: Ürün ekran görüntüsündeki demo marka HeyTea kırmızısını Lovart'ın kendi rengi sanıldı — neredeyse tüm tasarım mahvoldu
-- **DJI Pocket 4 lansman animasyonu (2026-04-20, bu protokolün yükseltilmesini tetikleyen gerçek olay)**: Eski versiyon sadece renk değeri çıkaran protokolü izlendi, DJI logosu indirilmedi, Pocket 4 ürün görseli aranmadı, CSS silueti ile ürünün yerine geçildi — ortaya çıkan "genel siyah zemin + turuncu accent teknoloji animasyonu", hiçbir DJI tanınması yoktu. Azygod'un sözleri: "Aksi takdirde, neyi ifade ediyoruz?" → protokol yükseltildi.
+- **DJI Pocket 4 lansman animasyonu (2026-04-20, bu protokolün yükseltilmesini tetikleyen gerçek olay)**: Eski versiyon sadece renk değeri çıkaran protokolü izlendi, DJI logosu indirilmedi, Pocket 4 ürün görseli aranmadı, CSS silueti ile ürünün yerine geçildi — ortaya çıkan "genel siyah zemin + turuncu accent teknoloji animasyonu", hiçbir DJI tanınması yoktu. berk-developer'ın sözleri: "Aksi takdirde, neyi ifade ediyoruz?" → protokol yükseltildi.
 - Renk çıkarıldıktan sonra brand-spec.md'ye yazılmadı, üçüncü sayfada ana renk değeri unutuldu, sahada "yakın ama aynı olmayan" bir hex eklendi — marka tutarlılığı çöktü
 
 ##### Protokol Maliyeti vs Yapmama Maliyeti
